@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Nuzzle 2"
+config/name="Nuzzle"
+config/version="0.0.1"
+run/main_scene="uid://6tigppxd5ywt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,3 +21,26 @@ config/icon="res://icon.svg"
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/shadowed_variable=0
 gdscript/warnings/integer_division=0
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://data/": "orange",
+"res://managers/": "yellow",
+"res://models/": "green",
+"res://packages/": "teal",
+"res://scenes_and_controllers/": "blue",
+"res://script_templates/": "purple",
+"res://shaders/": "pink",
+"res://utility/": "red",
+"res://views/": "orange"
+}
