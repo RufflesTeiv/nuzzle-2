@@ -16,6 +16,10 @@ run/main_scene="uid://6tigppxd5ywt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Console="*res://addons/godot-console/scripts/console.gd"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
@@ -30,9 +34,14 @@ window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-console/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
+"res://addons/": "pink",
 "res://assets/": "red",
 "res://data/": "orange",
 "res://managers/": "yellow",
@@ -43,4 +52,12 @@ folder_colors={
 "res://shaders/": "pink",
 "res://utility/": "red",
 "res://views/": "orange"
+}
+
+[input]
+
+open_console={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":167,"key_label":0,"unicode":92,"location":0,"echo":false,"script":null)
+]
 }
