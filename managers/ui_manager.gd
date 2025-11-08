@@ -1,17 +1,16 @@
-extends CanvasLayer
-class_name ConsoleUiController
+extends Node
 
 #region Enums
 #endregion
 
 #region Parameters (consts and exportvars)
-@onready var main_container: MarginContainer = $MainContainer
 #endregion
 
 #region Signals
 #endregion
 
 #region Variables
+var main_ui : MainUiView
 #endregion
 
 #region Computed properties
@@ -28,23 +27,16 @@ func _process(_delta): pass
 	
 func _physics_process(_delta): pass
 	
-func _input(_event: InputEvent):
-	if _event.is_action_pressed("open_console"):
-		if main_container.visible: _close_console()
-		else: _open_console()
-	elif _event.is_action_pressed("ui_cancel"):
-		_close_console()
+func _input(_event: InputEvent): pass
 
-func _exit_tree(): _close_console()
+func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func set_main_ui_view(muv: MainUiView): main_ui = muv
 #endregion
 
 #region Private functions
-func _close_console(): main_container.hide()
-
-func _open_console(): main_container.show()
 #endregion
 
 #region Subclasses

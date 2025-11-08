@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://6tigppxd5ywt"]
+[gd_scene load_steps=3 format=3 uid="uid://6tigppxd5ywt"]
 
-[ext_resource type="PackedScene" uid="uid://djaqvffrey1tf" path="res://scenes_and_controllers/console_ui.tscn" id="1_o6hj0"]
+[ext_resource type="PackedScene" uid="uid://djaqvffrey1tf" path="res://views/console_ui.tscn" id="1_o6hj0"]
+[ext_resource type="PackedScene" uid="uid://dgvwgdkmpf4pm" path="res://views/main_ui.tscn" id="2_gn70a"]
 
 [node name="Teste" type="Node2D"]
 
+[node name="MainUI" parent="." instance=ExtResource("2_gn70a")]
+
 [node name="ConsoleUI" parent="." instance=ExtResource("1_o6hj0")]
+visible = false
