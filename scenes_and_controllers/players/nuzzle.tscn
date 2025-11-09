@@ -1,20 +1,21 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnkpty7qpcbtv"]
 
-[ext_resource type="Script" uid="uid://b7af1f3rc8p2t" path="res://scenes_and_controllers/player_controller.gd" id="1_6aecc"]
-[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="1_ubsf2"]
+[ext_resource type="Script" uid="uid://b7af1f3rc8p2t" path="res://scenes_and_controllers/players/player_controller.gd" id="1_n55sg"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_b3uyl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6aecc"]
 radius = 59.03389
 
 [sub_resource type="SystemFont" id="SystemFont_6aecc"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_8faqa"]
 font = SubResource("SystemFont_6aecc")
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Nuzzle" type="CharacterBody2D"]
 motion_mode = 1
 floor_constant_speed = true
-script = ExtResource("1_6aecc")
+script = ExtResource("1_n55sg")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
@@ -24,13 +25,14 @@ debug_enabled = true
 modulate = Color(0.29803923, 0.29803923, 0.6156863, 1)
 position = Vector2(0, -38)
 scale = Vector2(117.822, 175)
-texture = ExtResource("1_ubsf2")
+texture = ExtResource("2_b3uyl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6aecc")
 
 [node name="DebugLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

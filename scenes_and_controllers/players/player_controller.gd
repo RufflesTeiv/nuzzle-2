@@ -39,13 +39,17 @@ func _input(_event: InputEvent):
 	if InputManager.check_top_state(InputManager.State.MAIN) and _event is InputEventMouseButton:
 		var mouse_event := _event as InputEventMouseButton
 		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
-			nav2d.target_position = mouse_event.global_position
+			_set_target_position(mouse_event.global_position)
 			
 
 func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func force_position(p:Vector2):
+	velocity = Vector2.ZERO
+	position = p
+	_set_target_position(p)
 #endregion
 
 #region Private functions
@@ -58,7 +62,12 @@ func _move_to_goal():
 	velocity = global_position.direction_to(next_path_position) * speed
 	move_and_slide()
 	
+func _set_target_position(pos:Vector2):
+	nav2d.target_position = pos
+	
 func _update_debug_label():
+	if !debug_label.visible:
+		return
 	debug_label.text = "Done: %s\nHit target: %s\nReachable: %s" % [
 		nav2d.is_navigation_finished(),
 		nav2d.is_target_reached(),

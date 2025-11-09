@@ -6,6 +6,7 @@ class_name MainUiView
 
 #region Parameters (consts and exportvars)
 @onready var inventory: InventoryView = %Inventory
+@onready var fade_out_rect: ColorRect = %FadeOutRect
 #endregion
 
 #region Signals
@@ -15,6 +16,8 @@ class_name MainUiView
 #endregion
 
 #region Computed properties
+func is_faded_out() -> bool:
+	return fade_out_rect.color == Color.BLACK
 #endregion
 
 #region Event functions
@@ -39,6 +42,21 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func fade_in(time := 0.5):
+	if !is_faded_out():
+		return
+	fade_out_rect.color = Color.BLACK
+	var tween := get_tree().create_tween()
+	tween.tween_property(fade_out_rect,"color",Color(0.0, 0.0, 0.0, 0.0),time)
+	await tween.finished
+	
+func fade_out(time := 0.5):
+	if is_faded_out():
+		return
+	fade_out_rect.color = Color(0.0, 0.0, 0.0, 0.0)
+	var tween := get_tree().create_tween()
+	tween.tween_property(fade_out_rect,"color",Color.BLACK,time)
+	await tween.finished
 #endregion
 
 #region Private functions

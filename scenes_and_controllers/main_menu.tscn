@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://fudi0a1jh32y" path="res://assets/fonts/StackSansNotch-SemiBold.ttf" id="1_7685l"]
 [ext_resource type="Script" uid="uid://bw6oql2nnb3ty" path="res://scenes_and_controllers/main_menu_controller.gd" id="1_h3pwy"]
 [ext_resource type="FontFile" uid="uid://dwcfppinm088t" path="res://assets/fonts/Arimo-SemiBold.ttf" id="2_7f71j"]
-[ext_resource type="PackedScene" uid="uid://6tigppxd5ywt" path="res://scenes_and_controllers/teste.tscn" id="2_oia8f"]
+[ext_resource type="PackedScene" uid="uid://6tigppxd5ywt" path="res://scenes_and_controllers/main.tscn" id="2_oia8f"]
 [ext_resource type="Script" uid="uid://dqrd7gkoflces" path="res://models/credit.gd" id="3_7aqi5"]
 [ext_resource type="FontFile" uid="uid://crovvlop81tta" path="res://assets/fonts/Arimo-Regular.ttf" id="4_oia8f"]
 [ext_resource type="FontFile" uid="uid://blsuafpi3oq6y" path="res://assets/fonts/Arimo-Bold.ttf" id="6_5yd66"]

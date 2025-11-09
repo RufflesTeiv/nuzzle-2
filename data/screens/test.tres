@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ScreenResource" load_steps=3 format=3 uid="uid://cpxwli2tca4gu"]
+
+[ext_resource type="Script" uid="uid://b5h1d0v6ety3i" path="res://data/screen_resource.gd" id="1_7wp5k"]
+[ext_resource type="PackedScene" uid="uid://bnhetdnlotp8o" path="res://scenes_and_controllers/screen.tscn" id="1_lee5u"]
+
+[resource]
+script = ExtResource("1_7wp5k")
+id = -1
+packed_scene = ExtResource("1_lee5u")
+metadata/_custom_type_script = "uid://b5h1d0v6ety3i"

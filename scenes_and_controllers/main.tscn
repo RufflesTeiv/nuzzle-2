@@ -1,0 +1,26 @@
+[gd_scene load_steps=8 format=3 uid="uid://6tigppxd5ywt"]
+
+[ext_resource type="Script" uid="uid://cug0u34giq1s0" path="res://scenes_and_controllers/main_scene_controller.gd" id="1_jhph2"]
+[ext_resource type="PackedScene" uid="uid://dgvwgdkmpf4pm" path="res://views/main_ui.tscn" id="1_wcq4t"]
+[ext_resource type="Script" uid="uid://b5h1d0v6ety3i" path="res://data/screen_resource.gd" id="2_3cdmg"]
+[ext_resource type="PackedScene" uid="uid://djaqvffrey1tf" path="res://views/console_ui.tscn" id="2_jhph2"]
+[ext_resource type="Resource" uid="uid://cpxwli2tca4gu" path="res://data/screens/test.tres" id="3_8sxnc"]
+[ext_resource type="PackedScene" uid="uid://cnkpty7qpcbtv" path="res://scenes_and_controllers/players/nuzzle.tscn" id="3_lnsng"]
+[ext_resource type="PackedScene" uid="uid://bnhetdnlotp8o" path="res://scenes_and_controllers/screen.tscn" id="4_wcq4t"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jhph2")
+screens = Array[ExtResource("2_3cdmg")]([ExtResource("3_8sxnc")])
+
+[node name="MainUI" parent="." instance=ExtResource("1_wcq4t")]
+
+[node name="ConsoleUI" parent="." instance=ExtResource("2_jhph2")]
+visible = false
+
+[node name="ScreenHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Player" parent="ScreenHolder" instance=ExtResource("3_lnsng")]
+position = Vector2(891, 632)
+
+[node name="Screen" parent="ScreenHolder" instance=ExtResource("4_wcq4t")]

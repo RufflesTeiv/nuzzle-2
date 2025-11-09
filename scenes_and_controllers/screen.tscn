@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnhetdnlotp8o"]
+
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="1_bw8t3"]
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screen_controller.gd" id="1_umygm"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1258.6563, 743.9531, 1855.2188, 1031.3281, 62.882813, 1011.64844, 979.34375, 743.9531, 1858.7734, 78.4375, 1258.6563, 348.04688, 61.109375, 61.5625, 979.34375, 348.04688)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 3, 1071, 1915, 1092, 1919, 19)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_umygm")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(75, 566)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="NavigationRegion2D"]
+position = Vector2(1118.9999, 546)
+rotation = 3.1415925
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NavigationRegion2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_42q4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="NavigationRegion2D/StaticBody2D"]
+texture = ExtResource("1_bw8t3")
+
+[node name="TriggerAreas" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="TriggerAreas"]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerAreas/0"]
+position = Vector2(1853, 545)
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
