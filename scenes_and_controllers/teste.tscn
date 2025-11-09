@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://6tigppxd5ywt"]
+[gd_scene load_steps=4 format=3 uid="uid://6tigppxd5ywt"]
 
 [ext_resource type="PackedScene" uid="uid://djaqvffrey1tf" path="res://views/console_ui.tscn" id="1_o6hj0"]
 [ext_resource type="PackedScene" uid="uid://dgvwgdkmpf4pm" path="res://views/main_ui.tscn" id="2_gn70a"]
+[ext_resource type="PackedScene" uid="uid://cnkpty7qpcbtv" path="res://scenes_and_controllers/player.tscn" id="3_lspvu"]
 
 [node name="Teste" type="Node2D"]
 
@@ -9,3 +10,6 @@
 
 [node name="ConsoleUI" parent="." instance=ExtResource("1_o6hj0")]
 visible = false
+
+[node name="Player" parent="." instance=ExtResource("3_lspvu")]
+position = Vector2(891, 632)
