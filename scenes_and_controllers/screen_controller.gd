@@ -69,6 +69,7 @@ func _instantiate_character(c : GameManager.Character):
 	if char_tscn == null:
 		return
 	character_controller = char_tscn.instantiate() as PlayerController
+	GameManager.set_player_controller(character_controller)
 	add_child(character_controller)
 	
 func _on_area_body_entered(id: int, body: Node2D):

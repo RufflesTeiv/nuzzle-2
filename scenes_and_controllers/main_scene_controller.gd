@@ -26,6 +26,7 @@ func _enter_tree(): pass
 	
 func _ready():
 	_load_screen(-1,0,GameManager.Character.NUZZLE)
+	Console.create_command("goto",_load_screen_command)
 	
 func _process(_delta): pass
 	
@@ -57,7 +58,11 @@ func _load_screen(id : int, entry_point := 0, character := GameManager.Character
 	current_screen.screen_changed.connect(_load_screen)
 	if not current_screen.is_node_ready():
 		await current_screen.ready
+	UiManager.main_ui.reset()
 	UiManager.main_ui.fade_in()
+	
+func _load_screen_command(id: int, entry_point: int, character_int: int):
+	_load_screen(id,entry_point,character_int)
 #endregion
 
 #region Subclasses

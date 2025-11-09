@@ -19,6 +19,7 @@ var current_character := Character.NUZZLE
 var character_scenes : Dictionary[Character,PackedScene] = {
 	Character.NUZZLE: preload("uid://cnkpty7qpcbtv")
 }
+var player_controller : PlayerController
 var player_inventory : Inventory
 #endregion
 
@@ -54,6 +55,8 @@ func set_current_character(c:Character):
 	if c == null:
 		return
 	current_character = c
+	
+func set_player_controller(pc: PlayerController): player_controller = pc
 #endregion
 
 #region Private functions

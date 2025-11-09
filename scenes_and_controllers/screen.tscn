@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnhetdnlotp8o"]
+[gd_scene load_steps=7 format=3 uid="uid://bnhetdnlotp8o"]
 
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="1_bw8t3"]
 [ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screen_controller.gd" id="1_umygm"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactable.tscn" id="3_lyf6p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(1258.6563, 743.9531, 1855.2188, 1031.3281, 62.882813, 1011.64844, 979.34375, 743.9531, 1858.7734, 78.4375, 1258.6563, 348.04688, 61.109375, 61.5625, 979.34375, 348.04688)
@@ -48,3 +49,6 @@ monitorable = false
 position = Vector2(1853, 545)
 shape = SubResource("RectangleShape2D_umygm")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactable" parent="." instance=ExtResource("3_lyf6p")]
+position = Vector2(1455, 265)

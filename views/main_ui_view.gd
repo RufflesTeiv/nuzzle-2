@@ -57,6 +57,9 @@ func fade_out(time := 0.5):
 	var tween := get_tree().create_tween()
 	tween.tween_property(fade_out_rect,"color",Color.BLACK,time)
 	await tween.finished
+	
+func reset():
+	_close_inventory()
 #endregion
 
 #region Private functions
