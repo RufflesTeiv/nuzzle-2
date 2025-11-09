@@ -1,0 +1,208 @@
+[gd_scene load_steps=18 format=3 uid="uid://cbru62y3j5v1r"]
+
+[ext_resource type="FontFile" uid="uid://fudi0a1jh32y" path="res://assets/fonts/StackSansNotch-SemiBold.ttf" id="1_7685l"]
+[ext_resource type="Script" uid="uid://bw6oql2nnb3ty" path="res://scenes_and_controllers/main_menu_controller.gd" id="1_h3pwy"]
+[ext_resource type="FontFile" uid="uid://dwcfppinm088t" path="res://assets/fonts/Arimo-SemiBold.ttf" id="2_7f71j"]
+[ext_resource type="PackedScene" uid="uid://6tigppxd5ywt" path="res://scenes_and_controllers/teste.tscn" id="2_oia8f"]
+[ext_resource type="Script" uid="uid://dqrd7gkoflces" path="res://models/credit.gd" id="3_7aqi5"]
+[ext_resource type="FontFile" uid="uid://crovvlop81tta" path="res://assets/fonts/Arimo-Regular.ttf" id="4_oia8f"]
+[ext_resource type="FontFile" uid="uid://blsuafpi3oq6y" path="res://assets/fonts/Arimo-Bold.ttf" id="6_5yd66"]
+[ext_resource type="FontFile" uid="uid://csr3q7n6omttk" path="res://assets/fonts/Arimo-BoldItalic.ttf" id="7_7aqi5"]
+[ext_resource type="FontFile" uid="uid://d36ndcindu5yc" path="res://assets/fonts/Arimo-Italic.ttf" id="8_tpwnm"]
+
+[sub_resource type="Resource" id="Resource_tpwnm"]
+script = ExtResource("3_7aqi5")
+name = "Godot-Console"
+url = "https://github.com/4d49/godot-console"
+authors = Array[String](["4d49"])
+metadata/_custom_type_script = "uid://dqrd7gkoflces"
+
+[sub_resource type="Resource" id="Resource_7aqi5"]
+script = ExtResource("3_7aqi5")
+name = "Stack Sans Notch"
+url = "https://fonts.google.com/specimen/Stack+Sans+Notch"
+authors = Array[String](["Google Fonts", "Koto"])
+metadata/_custom_type_script = "uid://dqrd7gkoflces"
+
+[sub_resource type="Resource" id="Resource_qgs3e"]
+script = ExtResource("3_7aqi5")
+name = "Arimo"
+url = "https://fonts.google.com/specimen/Arimo"
+authors = Array[String](["Google Fonts", "Steve Matteson"])
+metadata/_custom_type_script = "uid://dqrd7gkoflces"
+
+[sub_resource type="LabelSettings" id="LabelSettings_251jn"]
+font = ExtResource("4_oia8f")
+font_color = Color(1, 1, 1, 0.8745098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_h3pwy"]
+font = ExtResource("1_7685l")
+font_size = 136
+
+[sub_resource type="LabelSettings" id="LabelSettings_qgs3e"]
+font = ExtResource("1_7685l")
+font_size = 90
+
+[sub_resource type="LabelSettings" id="LabelSettings_vyhln"]
+font = ExtResource("4_oia8f")
+font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_7bct0"]
+font = ExtResource("1_7685l")
+font_size = 60
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_h3pwy")
+first_scene = ExtResource("2_oia8f")
+credits = Array[ExtResource("3_7aqi5")]([SubResource("Resource_tpwnm"), SubResource("Resource_7aqi5"), SubResource("Resource_qgs3e")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Version" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "v0.0.1 (Apresentação em sala)"
+label_settings = SubResource("LabelSettings_251jn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Main/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="Title" type="Label" parent="Main/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Nuzzle"
+label_settings = SubResource("LabelSettings_h3pwy")
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="Main/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_7f71j")
+theme_override_font_sizes/font_size = 36
+text = "Começar"
+
+[node name="CreditsButton" type="Button" parent="Main/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_7f71j")
+theme_override_font_sizes/font_size = 36
+text = "Créditos
+"
+
+[node name="Credits" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Rafa Teivfik" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+text = "Rafa Teivfik"
+label_settings = SubResource("LabelSettings_qgs3e")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Credits/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 525
+theme_override_constants/margin_right = 525
+
+[node name="Créditos Rafa" type="Label" parent="Credits/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Arte, Design Visual, Game Design, Narrativa, Produção, Programação e Sonorização"
+label_settings = SubResource("LabelSettings_vyhln")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="Credits/VBoxContainer"]
+custom_minimum_size = Vector2(0, 98.38)
+layout_mode = 2
+
+[node name="Assets e Addons" type="Label" parent="Credits/VBoxContainer"]
+layout_mode = 2
+text = "Assets e Addons"
+label_settings = SubResource("LabelSettings_7bct0")
+horizontal_alignment = 1
+
+[node name="References" type="RichTextLabel" parent="Credits/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_oia8f")
+theme_override_fonts/bold_font = ExtResource("6_5yd66")
+theme_override_fonts/bold_italics_font = ExtResource("7_7aqi5")
+theme_override_fonts/italics_font = ExtResource("8_tpwnm")
+theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/bold_font_size = 26
+theme_override_font_sizes/bold_italics_font_size = 26
+theme_override_font_sizes/italics_font_size = 26
+theme_override_font_sizes/mono_font_size = 26
+bbcode_enabled = true
+text = "• [i][b][url={teste}]Nome[/url][/b][/i], por [b]autor[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="BackButton" type="Button" parent="Credits"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 209.0
+offset_bottom = 99.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_7f71j")
+theme_override_font_sizes/font_size = 36
+text = "< Voltar"
