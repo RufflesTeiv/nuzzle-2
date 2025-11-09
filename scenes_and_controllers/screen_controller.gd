@@ -48,6 +48,7 @@ func _exit_tree(): pass
 func enter(entry_point : int, character := GameManager.Character.NONE):
 	_instantiate_character(character)
 	_position_at_entry_point(entry_point)
+	_screen_setup()
 #endregion
 
 #region Private functions
@@ -80,6 +81,8 @@ func _position_at_entry_point(ep: int):
 	if character_controller == null:
 		return
 	character_controller.force_position(_get_entry_point(ep))
+	
+func _screen_setup(): pass
 	
 func _watch_trigger_areas():
 	for area : Area2D in trigger_areas.get_children():
