@@ -21,7 +21,8 @@ func _init(): pass
 	
 func _enter_tree(): pass
 	
-func _ready(): pass
+func _ready():
+	Console.create_command("dialogue", start_dialogue)
 	
 func _process(_delta): pass
 	
@@ -36,6 +37,8 @@ func _exit_tree(): pass
 func set_main_ui_view(muv: MainUiView): main_ui = muv
 
 func start_dialogue(timeline: String):
+	if !Dialogic.timeline_exists(timeline):
+		return
 	InputManager.push_state_to_stack(InputManager.State.DIALOGUE)
 	Dialogic.start(timeline)
 	Dialogic.timeline_ended.connect(_on_dialogue_end)

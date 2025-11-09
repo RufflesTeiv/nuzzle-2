@@ -17,6 +17,7 @@ size = Vector2(1, 1)
 size = Vector2(176, 530)
 
 [node name="Screen" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_umygm")
 
 [node name="EntryPoints" type="Node2D" parent="."]

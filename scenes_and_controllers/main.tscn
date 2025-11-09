@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bnhetdnlotp8o" path="res://scenes_and_controllers/screen.tscn" id="4_wcq4t"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_jhph2")
 screens = Array[ExtResource("2_3cdmg")]([ExtResource("3_8sxnc")])
 
@@ -19,6 +20,7 @@ visible = false
 
 [node name="ScreenHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="Player" parent="ScreenHolder" instance=ExtResource("3_lnsng")]
 position = Vector2(891, 632)

@@ -30,6 +30,7 @@ func _ready():
 	fade_out_rect.color = Color.BLACK
 	UiManager.set_main_ui_view(self)
 	InputManager.stack_changed.connect(_on_input_stack_changed)
+	background_rect.gui_input.connect(_on_background_input)
 	
 func _process(_delta): pass
 	
@@ -37,9 +38,10 @@ func _physics_process(_delta): pass
 	
 func _input(_event: InputEvent):
 	match InputManager.get_top_state():
-		InputManager.State.MAIN, InputManager.State.INVENTORY:
+		InputManager.State.MAIN:
 			if _event.is_action_pressed("toggle_inventory"): _toggle_inventory()
 		InputManager.State.INVENTORY:
+			if _event.is_action_pressed("toggle_inventory"): _toggle_inventory()
 			if _event.is_action_pressed("ui_cancel"): _close_inventory()
 
 func _exit_tree(): pass
@@ -66,17 +68,26 @@ func reset():
 	_close_inventory()
 #endregion
 
-#region Private functions
+#region Private functions	
+func _close_all():
+	_close_inventory()
+	
+func _close_inventory():
+	inventory.hide()
+	InputManager.remove_state_from_stack(InputManager.State.INVENTORY)
+	
+func _on_background_input(event : InputEvent):
+	if !event is InputEventMouseButton: return
+	var mouse_event := event as InputEventMouseButton
+	if mouse_event.pressed and mouse_event.button_index == MOUSE_BUTTON_LEFT:
+		_close_all()
+	
 func _on_input_stack_changed(stack: Array[InputManager.State]):
 	var find := stack.find(InputManager.State.INVENTORY) + stack.find(InputManager.State.DIALOGUE)
 	if find == -2:
 		background_rect.hide()
 	else:
 		background_rect.show()
-	
-func _close_inventory():
-	inventory.hide()
-	InputManager.remove_state_from_stack(InputManager.State.INVENTORY)
 	
 func _open_inventory():
 	inventory.show()
