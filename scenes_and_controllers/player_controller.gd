@@ -5,7 +5,10 @@ class_name PlayerController
 #endregion
 
 #region Parameters (consts and exportvars)
-@export var check_distance_to_goal := 10.0
+@onready var nav2d: NavigationAgent2D = %NavigationAgent2D
+@onready var debug_label: Label = %DebugLabel
+
+@export var min_speed := 300.0
 @export var max_speed := 800.0
 #endregion
 
@@ -13,7 +16,6 @@ class_name PlayerController
 #endregion
 
 #region Variables
-var position_goal : Vector2
 #endregion
 
 #region Computed properties
@@ -25,18 +27,19 @@ func _init(): pass
 func _enter_tree(): pass
 	
 func _ready():
-	position_goal = position
+	nav2d.target_position = position
 	
 func _process(_delta): pass
 	
 func _physics_process(_delta):
 	_move_to_goal()
+	_update_debug_label()
 	
 func _input(_event: InputEvent):
 	if InputManager.check_top_state(InputManager.State.MAIN) and _event is InputEventMouseButton:
 		var mouse_event := _event as InputEventMouseButton
-		if mouse_event.button_index == MOUSE_BUTTON_LEFT:
-			_set_position_goal(mouse_event.global_position)
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
+			nav2d.target_position = mouse_event.global_position
 			
 
 func _exit_tree(): pass
@@ -47,17 +50,20 @@ func _exit_tree(): pass
 
 #region Private functions
 func _move_to_goal():
-	var vector := position_goal - position
-	var distance_to_goal := vector.length()
-	print(distance_to_goal)
-	if distance_to_goal <= check_distance_to_goal:
+	if nav2d.is_navigation_finished():
 		return
-	var direction := vector.normalized()
-	var speed = clampf(distance_to_goal*1.5,max_speed/2,max_speed)
-	velocity = direction * speed
+	var next_path_position := nav2d.get_next_path_position()
+	var speed_modifier := nav2d.distance_to_target() / 1920.0
+	var speed := clampf(max_speed*speed_modifier,min_speed,max_speed)
+	velocity = global_position.direction_to(next_path_position) * speed
 	move_and_slide()
 	
-func _set_position_goal(p : Vector2): position_goal = p
+func _update_debug_label():
+	debug_label.text = "Done: %s\nHit target: %s\nReachable: %s" % [
+		nav2d.is_navigation_finished(),
+		nav2d.is_target_reached(),
+		nav2d.is_target_reachable()
+	]
 #endregion
 
 #region Subclasses
