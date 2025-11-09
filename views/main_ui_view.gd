@@ -5,6 +5,7 @@ class_name MainUiView
 #endregion
 
 #region Parameters (consts and exportvars)
+@onready var background_rect: ColorRect = %BackgroundRect
 @onready var inventory: InventoryView = %Inventory
 @onready var fade_out_rect: ColorRect = %FadeOutRect
 #endregion
@@ -26,17 +27,20 @@ func _init(): pass
 func _enter_tree(): pass
 	
 func _ready():
+	fade_out_rect.color = Color.BLACK
 	UiManager.set_main_ui_view(self)
+	InputManager.stack_changed.connect(_on_input_stack_changed)
 	
 func _process(_delta): pass
 	
 func _physics_process(_delta): pass
 	
 func _input(_event: InputEvent):
-	if not InputManager.check_top_state(InputManager.State.MAIN):
-		return
-	if _event.is_action_pressed("toggle_inventory"): _toggle_inventory()
-	if _event.is_action_pressed("ui_cancel"): _close_inventory()
+	match InputManager.get_top_state():
+		InputManager.State.MAIN, InputManager.State.INVENTORY:
+			if _event.is_action_pressed("toggle_inventory"): _toggle_inventory()
+		InputManager.State.INVENTORY:
+			if _event.is_action_pressed("ui_cancel"): _close_inventory()
 
 func _exit_tree(): pass
 #endregion
@@ -63,8 +67,24 @@ func reset():
 #endregion
 
 #region Private functions
-func _close_inventory(): inventory.hide()
-func _toggle_inventory(): inventory.visible = !inventory.visible
+func _on_input_stack_changed(stack: Array[InputManager.State]):
+	var find := stack.find(InputManager.State.INVENTORY) + stack.find(InputManager.State.DIALOGUE)
+	if find == -2:
+		background_rect.hide()
+	else:
+		background_rect.show()
+	
+func _close_inventory():
+	inventory.hide()
+	InputManager.remove_state_from_stack(InputManager.State.INVENTORY)
+	
+func _open_inventory():
+	inventory.show()
+	InputManager.push_state_to_stack(InputManager.State.INVENTORY)
+	
+func _toggle_inventory():
+	if inventory.visible: _close_inventory()
+	else: _open_inventory()
 #endregion
 
 #region Subclasses

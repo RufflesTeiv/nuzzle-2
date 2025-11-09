@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbru62y3j5v1r"]
+[gd_scene load_steps=19 format=3 uid="uid://cbru62y3j5v1r"]
 
 [ext_resource type="FontFile" uid="uid://fudi0a1jh32y" path="res://assets/fonts/StackSansNotch-SemiBold.ttf" id="1_7685l"]
 [ext_resource type="Script" uid="uid://bw6oql2nnb3ty" path="res://scenes_and_controllers/main_menu_controller.gd" id="1_h3pwy"]
@@ -15,6 +15,13 @@ script = ExtResource("3_7aqi5")
 name = "Godot-Console"
 url = "https://github.com/4d49/godot-console"
 authors = Array[String](["4d49"])
+metadata/_custom_type_script = "uid://dqrd7gkoflces"
+
+[sub_resource type="Resource" id="Resource_vyhln"]
+script = ExtResource("3_7aqi5")
+name = "Dialogic 2"
+url = "https://github.com/dialogic-godot/dialogic"
+authors = Array[String](["Jowan Spooner", "Emilio Coppola"])
 metadata/_custom_type_script = "uid://dqrd7gkoflces"
 
 [sub_resource type="Resource" id="Resource_7aqi5"]
@@ -54,7 +61,7 @@ font_size = 60
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_h3pwy")
 first_scene = ExtResource("2_oia8f")
-credits = Array[ExtResource("3_7aqi5")]([SubResource("Resource_tpwnm"), SubResource("Resource_7aqi5"), SubResource("Resource_qgs3e")])
+credits = Array[ExtResource("3_7aqi5")]([SubResource("Resource_tpwnm"), SubResource("Resource_vyhln"), SubResource("Resource_7aqi5"), SubResource("Resource_qgs3e")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15

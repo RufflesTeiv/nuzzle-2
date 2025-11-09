@@ -3,6 +3,8 @@ extends Node
 #region Enums
 enum State {
 	MAIN,
+	INVENTORY,
+	DIALOGUE,
 	CONSOLE
 }
 #endregion
@@ -11,6 +13,7 @@ enum State {
 #endregion
 
 #region Signals
+signal stack_changed(stack: Array[State])
 #endregion
 
 #region Variables
@@ -44,16 +47,22 @@ func check_top_state(c:State) -> bool:
 func get_top_state() -> State:
 	return state_stack[state_stack.size()-1]
 	
+func has_on_stack(s:State) -> bool:
+	var idx := state_stack.find(s)
+	return idx != -1
+	
 func push_state_to_stack(s : State):
 	if state_stack.has(s):
 		return
 	state_stack.append(s)
+	stack_changed.emit(state_stack)
 	
 func remove_state_from_stack(s : State):
 	var idx := state_stack.find(s)
 	if idx == -1:
 		return
 	state_stack.remove_at(idx)
+	stack_changed.emit(state_stack)
 #endregion
 
 #region Private functions

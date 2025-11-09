@@ -29,12 +29,12 @@ func _physics_process(_delta): pass
 	
 func _input(_event: InputEvent):
 	match InputManager.get_top_state():
-		InputManager.State.MAIN:
-			if _event.is_action_pressed("open_console") and !visible:
-				_open_console()
 		InputManager.State.CONSOLE:
 			if _event.is_action_pressed("ui_cancel") or _event.is_action_pressed("open_console"):
 				_close_console()
+		_:
+			if _event.is_action_pressed("open_console") and !visible:
+				_open_console()
 
 func _exit_tree(): _close_console()
 #endregion

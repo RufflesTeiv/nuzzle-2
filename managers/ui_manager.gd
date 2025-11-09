@@ -34,9 +34,17 @@ func _exit_tree(): pass
 
 #region Public functions
 func set_main_ui_view(muv: MainUiView): main_ui = muv
+
+func start_dialogue(timeline: String):
+	InputManager.push_state_to_stack(InputManager.State.DIALOGUE)
+	Dialogic.start(timeline)
+	Dialogic.timeline_ended.connect(_on_dialogue_end)
 #endregion
 
 #region Private functions
+func _on_dialogue_end():
+	InputManager.remove_state_from_stack(InputManager.State.DIALOGUE)
+	Dialogic.timeline_ended.disconnect(_on_dialogue_end)
 #endregion
 
 #region Subclasses
