@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6tigppxd5ywt"]
+[gd_scene load_steps=9 format=3 uid="uid://6tigppxd5ywt"]
 
 [ext_resource type="Script" uid="uid://cug0u34giq1s0" path="res://scenes_and_controllers/main_scene_controller.gd" id="1_jhph2"]
 [ext_resource type="PackedScene" uid="uid://dgvwgdkmpf4pm" path="res://views/main_ui.tscn" id="1_wcq4t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cpxwli2tca4gu" path="res://data/screens/test.tres" id="3_8sxnc"]
 [ext_resource type="PackedScene" uid="uid://cnkpty7qpcbtv" path="res://scenes_and_controllers/players/nuzzle.tscn" id="3_lnsng"]
 [ext_resource type="PackedScene" uid="uid://bnhetdnlotp8o" path="res://scenes_and_controllers/screen.tscn" id="4_wcq4t"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactable.tscn" id="8_8sxnc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_jhph2")
@@ -24,3 +25,5 @@ unique_name_in_owner = true
 position = Vector2(891, 632)
 
 [node name="Screen" parent="ScreenHolder" instance=ExtResource("4_wcq4t")]
+
+[node name="Interactable" parent="ScreenHolder" instance=ExtResource("8_8sxnc")]
