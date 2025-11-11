@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmna2ehvj486s"]
 
-[ext_resource type="Script" uid="uid://dy87cpkgdxwrm" path="res://scenes_and_controllers/interactable_controller.gd" id="1_xxley"]
+[ext_resource type="Script" uid="uid://dy87cpkgdxwrm" path="res://scenes_and_controllers/interactables/interactable_controller.gd" id="1_xxley"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_qj1xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxley"]

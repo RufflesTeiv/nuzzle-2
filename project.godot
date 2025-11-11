@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Nuzzle"
 config/version="0.0.1"
-run/main_scene="uid://6tigppxd5ywt"
+run/main_scene="uid://cbru62y3j5v1r"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,9 +20,9 @@ config/icon="res://icon.svg"
 
 Console="*res://addons/godot-console/scripts/console.gd"
 DataManager="*res://managers/data_manager.gd"
+UiManager="*res://managers/ui_manager.gd"
 GameManager="*res://managers/game_manager.gd"
 InputManager="*res://managers/input_manager.gd"
-UiManager="*res://managers/ui_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [debug]
@@ -35,12 +35,20 @@ gdscript/warnings/integer_division=0
 
 directories/dch_directory={}
 directories/dtl_directory={
-"timeline_test": "res://assets/dialogic/timeline_test.dtl"
+"0_computer": "res://assets/dialogic/timelines/0_computer.dtl",
+"0_guard_robot": "res://assets/dialogic/timelines/0_guard_robot.dtl",
+"0_middle": "res://assets/dialogic/timelines/0_middle.dtl",
+"0_pipes": "res://assets/dialogic/timelines/0_pipes.dtl",
+"0_start": "res://assets/dialogic/timelines/0_start.dtl",
+"timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl"
 }
 layout/style_directory={}
 layout/style_list=[]
-layout/default_style="Default"
-variables={}
+layout/default_style=""
+variables={
+"s0_computer_on": false,
+"s0_middle_read": false
+}
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -76,7 +84,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-glossary/glossary_files=["res://assets/dialogic/glossary_test.tres"]
+glossary/glossary_files=[]
 text/input_action="dialogic_default_action"
 
 [display]

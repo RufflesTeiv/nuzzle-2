@@ -57,6 +57,9 @@ func force_position(p:Vector2):
 func set_target_position(pos:Vector2):
 	_clear_target_listeners()
 	nav2d.target_position = pos
+	
+func stop_movement():
+	set_target_position(global_position)
 #endregion
 
 #region Private functions

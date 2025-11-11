@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyeu5sqgu0e26"]
+
+[ext_resource type="Script" uid="uid://b7af1f3rc8p2t" path="res://scenes_and_controllers/players/player_controller.gd" id="1_db18y"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_e1jmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6aecc"]
+radius = 59.03389
+
+[sub_resource type="SystemFont" id="SystemFont_6aecc"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8faqa"]
+font = SubResource("SystemFont_6aecc")
+
+[node name="SleepyNuzzle" type="CharacterBody2D"]
+y_sort_enabled = true
+motion_mode = 1
+floor_constant_speed = true
+script = ExtResource("1_db18y")
+min_speed = 150.0
+max_speed = 400.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+debug_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.29803923, 0.29803923, 0.6156863, 1)
+position = Vector2(0, -38)
+scale = Vector2(117.822, 175)
+texture = ExtResource("2_e1jmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6aecc")
+
+[node name="DebugLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -158.0
+offset_right = 20.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_8faqa")
+horizontal_alignment = 1
+vertical_alignment = 2

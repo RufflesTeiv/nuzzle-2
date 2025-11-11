@@ -2,6 +2,10 @@ extends CanvasLayer
 class_name MainUiView
 
 #region Enums
+enum FadeOutLayer{
+	BACKGROUND,
+	FULL
+}
 #endregion
 
 #region Parameters (consts and exportvars)
@@ -14,11 +18,10 @@ class_name MainUiView
 #endregion
 
 #region Variables
+var fade_out_tweens : Dictionary[FadeOutLayer,Tween] = {}
 #endregion
 
 #region Computed properties
-func is_faded_out() -> bool:
-	return fade_out_rect.color == Color.BLACK
 #endregion
 
 #region Event functions
@@ -27,7 +30,7 @@ func _init(): pass
 func _enter_tree(): pass
 	
 func _ready():
-	fade_out_rect.color = Color.BLACK
+	fade_out_rect.modulate.a = 1.0
 	UiManager.set_main_ui_view(self)
 	InputManager.stack_changed.connect(_on_input_stack_changed)
 	background_rect.gui_input.connect(_on_background_input)
@@ -48,21 +51,11 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-func fade_in(time := 0.5):
-	if !is_faded_out():
-		return
-	fade_out_rect.color = Color.BLACK
-	var tween := get_tree().create_tween()
-	tween.tween_property(fade_out_rect,"color",Color(0.0, 0.0, 0.0, 0.0),time)
-	await tween.finished
+func fade_in(fo_layer := FadeOutLayer.FULL, time := 0.5):
+	_fade_layer(fo_layer,0.0,time)
 	
-func fade_out(time := 0.5):
-	if is_faded_out():
-		return
-	fade_out_rect.color = Color(0.0, 0.0, 0.0, 0.0)
-	var tween := get_tree().create_tween()
-	tween.tween_property(fade_out_rect,"color",Color.BLACK,time)
-	await tween.finished
+func fade_out(fo_layer := FadeOutLayer.FULL, time := 0.5):
+	_fade_layer(fo_layer,1.0,time)
 	
 func reset():
 	_close_inventory()
@@ -76,6 +69,19 @@ func _close_inventory():
 	inventory.hide()
 	InputManager.remove_state_from_stack(InputManager.State.INVENTORY)
 	
+func _fade_layer(fo_layer: FadeOutLayer, to: float, time: float):
+	var rect := _get_layer_rect(fo_layer)
+	if fade_out_tweens.has(fo_layer) and fade_out_tweens[fo_layer].is_running():
+		#await fade_out_tweens[fo_layer].finished
+		fade_out_tweens[fo_layer].stop()
+	fade_out_tweens[fo_layer] = _tween_modulate_alpha(rect,to,time)
+	await fade_out_tweens[fo_layer].finished
+	
+func _get_layer_rect(fo_layer:FadeOutLayer) -> ColorRect:
+	match fo_layer:
+		FadeOutLayer.BACKGROUND: return background_rect
+		_: return fade_out_rect
+	
 func _on_background_input(event : InputEvent):
 	if !event is InputEventMouseButton: return
 	var mouse_event := event as InputEventMouseButton
@@ -85,9 +91,11 @@ func _on_background_input(event : InputEvent):
 func _on_input_stack_changed(stack: Array[InputManager.State]):
 	var find := stack.find(InputManager.State.INVENTORY) + stack.find(InputManager.State.DIALOGUE)
 	if find == -2:
-		background_rect.hide()
+		background_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		fade_in(FadeOutLayer.BACKGROUND,0.25)
 	else:
-		background_rect.show()
+		background_rect.mouse_filter = Control.MOUSE_FILTER_STOP
+		fade_out(FadeOutLayer.BACKGROUND,0.25)
 	
 func _open_inventory():
 	inventory.show()
@@ -96,6 +104,16 @@ func _open_inventory():
 func _toggle_inventory():
 	if inventory.visible: _close_inventory()
 	else: _open_inventory()
+	
+func _tween_modulate_alpha(ci : CanvasItem, to: float, time: float) -> Tween:
+	if !ci.visible and to > 0.0:
+		ci.show()
+	var tween := get_tree().create_tween()
+	tween.tween_property(ci,"modulate:a",to,time)
+	if ci.visible and to <= 0.0:
+		tween.tween_callback(func(): ci.hide())
+	return tween
+	
 #endregion
 
 #region Subclasses

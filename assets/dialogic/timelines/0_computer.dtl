@@ -1,0 +1,9 @@
+if {s0_computer_on} == false:
+	Apesar da tecnologia estranha, você reconhece que isto é um computador. Ele parece estar quebrado.
+	- Tentar ligar o computador.
+		O computador pisca uma variedade de luzes, mas no fim desiste de inicializar.
+		set {s0_computer_on} = true
+	- Não encostar no computador.
+		Melhor não mexer nisso.
+else:
+	O computador às vezes pisca várias luzes, mas nenhuma tecla que você aperte parece fazer diferença.

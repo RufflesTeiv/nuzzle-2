@@ -2,6 +2,7 @@ extends Node
 
 #region Enums
 enum Character {
+	SLEEPY_NUZZLE,
 	NUZZLE,
 	NONE
 }
@@ -17,6 +18,7 @@ signal inventory_changed(inventory : Inventory)
 #region Variables
 var current_character := Character.NUZZLE
 var character_scenes : Dictionary[Character,PackedScene] = {
+	Character.SLEEPY_NUZZLE: preload("uid://dyeu5sqgu0e26"),
 	Character.NUZZLE: preload("uid://cnkpty7qpcbtv")
 }
 var player_controller : PlayerController

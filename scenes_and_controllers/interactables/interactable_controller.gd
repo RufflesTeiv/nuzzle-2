@@ -7,10 +7,11 @@ class_name InteractableController
 #region Parameters (consts and exportvars)
 @onready var canvas_group: CanvasGroup = %CanvasGroup
 @onready var mouse_area: Area2D = %MouseArea
-@onready var interaction_target: Marker2D = %InteractionTarget
+@onready var interaction_target_marker: Marker2D = %InteractionTarget
 #endregion
 
 #region Signals
+signal interacted
 #endregion
 
 #region Variables
@@ -44,7 +45,8 @@ func _check_input_state() -> bool:
 	return InputManager.check_top_state(InputManager.State.MAIN)
 	
 func _check_interaction():
-	var pos := interaction_target.global_position
+	var pos := interaction_target_marker.global_position
+	_on_mouse_exited()
 	GameManager.player_controller.set_target_position(pos)
 	GameManager.player_controller.target_reached.connect(_interact)
 
@@ -58,7 +60,7 @@ func _on_input_event(_v: Node, event: InputEvent, _sidx: int):
 		_check_interaction()
 		
 func _interact():
-	print("Interacted!")
+	interacted.emit()
 	
 func _on_mouse_entered():
 	if not _check_input_state():
