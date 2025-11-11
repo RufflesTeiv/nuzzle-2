@@ -41,7 +41,8 @@ func start_dialogue(timeline: String):
 		return
 	InputManager.push_state_to_stack(InputManager.State.DIALOGUE)
 	Dialogic.start(timeline)
-	Dialogic.timeline_ended.connect(_on_dialogue_end)
+	if !Dialogic.timeline_ended.is_connected(_on_dialogue_end):
+		Dialogic.timeline_ended.connect(_on_dialogue_end)
 #endregion
 
 #region Private functions
