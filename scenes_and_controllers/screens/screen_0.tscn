@@ -124,7 +124,7 @@ scale = Vector2(0.24173324, 1.3265326)
 shape = SubResource("RectangleShape2D_jmtjl")
 
 [node name="InteractionTarget" parent="Objects/Interactables/GuardRobot" index="2"]
-position = Vector2(-246, 173)
+position = Vector2(-282, 161)
 
 [editable path="Objects/Interactables/Computer"]
 [editable path="Objects/Interactables/Pipes"]

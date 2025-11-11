@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_lyf6p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
-vertices = PackedVector2Array(1258.6563, 743.9531, 1855.2188, 1031.3281, 62.882813, 1011.64844, 979.34375, 743.9531, 1858.7734, 78.4375, 1258.6563, 348.04688, 61.109375, 61.5625, 979.34375, 348.04688)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 1, 0, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(2, 6, 7, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 3, 1071, 1915, 1092, 1919, 19)])
+vertices = PackedVector2Array(1860, 1019.71094, 62.828125, 1011.27344, 60.171875, 60, 1860, 60)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
 agent_radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
@@ -17,7 +17,6 @@ size = Vector2(1, 1)
 size = Vector2(176, 530)
 
 [node name="Screen" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_umygm")
 
 [node name="EntryPoints" type="Node2D" parent="."]
@@ -26,14 +25,22 @@ unique_name_in_owner = true
 [node name="0" type="Marker2D" parent="EntryPoints"]
 position = Vector2(75, 566)
 
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.02745098, 0.02745098, 0.039215688, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("1_bw8t3")
+
 [node name="Objects" type="Node2D" parent="."]
 unique_name_in_owner = true
+y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(1118.9999, 546)
+position = Vector2(2255, -104.00006)
 rotation = 3.1415925
 scale = Vector2(159.32426, 275.8932)
 
@@ -47,10 +54,10 @@ texture = ExtResource("1_bw8t3")
 unique_name_in_owner = true
 
 [node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(2350, 474)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
-position = Vector2(1853, 545)
 shape = SubResource("RectangleShape2D_umygm")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
@@ -59,4 +66,4 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_lyf6p")]
-position = Vector2(1455, 265)
+position = Vector2(2227, 1135)
