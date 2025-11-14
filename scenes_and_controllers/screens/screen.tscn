@@ -46,9 +46,7 @@ scale = Vector2(159.32426, 275.8932)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
 shape = SubResource("RectangleShape2D_42q4s")
-
-[node name="Sprite2D" type="Sprite2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
-texture = ExtResource("1_bw8t3")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
 [node name="TriggerAreas" type="Node2D" parent="Objects"]
 unique_name_in_owner = true

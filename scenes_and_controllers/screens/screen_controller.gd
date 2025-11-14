@@ -12,7 +12,7 @@ class_name ScreenController
 #endregion
 
 #region Signals
-signal screen_changed(id:int,entry_point:int,character:GameManager.Character)
+signal screen_changed(id:int,entry_point:int,character:Global.Character)
 #endregion
 
 #region Variables
@@ -39,7 +39,7 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-func enter(entry_point : int, character := GameManager.Character.NONE):
+func enter(entry_point : int, character := Global.Character.NONE):
 	_instantiate_character(character)
 	_position_character_at_entry_point(entry_point)
 	_screen_start()
@@ -68,7 +68,7 @@ func _screen_start(): pass
 #endregion
 
 #region Private functions	
-func _change_screen(id:int,entry_point:int,character:GameManager.Character):
+func _change_screen(id:int,entry_point:int,character:Global.Character):
 	await _screen_exit()
 	screen_changed.emit(id,entry_point,character)
 	
@@ -91,11 +91,11 @@ func _get_interactable_by_name(n:String) -> Node2D:
 			return child
 	return null
 	
-func _instantiate_character(c : GameManager.Character):
+func _instantiate_character(c : Global.Character):
 	if character_controller != null:
 		character_controller.queue_free()
 		character_controller = null
-	if c != GameManager.Character.NONE:
+	if c != Global.Character.NONE:
 		GameManager.set_current_character(c)
 	var char_tscn := GameManager.get_current_character_scene()
 	if char_tscn == null:

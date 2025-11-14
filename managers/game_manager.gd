@@ -1,11 +1,6 @@
 extends Node
 
 #region Enums
-enum Character {
-	SLEEPY_NUZZLE,
-	NUZZLE,
-	NONE
-}
 #endregion
 
 #region Parameters (consts and exportvars)
@@ -16,10 +11,10 @@ signal inventory_changed(inventory : Inventory)
 #endregion
 
 #region Variables
-var current_character := Character.NUZZLE
-var character_scenes : Dictionary[Character,PackedScene] = {
-	Character.SLEEPY_NUZZLE: preload("uid://dyeu5sqgu0e26"),
-	Character.NUZZLE: preload("uid://cnkpty7qpcbtv")
+var current_character := Global.Character.NUZZLE
+var character_scenes : Dictionary[Global.Character,PackedScene] = {
+	Global.Character.SLEEPY_NUZZLE: preload("uid://dyeu5sqgu0e26"),
+	Global.Character.NUZZLE: preload("uid://cnkpty7qpcbtv")
 }
 var player_controller : PlayerController
 var player_inventory : Inventory
@@ -53,7 +48,7 @@ func _exit_tree(): pass
 func get_current_character_scene() -> PackedScene:
 	return character_scenes[current_character]
 	
-func set_current_character(c:Character):
+func set_current_character(c:Global.Character):
 	if c == null:
 		return
 	current_character = c

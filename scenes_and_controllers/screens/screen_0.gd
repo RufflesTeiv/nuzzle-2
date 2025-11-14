@@ -60,6 +60,6 @@ func _move_robot():
 	end_scene_tween.tween_interval(3.0)
 	end_scene_tween.tween_callback(func():
 		UiManager.main_ui.fade_out(MainUiView.FadeOutLayer.FULL,0)
-		_change_screen(0,0,GameManager.Character.SLEEPY_NUZZLE)
+		_change_screen(1,0,Global.Character.NUZZLE)
 	)
 #endregion

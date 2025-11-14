@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5vb4hl4yox3w"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_jgkvx"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_b2dgk"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_28d5p"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1860, 271, 1860, 1020, 878, 1020, 878, 659, 60, 271, 60, 659)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
+size = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkvx"]
+size = Vector2(5.184395, 1.2323611)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2dgk"]
+size = Vector2(12.088554, 1.4860834)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28d5p"]
+size = Vector2(216, 386)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
+size = Vector2(276, 394)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_jgkvx")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1771, 756)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.57, 0.33421, 0.15389998, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_b2dgk")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(2255, -104.00006)
+rotation = 3.1415925
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(405, 768)
+rotation = 3.1415925
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D2"]
+position = Vector2(0, -0.4385755)
+shape = SubResource("RectangleShape2D_jgkvx")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(940, -115)
+rotation = 3.1415925
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D3"]
+position = Vector2(0, -0.4385755)
+shape = SubResource("RectangleShape2D_b2dgk")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(1820, 730)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="1" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(75, 388)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+position = Vector2(2227, 1135)
+
+[node name="Guard" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+position = Vector2(1735, 404)
+
+[node name="Sprite2D" parent="Objects/Interactables/Guard/CanvasGroup" index="0"]
+position = Vector2(0, -150)
+scale = Vector2(170.74265, 356.01605)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Guard/MouseArea" index="0"]
+position = Vector2(0, -157)
+shape = SubResource("RectangleShape2D_28d5p")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Guard" index="2"]
+position = Vector2(-186, 87)
+
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+position = Vector2(979, 682)
+
+[node name="Sprite2D" parent="Objects/Interactables/Palluhae/CanvasGroup" index="0"]
+modulate = Color(0.95, 0.5476751, 0.21850002, 1)
+position = Vector2(0, -150)
+scale = Vector2(233.99, 342.5576)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Palluhae/MouseArea" index="0"]
+position = Vector2(0, -157)
+shape = SubResource("RectangleShape2D_ocp75")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+position = Vector2(-186, 87)
+
+[node name="Car" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+position = Vector2(403, 855)
+
+[node name="Sprite2D" parent="Objects/Interactables/Car/CanvasGroup" index="0"]
+scale = Vector2(668.17175, 455.22992)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Car/MouseArea" index="0"]
+scale = Vector2(3.619469, 1.8862275)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Car" index="2"]
+position = Vector2(517, 110)
+
+[editable path="Objects/Interactables/Guard"]
+[editable path="Objects/Interactables/Palluhae"]
+[editable path="Objects/Interactables/Car"]

@@ -24,7 +24,7 @@ func _init(): pass
 func _enter_tree(): pass
 	
 func _ready():
-	_load_screen(0,0,GameManager.Character.SLEEPY_NUZZLE)
+	_load_screen(0,0,Global.Character.SLEEPY_NUZZLE)
 	Console.create_command("goto",_load_screen_command)
 	
 func _process(_delta): pass
@@ -43,7 +43,7 @@ func _exit_tree(): pass
 func _clear_screen():
 	Utility.destroy_all_children(screen_holder)
 	
-func _load_screen(id : int, entry_point := 0, character := GameManager.Character.NONE) -> bool:
+func _load_screen(id : int, entry_point := 0, character := Global.Character.NONE) -> bool:
 	await UiManager.main_ui.fade_out()
 	_clear_screen()
 	if !ScreensData.is_loaded():
@@ -65,7 +65,7 @@ func _load_screen(id : int, entry_point := 0, character := GameManager.Character
 	return true
 	
 func _load_screen_command(id: int, entry_point: int, character_int: int) -> String:
-	var success := await _load_screen(id,entry_point,character_int as GameManager.Character)
+	var success := await _load_screen(id,entry_point,character_int as Global.Character)
 	return "Transporting to screen..." if success else "Error! Check print."
 #endregion
 
