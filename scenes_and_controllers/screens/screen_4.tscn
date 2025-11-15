@@ -1,0 +1,216 @@
+[gd_scene load_steps=11 format=3 uid="uid://dyg0yd15uffaw"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_dvu7q"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_sioaf"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_0teqw"]
+[ext_resource type="PackedScene" uid="uid://2u74fv1ey24u" path="res://scenes_and_controllers/interactables/car.tscn" id="4_sioaf"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="5_0teqw"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(657.40625, 60, 1860, 335.77344, 1860, 506.04688, 1100, 506.04688, 60, 316.21094, 469.7578, 60, 1100, 901.9531, 1860, 901.9531, 1860, 1020, 60, 1020)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 4, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
+size = Vector2(4.418663, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0teqw"]
+size = Vector2(9.669471, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g133l"]
+size = Vector2(1084, 160)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_dvu7q")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1746, 966)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.5346, 0.66, 0.57640004, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_sioaf")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(1512, 703.9999)
+rotation = 3.1415925
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(82, 68.99999)
+rotation = 2.5827909
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D2"]
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+position = Vector2(1615, 17)
+rotation = 3.3670204
+scale = Vector2(159.32426, 275.8932)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D3"]
+position = Vector2(1.0511031, -0.21025808)
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_0teqw")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(-418, 883)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="1" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(36, 1282)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+position = Vector2(466, -21)
+shape = SubResource("RectangleShape2D_g133l")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="2" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(108, 58)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/2"]
+position = Vector2(466, -21)
+shape = SubResource("RectangleShape2D_g133l")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(2227, 1135)
+
+[node name="Plant1" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(121, 998)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant1" index="2"]
+position = Vector2(68, -49)
+
+[node name="Plant2" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(67, 847)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant2" index="2"]
+position = Vector2(110, 13)
+
+[node name="Plant3" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(22, 603)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant3" index="2"]
+position = Vector2(96, 50)
+
+[node name="Plant4" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(314, 1066)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant4" index="2"]
+position = Vector2(2, -72)
+
+[node name="Plant5" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(523, 1068)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant5" index="2"]
+position = Vector2(8, -86)
+
+[node name="Plant6" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(742, 1064)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant6" index="2"]
+position = Vector2(7, -57)
+
+[node name="Plant7" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(1268, 210)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant7" index="2"]
+position = Vector2(-49, 76)
+
+[node name="Plant8" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(1454, 228)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant8" index="2"]
+position = Vector2(-51, 92)
+
+[node name="Plant9" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(1650, 263)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant9" index="2"]
+position = Vector2(-54, 81)
+
+[node name="Plant10" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(100, 307)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant10" index="2"]
+position = Vector2(61, 62)
+
+[node name="Plant11" parent="Objects/Interactables" instance=ExtResource("3_0teqw")]
+position = Vector2(1912, 1032)
+display_name = "Plantas"
+
+[node name="InteractionTarget" parent="Objects/Interactables/Plant11" index="2"]
+position = Vector2(-91, -44)
+
+[node name="Car" parent="Objects/Interactables" instance=ExtResource("4_sioaf")]
+position = Vector2(1512.0001, 700)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Car" index="2"]
+position = Vector2(238.99988, 261)
+
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("5_0teqw")]
+position = Vector2(1011, 439)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+position = Vector2(-86, 85)
+
+[editable path="Objects/Interactables/Plant1"]
+[editable path="Objects/Interactables/Plant2"]
+[editable path="Objects/Interactables/Plant3"]
+[editable path="Objects/Interactables/Plant4"]
+[editable path="Objects/Interactables/Plant5"]
+[editable path="Objects/Interactables/Plant6"]
+[editable path="Objects/Interactables/Plant7"]
+[editable path="Objects/Interactables/Plant8"]
+[editable path="Objects/Interactables/Plant9"]
+[editable path="Objects/Interactables/Plant10"]
+[editable path="Objects/Interactables/Plant11"]
+[editable path="Objects/Interactables/Car"]
+[editable path="Objects/Interactables/Palluhae"]

@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://l4vhk3phuw86"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_0up1t"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_knbnl"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_ffckh"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_knbnl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1860, 850.1328, 730.75, 850.1328, 60, 419.75, 60, 318, 1860, 318)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
+size = Vector2(2144, 359)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0up1t"]
+size = Vector2(2144, 491.72894)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 870)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knbnl"]
+size = Vector2(93.923096, 352.31314)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffckh"]
+size = Vector2(254.01923, 257.18857)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_0up1t")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1814, 640)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.11, 0.11, 0.22, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_knbnl")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(961, 78.5)
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(322.56226, 951.638)
+rotation = 0.570456
+shape = SubResource("RectangleShape2D_0up1t")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1039, 1156)
+shape = SubResource("RectangleShape2D_0up1t")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(1200, 601)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_ffckh")]
+position = Vector2(2227, 1135)
+
+[node name="Pipes" parent="Objects/Interactables" instance=ExtResource("3_ffckh")]
+position = Vector2(964, 344)
+
+[node name="Sprite2D" parent="Objects/Interactables/Pipes/CanvasGroup" index="0"]
+position = Vector2(0, -230)
+scale = Vector2(52.92183, 473.10938)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Pipes/MouseArea" index="0"]
+position = Vector2(0, -234.00003)
+shape = SubResource("RectangleShape2D_knbnl")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Pipes" index="2"]
+position = Vector2(2, 60)
+
+[node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_ffckh")]
+position = Vector2(152, 398)
+
+[node name="Sprite2D" parent="Objects/Interactables/Computer/CanvasGroup" index="0"]
+position = Vector2(0, -164.00003)
+scale = Vector2(210.32433, 329.0464)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Computer/MouseArea" index="0"]
+position = Vector2(0, -166.50002)
+shape = SubResource("RectangleShape2D_ffckh")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Computer" index="2"]
+position = Vector2(2, 60)
+
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_knbnl")]
+position = Vector2(1719, 626)
+
+[editable path="Objects/Interactables/Interactable"]
+[editable path="Objects/Interactables/Pipes"]
+[editable path="Objects/Interactables/Computer"]

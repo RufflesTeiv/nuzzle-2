@@ -40,6 +40,9 @@ unique_name_in_owner = true
 [node name="0" type="Marker2D" parent="EntryPoints"]
 position = Vector2(290, 467)
 
+[node name="1" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1784, 848)
+
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.76862746, 0.4509804, 0.20784314, 1)
 position = Vector2(960, 540)
@@ -100,6 +103,7 @@ position = Vector2(2227, 1135)
 
 [node name="Bed" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
 position = Vector2(400, 316)
+display_name = "Sua cama"
 
 [node name="Sprite2D" parent="Objects/Interactables/Bed/CanvasGroup" index="0"]
 scale = Vector2(500, 246.783)
@@ -112,6 +116,7 @@ position = Vector2(-1, 87)
 
 [node name="Window" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
 position = Vector2(38, 772)
+display_name = "Janela"
 
 [node name="Sprite2D" parent="Objects/Interactables/Window/CanvasGroup" index="0"]
 scale = Vector2(110.58085, 580.24756)
@@ -124,6 +129,7 @@ position = Vector2(132, 32)
 
 [node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
 position = Vector2(1076, 340)
+display_name = "Seu computador"
 
 [node name="Sprite2D" parent="Objects/Interactables/Computer/CanvasGroup" index="0"]
 scale = Vector2(575.6311, 348.24564)
@@ -136,6 +142,7 @@ position = Vector2(-1, 175)
 
 [node name="Closet" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
 position = Vector2(1609, 323)
+display_name = "Seu armário"
 
 [node name="Sprite2D" parent="Objects/Interactables/Closet/CanvasGroup" index="0"]
 scale = Vector2(239.68086, 416.62305)
@@ -148,6 +155,7 @@ position = Vector2(-1, 197)
 
 [node name="Table" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
 position = Vector2(610, 1022)
+display_name = "Mesa"
 
 [node name="Sprite2D" parent="Objects/Interactables/Table/CanvasGroup" index="0"]
 scale = Vector2(527.5017, 210.55327)

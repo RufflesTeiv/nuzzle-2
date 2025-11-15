@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgjogejtvon4c"]
+
+[ext_resource type="Script" uid="uid://dy87cpkgdxwrm" path="res://scenes_and_controllers/interactables/interactable_controller.gd" id="1_rx5bb"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_8my75"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
+size = Vector2(184, 274)
+
+[node name="Palluhae" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_rx5bb")
+display_name = "Palluhae"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+modulate = Color(0.95, 0.5476751, 0.21850002, 1)
+position = Vector2(0.11987306, -124.71663)
+scale = Vector2(158.23975, 248.56674)
+texture = ExtResource("2_8my75")
+
+[node name="MouseArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
+position = Vector2(0.11987305, -124.71663)
+shape = SubResource("RectangleShape2D_ocp75")
+
+[node name="InteractionTarget" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-186, 87)

@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://o5h1ive8wjxc"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_pau2b"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_kog8n"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_cns7e"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_kog8n"]
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_pau2b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+zoom = Vector2(1.8, 1.8)
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(867, 712)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.5, 0.29316667, 0.13499999, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_kog8n")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_cns7e")]
+position = Vector2(2348, 645)
+
+[node name="Glovebox" parent="Objects/Interactables" instance=ExtResource("3_cns7e")]
+position = Vector2(1291, 691)
+rotation = -0.6979814
+display_name = "Porta-luvas"
+
+[node name="Sprite2D" parent="Objects/Interactables/Glovebox/CanvasGroup" index="0"]
+scale = Vector2(135.15616, 212.48611)
+
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_kog8n")]
+position = Vector2(920, 558)
+type = 1
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[editable path="Objects/Interactables/Glovebox"]

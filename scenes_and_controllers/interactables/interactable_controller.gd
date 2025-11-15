@@ -2,12 +2,19 @@ extends Node2D
 class_name InteractableController
 
 #region Enums
+enum Type {
+	TOUCH,
+	WATCH
+}
 #endregion
 
 #region Parameters (consts and exportvars)
 @onready var canvas_group: CanvasGroup = %CanvasGroup
 @onready var mouse_area: Area2D = %MouseArea
 @onready var interaction_target_marker: Marker2D = %InteractionTarget
+
+@export var type := Type.TOUCH
+@export var display_name := ""
 #endregion
 
 #region Signals
@@ -45,10 +52,14 @@ func _check_input_state() -> bool:
 	return InputManager.check_top_state(InputManager.State.MAIN)
 	
 func _check_interaction():
-	var pos := interaction_target_marker.global_position
-	_on_mouse_exited()
-	GameManager.player_controller.set_target_position(pos)
-	GameManager.player_controller.target_reached.connect(_interact)
+	match type:
+		Type.TOUCH:
+			var pos := interaction_target_marker.global_position
+			_on_mouse_exited()
+			GameManager.player_controller.set_target_position(pos)
+			GameManager.player_controller.target_reached.connect(_interact)
+		Type.WATCH:
+			_interact()
 
 func _on_input_event(_v: Node, event: InputEvent, _sidx: int):
 	if not _check_input_state():

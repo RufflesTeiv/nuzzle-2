@@ -39,14 +39,14 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-func enter(entry_point : int, character := Global.Character.NONE):
-	_instantiate_character(character)
+func enter(entry_point : int, character := Global.Character.NONE, walkable := true):
+	_instantiate_character(character, walkable)
 	_position_character_at_entry_point(entry_point)
 	_screen_start()
 	#await get_tree().create_timer(1.0).timeout
 	await get_tree().process_frame
 	_watch_interactables()
-	_watch_trigger_areas()
+	_watch_trigger_areas(walkable)
 #endregion
 
 #region Overridables
@@ -91,7 +91,7 @@ func _get_interactable_by_name(n:String) -> Node2D:
 			return child
 	return null
 	
-func _instantiate_character(c : Global.Character):
+func _instantiate_character(c : Global.Character, walkable := true):
 	if character_controller != null:
 		character_controller.queue_free()
 		character_controller = null
@@ -101,6 +101,7 @@ func _instantiate_character(c : Global.Character):
 	if char_tscn == null:
 		return
 	character_controller = char_tscn.instantiate() as PlayerController
+	character_controller.set_walkable(walkable)
 	GameManager.set_player_controller(character_controller)
 	objects.add_child(character_controller)
 	
@@ -138,7 +139,9 @@ func _watch_interactables():
 		var i_name := interactable.name
 		interactable.interacted.connect(func(): _on_interactable_interacted(i_name))
 	
-func _watch_trigger_areas():
+func _watch_trigger_areas(is_walkable : bool):
+	if !is_walkable:
+		return
 	for area : Area2D in trigger_areas.get_children():
 		var id := int(area.name)
 		area.body_entered.connect(func(body): _on_area_body_entered(id,body))

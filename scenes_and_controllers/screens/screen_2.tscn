@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c5vb4hl4yox3w"]
+[gd_scene load_steps=12 format=3 uid="uid://c5vb4hl4yox3w"]
 
 [ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_jgkvx"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_b2dgk"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_28d5p"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_b2dgk"]
+[ext_resource type="PackedScene" uid="uid://2u74fv1ey24u" path="res://scenes_and_controllers/interactables/car.tscn" id="5_28d5p"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(1860, 271, 1860, 1020, 878, 1020, 878, 659, 60, 271, 60, 659)
@@ -24,9 +26,6 @@ size = Vector2(176, 530)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28d5p"]
 size = Vector2(216, 386)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
-size = Vector2(276, 394)
 
 [node name="Screen" type="Node2D"]
 script = ExtResource("1_jgkvx")
@@ -108,6 +107,7 @@ position = Vector2(2227, 1135)
 
 [node name="Guard" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
 position = Vector2(1735, 404)
+display_name = "Guarda da Cidadela"
 
 [node name="Sprite2D" parent="Objects/Interactables/Guard/CanvasGroup" index="0"]
 position = Vector2(0, -150)
@@ -120,33 +120,11 @@ shape = SubResource("RectangleShape2D_28d5p")
 [node name="InteractionTarget" parent="Objects/Interactables/Guard" index="2"]
 position = Vector2(-186, 87)
 
-[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_b2dgk")]
 position = Vector2(979, 682)
 
-[node name="Sprite2D" parent="Objects/Interactables/Palluhae/CanvasGroup" index="0"]
-modulate = Color(0.95, 0.5476751, 0.21850002, 1)
-position = Vector2(0, -150)
-scale = Vector2(233.99, 342.5576)
-
-[node name="CollisionShape2D" parent="Objects/Interactables/Palluhae/MouseArea" index="0"]
-position = Vector2(0, -157)
-shape = SubResource("RectangleShape2D_ocp75")
-
-[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
-position = Vector2(-186, 87)
-
-[node name="Car" parent="Objects/Interactables" instance=ExtResource("3_28d5p")]
+[node name="Car" parent="Objects/Interactables" instance=ExtResource("5_28d5p")]
 position = Vector2(403, 855)
-
-[node name="Sprite2D" parent="Objects/Interactables/Car/CanvasGroup" index="0"]
-scale = Vector2(668.17175, 455.22992)
-
-[node name="CollisionShape2D" parent="Objects/Interactables/Car/MouseArea" index="0"]
-scale = Vector2(3.619469, 1.8862275)
-
-[node name="InteractionTarget" parent="Objects/Interactables/Car" index="2"]
-position = Vector2(517, 110)
+display_name = "Carro"
 
 [editable path="Objects/Interactables/Guard"]
-[editable path="Objects/Interactables/Palluhae"]
-[editable path="Objects/Interactables/Car"]

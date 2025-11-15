@@ -1,20 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6pn23wy6kdhb"]
+[gd_scene load_steps=11 format=3 uid="uid://c6pn23wy6kdhb"]
 
 [ext_resource type="Script" uid="uid://bn0s02tac6xkl" path="res://scenes_and_controllers/screens/screen_0.gd" id="1_usv6y"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_0fmtq"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_usv6y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
-vertices = PackedVector2Array(1859.0469, 1019.03125, 60.046875, 1019.96094, 60.9375, 60.960938, 1859.9375, 60.03125)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+vertices = PackedVector2Array(1576.5781, 890.2422, 1342.0703, 1019.28906, 60.046875, 1019.96094, 60.570313, 468, 1412.4297, 468, 1859.3828, 670.0703, 1780.8281, 468, 1859.5703, 468)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1, 1, 0, 1080, 1919, 1079, 1920, 0)])
 agent_radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
-size = Vector2(1, 1)
+size = Vector2(2234, 417)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fmtq"]
+size = Vector2(639.45557, 223.35236)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usv6y"]
+size = Vector2(639.45557, 502.96695)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
 size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56txo"]
+size = Vector2(202, 291.82144)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmtjl"]
 size = Vector2(1662.9902, 441.7531)
@@ -42,12 +51,23 @@ y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(2146, 4)
-rotation = 3.1415925
-scale = Vector2(159.32426, 275.8932)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1099, 199.5)
 shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.9968942, 0, 0.18680355, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1677.442, 1030.7083)
+rotation = -0.5030808
+shape = SubResource("RectangleShape2D_0fmtq")
+debug_color = Color(0.9968942, 0, 0.18680355, 0.41960785)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1783.3068, 562.3416)
+rotation = 1.2000145
+shape = SubResource("RectangleShape2D_usv6y")
+debug_color = Color(0.9968942, 0, 0.18680355, 0.41960785)
 
 [node name="TriggerAreas" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
@@ -96,25 +116,37 @@ y_sort_enabled = true
 position = Vector2(1952, -161)
 
 [node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_usv6y")]
-position = Vector2(484, 359)
+position = Vector2(484, 399)
+display_name = "Computador"
+
+[node name="Sprite2D" parent="Objects/Interactables/Computer/CanvasGroup" index="0"]
+position = Vector2(0.13253784, -122.608734)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Computer/MouseArea" index="0"]
+position = Vector2(0.13253784, -121.608734)
 
 [node name="InteractionTarget" parent="Objects/Interactables/Computer" index="2"]
-position = Vector2(-1, 87)
+position = Vector2(-0.86746216, 52.391266)
 
 [node name="Pipes" parent="Objects/Interactables" instance=ExtResource("3_usv6y")]
-position = Vector2(961, 316)
+position = Vector2(961, 414)
+display_name = "Canos"
 
 [node name="Sprite2D" parent="Objects/Interactables/Pipes/CanvasGroup" index="0"]
+position = Vector2(0.40020752, -179.55533)
 scale = Vector2(36.800465, 360.88934)
 
 [node name="CollisionShape2D" parent="Objects/Interactables/Pipes/MouseArea" index="0"]
+position = Vector2(0.40020752, -178.55533)
 scale = Vector2(0.24173324, 1.3265326)
+shape = SubResource("RectangleShape2D_56txo")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Pipes" index="2"]
-position = Vector2(-1, 137)
+position = Vector2(-0.5997925, 45.44467)
 
 [node name="GuardRobot" parent="Objects/Interactables" instance=ExtResource("3_usv6y")]
 position = Vector2(1683, 586)
+display_name = "???"
 
 [node name="Sprite2D" parent="Objects/Interactables/GuardRobot/CanvasGroup" index="0"]
 scale = Vector2(351.77097, 532.1522)

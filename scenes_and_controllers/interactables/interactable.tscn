@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://dy87cpkgdxwrm" path="res://scenes_and_controllers/interactables/interactable_controller.gd" id="1_xxley"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_qj1xh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxley"]
-size = Vector2(206, 286)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whunj"]
+size = Vector2(203.85583, 198.70462)
 
 [node name="Interactable" type="Node2D"]
 y_sort_enabled = true
@@ -15,7 +15,7 @@ unique_name_in_owner = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
 modulate = Color(0.94509804, 0.6, 0.3254902, 1)
-position = Vector2(0, -88)
+position = Vector2(0, -122.608734)
 scale = Vector2(170.26509, 246.78255)
 texture = ExtResource("2_qj1xh")
 
@@ -24,9 +24,10 @@ unique_name_in_owner = true
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
-position = Vector2(0, -87)
-shape = SubResource("RectangleShape2D_xxley")
+position = Vector2(0, -122)
+scale = Vector2(0.9369369, 1.419192)
+shape = SubResource("RectangleShape2D_whunj")
 
 [node name="InteractionTarget" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-109, 87)
+position = Vector2(-109, 52.391266)

@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://bto4fbkco7rjf"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_cmflw"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p8rvt"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_vh14b"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1860, 316, 1860, 1020, 1397.0313, 821.59375, 1265.6875, 400.60156, 60, 316, 964.97656, 494.40625, 60, 1020, 1096.3125, 915.3906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(1, 6, 7), PackedInt32Array(1, 7, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8rvt"]
+size = Vector2(195, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vh14b"]
+size = Vector2(1915, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxvki"]
+size = Vector2(102.46155, 71.87189)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8g6f"]
+size = Vector2(203.85583, 390.01068)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmflw"]
+size = Vector2(266.8269, 270.57648)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_cmflw")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(75, 566)
+
+[node name="1" type="Marker2D" parent="EntryPoints"]
+position = Vector2(639, 355)
+
+[node name="2" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1143, 344)
+
+[node name="3" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1839, 725)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.44, 0.30800003, 0.123199984, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_p8rvt")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1180.9999, 657.99994)
+rotation = -0.30238977
+shape = SubResource("RectangleShape2D_p8rvt")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(947.5, 123)
+shape = SubResource("RectangleShape2D_vh14b")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(38, 557)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(2227, 1135)
+
+[node name="Communications Room Door" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(631, 255)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Communications Room Door" index="2"]
+position = Vector2(5, 82)
+
+[node name="Biometrics Terminal" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(793, 255)
+
+[node name="Sprite2D" parent="Objects/Interactables/Biometrics Terminal/CanvasGroup" index="0"]
+scale = Vector2(76.7463, 80.60595)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Biometrics Terminal/MouseArea" index="0"]
+shape = SubResource("RectangleShape2D_xxvki")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Biometrics Terminal" index="2"]
+position = Vector2(5, 82)
+
+[node name="BreakableWall" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(1141, 258)
+
+[node name="InteractionTarget" parent="Objects/Interactables/BreakableWall" index="2"]
+position = Vector2(5, 82)
+
+[node name="MainDoor" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(1868, 919)
+
+[node name="Sprite2D" parent="Objects/Interactables/MainDoor/CanvasGroup" index="0"]
+position = Vector2(0, -261.99997)
+scale = Vector2(151.80031, 537.81384)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/MainDoor/MouseArea" index="0"]
+position = Vector2(0, -262.25)
+shape = SubResource("RectangleShape2D_q8g6f")
+
+[node name="InteractionTarget" parent="Objects/Interactables/MainDoor" index="2"]
+position = Vector2(-156, -24)
+
+[node name="CenterTable" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+position = Vector2(1176, 784)
+
+[node name="Sprite2D" parent="Objects/Interactables/CenterTable/CanvasGroup" index="0"]
+rotation = -0.33760136
+scale = Vector2(231.88358, 361.63293)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/CenterTable/MouseArea" index="0"]
+rotation = -0.3363571
+shape = SubResource("RectangleShape2D_cmflw")
+
+[node name="InteractionTarget" parent="Objects/Interactables/CenterTable" index="2"]
+position = Vector2(233, -12.9999695)
+
+[editable path="Objects/Interactables/Interactable"]
+[editable path="Objects/Interactables/Communications Room Door"]
+[editable path="Objects/Interactables/Biometrics Terminal"]
+[editable path="Objects/Interactables/BreakableWall"]
+[editable path="Objects/Interactables/MainDoor"]
+[editable path="Objects/Interactables/CenterTable"]

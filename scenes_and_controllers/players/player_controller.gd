@@ -18,6 +18,7 @@ signal target_reached()
 #endregion
 
 #region Variables
+var can_walk := true
 #endregion
 
 #region Computed properties
@@ -41,8 +42,8 @@ func _physics_process(_delta):
 func _input(_event: InputEvent):
 	if InputManager.check_top_state(InputManager.State.MAIN) and _event is InputEventMouseButton:
 		var mouse_event := _event as InputEventMouseButton
-		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
-			set_target_position(mouse_event.global_position)
+		if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed and can_walk:
+			set_target_position(_get_local_mouse_pos(mouse_event.global_position))
 			
 
 func _exit_tree(): pass
@@ -58,6 +59,9 @@ func set_target_position(pos:Vector2):
 	_clear_target_listeners()
 	nav2d.target_position = pos
 	
+func set_walkable(walkable : bool):
+	can_walk = walkable
+	
 func stop_movement():
 	set_target_position(global_position)
 #endregion
@@ -65,6 +69,12 @@ func stop_movement():
 #region Private functions
 func _clear_target_listeners():
 	Utility.clear_connections_from_signal(target_reached)
+	
+func _get_local_mouse_pos(global_pos : Vector2) -> Vector2:
+	var camera := get_viewport().get_camera_2d()
+	if !camera:
+		return global_pos
+	return global_pos / camera.zoom.x
 
 func _move_to_goal():
 	if nav2d.is_navigation_finished():
