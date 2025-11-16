@@ -52,10 +52,10 @@ func _exit_tree(): pass
 
 #region Public functions
 func fade_in(fo_layer := FadeOutLayer.FULL, time := 0.5):
-	_fade_layer(fo_layer,0.0,time)
+	await _fade_layer(fo_layer,0.0,time)
 	
 func fade_out(fo_layer := FadeOutLayer.FULL, time := 0.5):
-	_fade_layer(fo_layer,1.0,time)
+	await _fade_layer(fo_layer,1.0,time)
 	
 func reset():
 	_close_inventory()

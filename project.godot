@@ -33,13 +33,26 @@ gdscript/warnings/integer_division=0
 
 [dialogic]
 
-directories/dch_directory={}
+directories/dch_directory={
+"city_guard": "res://assets/dialogic/characters/city_guard.dch",
+"cyborg_kid": "res://assets/dialogic/characters/cyborg_kid.dch",
+"nuzzle": "res://assets/dialogic/characters/nuzzle.dch",
+"palluhae": "res://assets/dialogic/characters/palluhae.dch",
+"sleepy_nuzzle": "res://assets/dialogic/characters/sleepy_nuzzle.dch"
+}
 directories/dtl_directory={
 "0_computer": "res://assets/dialogic/timelines/0_computer.dtl",
 "0_guard_robot": "res://assets/dialogic/timelines/0_guard_robot.dtl",
 "0_middle": "res://assets/dialogic/timelines/0_middle.dtl",
 "0_pipes": "res://assets/dialogic/timelines/0_pipes.dtl",
 "0_start": "res://assets/dialogic/timelines/0_start.dtl",
+"1_bed": "res://assets/dialogic/timelines/1_bed.dtl",
+"1_closet": "res://assets/dialogic/timelines/1_closet.dtl",
+"1_computer": "res://assets/dialogic/timelines/1_computer.dtl",
+"1_naked": "res://assets/dialogic/timelines/1_naked.dtl",
+"1_start": "res://assets/dialogic/timelines/1_start.dtl",
+"1_table": "res://assets/dialogic/timelines/1_table.dtl",
+"1_window": "res://assets/dialogic/timelines/1_window.dtl",
 "timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl"
 }
 layout/style_directory={}
@@ -86,6 +99,7 @@ audio/channel_defaults={
 }
 glossary/glossary_files=[]
 text/input_action="dialogic_default_action"
+text/autocolor_names=true
 
 [display]
 

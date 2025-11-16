@@ -41,6 +41,8 @@ func _exit_tree(): pass
 
 #region Private functions
 func _clear_screen():
+	if current_screen:
+		current_screen.screen_changed.disconnect(_load_screen)
 	Utility.destroy_all_children(screen_holder)
 	
 func _load_screen(id : int, entry_point := 0, character := Global.Character.NONE) -> bool:
@@ -55,7 +57,7 @@ func _load_screen(id : int, entry_point := 0, character := Global.Character.NONE
 	if !screen:
 		return false
 	current_screen = screen.packed_scene.instantiate() as ScreenController
-	screen_holder.add_child(current_screen)
+	screen_holder.call_deferred("add_child",current_screen)
 	current_screen.enter(entry_point,character)
 	current_screen.screen_changed.connect(_load_screen)
 	if not current_screen.is_node_ready():

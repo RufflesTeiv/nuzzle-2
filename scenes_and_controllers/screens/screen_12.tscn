@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvfqtea1fwoub"]
+[gd_scene load_steps=12 format=3 uid="uid://b8y0dwm5exi6e"]
 
-[ext_resource type="Script" uid="uid://p7vmc4xndh52" path="res://scenes_and_controllers/screens/screen_1.gd" id="1_hsvnm"]
-[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_6bnxv"]
-[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_sovux"]
+[ext_resource type="Script" uid="uid://p7vmc4xndh52" path="res://scenes_and_controllers/screens/screen_1.gd" id="1_trvt8"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p5cui"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_pemkj"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(738, 335.5, 1860, 335.5, 1860, 1020, 969.7422, 817, 969.7422, 1020, 250.25781, 817, 60, 269.5, 250.25781, 1020, 60, 1020, 738, 269.5)
@@ -32,22 +32,19 @@ size = Vector2(304, 444)
 size = Vector2(580, 258)
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_hsvnm")
+script = ExtResource("1_trvt8")
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
-position = Vector2(290, 467)
-
-[node name="1" type="Marker2D" parent="EntryPoints"]
-position = Vector2(1784, 848)
+position = Vector2(1765, 856)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.76862746, 0.4509804, 0.20784314, 1)
 position = Vector2(960, 540)
 scale = Vector2(1920, 1080)
-texture = ExtResource("2_6bnxv")
+texture = ExtResource("2_p5cui")
 
 [node name="Objects" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -87,7 +84,7 @@ debug_color = Color(0.9915077, 0, 0.27068183, 0.41960785)
 unique_name_in_owner = true
 
 [node name="0" type="Area2D" parent="Objects/TriggerAreas"]
-position = Vector2(1837, 790)
+position = Vector2(2333, 370)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
@@ -98,10 +95,10 @@ debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 unique_name_in_owner = true
 y_sort_enabled = true
 
-[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(2227, 1135)
 
-[node name="Bed" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Bed" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(400, 316)
 display_name = "Sua cama"
 
@@ -114,7 +111,7 @@ shape = SubResource("RectangleShape2D_hsvnm")
 [node name="InteractionTarget" parent="Objects/Interactables/Bed" index="2"]
 position = Vector2(-1, 87)
 
-[node name="Window" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Window" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(38, 772)
 display_name = "Janela"
 
@@ -127,7 +124,7 @@ shape = SubResource("RectangleShape2D_6bnxv")
 [node name="InteractionTarget" parent="Objects/Interactables/Window" index="2"]
 position = Vector2(132, 32)
 
-[node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(1076, 340)
 display_name = "Seu computador"
 
@@ -140,7 +137,7 @@ shape = SubResource("RectangleShape2D_sovux")
 [node name="InteractionTarget" parent="Objects/Interactables/Computer" index="2"]
 position = Vector2(-1, 175)
 
-[node name="Closet" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Closet" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(1609, 323)
 display_name = "Seu armário"
 
@@ -153,7 +150,7 @@ shape = SubResource("RectangleShape2D_uslle")
 [node name="InteractionTarget" parent="Objects/Interactables/Closet" index="2"]
 position = Vector2(-1, 197)
 
-[node name="Table" parent="Objects/Interactables" instance=ExtResource("3_sovux")]
+[node name="Table" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(610, 1022)
 display_name = "Mesa"
 
@@ -165,12 +162,6 @@ shape = SubResource("RectangleShape2D_hugdq")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Table" index="2"]
 position = Vector2(-1, -255)
-
-[node name="Waypoints" type="Node2D" parent="."]
-unique_name_in_owner = true
-
-[node name="ExitFail" type="Marker2D" parent="Waypoints"]
-position = Vector2(1587, 840)
 
 [editable path="Objects/Interactables/Bed"]
 [editable path="Objects/Interactables/Window"]

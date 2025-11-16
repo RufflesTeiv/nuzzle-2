@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bj211m6begscd"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_rq3bj"]
+
+[resource]
+script = ExtResource("1_rq3bj")
+id = 7
+name = "Garra de formidae"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

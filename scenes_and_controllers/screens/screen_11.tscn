@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://c85gr6g3bl0xm"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_e8ahx"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_3q77y"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_p8ry6"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1860, 1019.71094, 62.828125, 1011.27344, 60.171875, 60, 1860, 60)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
+size = Vector2(2587, 475.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q77y"]
+size = Vector2(247.61523, 341.74377)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8ahx"]
+size = Vector2(1045.9617, 364.2918)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_e8ahx")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(84, 879)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.4392157, 0.30980393, 0.12156863, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_3q77y")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(919.5, 248.375)
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(83, 801)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
+position = Vector2(2227, 1135)
+
+[node name="WrappedFormidae" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
+visible = false
+position = Vector2(1432, 890)
+
+[node name="Locker" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
+position = Vector2(1777, 979)
+
+[node name="Sprite2D" parent="Objects/Interactables/Locker/CanvasGroup" index="0"]
+position = Vector2(0, -221.99997)
+scale = Vector2(213.82845, 457.9274)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Locker/MouseArea" index="0"]
+position = Vector2(0, -223.5)
+shape = SubResource("RectangleShape2D_3q77y")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Locker" index="2"]
+position = Vector2(-199, -50.99997)
+
+[node name="Mainframe" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
+position = Vector2(928, 522)
+
+[node name="Sprite2D" parent="Objects/Interactables/Mainframe/CanvasGroup" index="0"]
+position = Vector2(0.32247922, -280.79672)
+scale = Vector2(942.64496, 476.40652)
+
+[node name="CollisionShape2D" parent="Objects/Interactables/Mainframe/MouseArea" index="0"]
+position = Vector2(0.32247925, -295.29675)
+shape = SubResource("RectangleShape2D_e8ahx")
+
+[node name="InteractionTarget" parent="Objects/Interactables/Mainframe" index="2"]
+position = Vector2(-4.6775208, 14.203308)
+
+[editable path="Objects/Interactables/Interactable"]
+[editable path="Objects/Interactables/WrappedFormidae"]
+[editable path="Objects/Interactables/Locker"]
+[editable path="Objects/Interactables/Mainframe"]

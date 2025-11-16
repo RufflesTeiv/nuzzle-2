@@ -64,4 +64,10 @@ y_sort_enabled = true
 [node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_lyf6p")]
 position = Vector2(2227, 1135)
 
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Exemplo" type="Marker2D" parent="Waypoints"]
+position = Vector2(1907, -220)
+
 [editable path="Objects/Interactables/Interactable"]

@@ -1,0 +1,10 @@
+if {GameManager.player_inventory.has_item(2)} == false:
+	Você se aproxima da sua mesa.
+	Na noite passada, você já deixou as rações que você vai levar contigo nessa missão.
+	Aparentemente te forneceram alimento suficiente para quatro ciclos.
+	nuzzle: Então esperam que a gente leve dois dias para completar essa missão...
+	nuzzle: É mais longe do que a última.
+	Suas asas tremem, e você sente calafrios.
+else:
+	Você olha novamente a sua mesa para ver se não esqueceu nada.
+	nuzzle: ...não, tudo certo.

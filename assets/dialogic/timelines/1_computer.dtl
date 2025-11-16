@@ -1,0 +1,15 @@
+if {GameManager.player_inventory.has_item(1)} == false:
+	Este é seu computador, velho e lento, mas durável.
+	Na tela, você vê uma indicação de que seu relicário terminou de carregar, e o desconecta.
+	Você olha mais uma vez para a tela de seu computador, com medo do que pode estar sendo mostrado...
+	...mas não vê nada além da tela inicial do sistema operacional.
+	nuzzle: ...
+	nuzzle: Ok.
+	Você respira fundo.
+	nuzzle: Acho que eu não preciso me preocupar tanto.
+	nuzzle: Eu tenho certeza de que deletei aqueles arquivos, e se houvesse algum problema eu já teria levado uma advertência.
+	Você aperta o botão para deixar o seu computador em stand-by, e se levanta.
+	Ao se afastar, você encara a tela apagada por mais alguns instantes, e continua a se preparar.
+else:
+	Você pensa em ver alguns arquivos no seu computador, mas muda de ideia.
+	nuzzle: ...

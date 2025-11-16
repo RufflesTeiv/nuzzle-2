@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://tohmx1cy7vry"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_oultq"]
+
+[resource]
+script = ExtResource("1_oultq")
+id = 3
+name = "Pistola de luz simples"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

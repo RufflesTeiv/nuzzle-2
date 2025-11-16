@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://d2tihqwa6jn6v"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_s1shm"]
+
+[resource]
+script = ExtResource("1_s1shm")
+name = "Pistola balística formidae"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

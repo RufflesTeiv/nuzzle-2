@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://dql4jscibo5x5"]
+
+[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_kdeng"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_3a7jo"]
+[ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_o4uva"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
+vertices = PackedVector2Array(1860, 1020, 1144.0938, 1020, 1200.5313, 963.5625, 1302, 549.10156, 1256.9609, 381, 1860, 381, 1302, 584.89844)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 0), PackedInt32Array(6, 3, 0), PackedInt32Array(6, 0, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+agent_radius = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kdeng"]
+radius = 711.0
+height = 1442.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a7jo"]
+size = Vector2(1091.5, 410)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
+size = Vector2(176, 530)
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_kdeng")
+
+[node name="EntryPoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="0" type="Marker2D" parent="EntryPoints"]
+position = Vector2(1845, 660)
+
+[node name="BackgroundColor" type="Sprite2D" parent="."]
+modulate = Color(0.8392157, 0.95686275, 0.6156863, 1)
+position = Vector2(960, 540)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_3a7jo")
+
+[node name="Objects" type="Node2D" parent="."]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+y_sort_enabled = true
+navigation_polygon = SubResource("NavigationPolygon_53rpc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(531, 567)
+shape = SubResource("CapsuleShape2D_kdeng")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+position = Vector2(1462, 116)
+shape = SubResource("RectangleShape2D_3a7jo")
+debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
+
+[node name="TriggerAreas" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="0" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(2350, 474)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="Interactables" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+y_sort_enabled = true
+
+[node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+position = Vector2(2227, 1135)
+
+[node name="QyvenSpeaker" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+position = Vector2(331, 471)
+type = 1
+
+[node name="Chair" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+position = Vector2(1314, 753)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Chair" index="2"]
+position = Vector2(161, 38.00003)
+
+[editable path="Objects/Interactables/Interactable"]
+[editable path="Objects/Interactables/QyvenSpeaker"]
+[editable path="Objects/Interactables/Chair"]

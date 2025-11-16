@@ -46,11 +46,6 @@ func _find_idx_by_id(id:int) -> int:
 	
 func _items_changed():
 	items.sort_custom(func(a,b): return a.id < b.id)
-	if items.is_empty():
-		print("Inventory emptied.")
-	else:
-		var items_print := items.map(func(i): return "(%d: %s)" % [i.id, i.name])
-		print("Current inventory: %s" % items_print)
 	items_changed.emit()
 	
 func _remove_idx(idx:int):

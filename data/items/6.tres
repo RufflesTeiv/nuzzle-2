@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://xdpawck1pgkc"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_physc"]
+
+[resource]
+script = ExtResource("1_physc")
+id = 6
+name = "Chave de acesso (N1)"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

@@ -9,6 +9,7 @@ class_name ScreenController
 @onready var interactables : Node2D = %Interactables
 @onready var objects: Node2D = %Objects
 @onready var trigger_areas: Node2D = %TriggerAreas
+@onready var waypoints: Node2D = %Waypoints
 #endregion
 
 #region Signals
@@ -40,10 +41,11 @@ func _exit_tree(): pass
 
 #region Public functions
 func enter(entry_point : int, character := Global.Character.NONE, walkable := true):
+	if !is_node_ready():
+		await ready
 	_instantiate_character(character, walkable)
 	_position_character_at_entry_point(entry_point)
-	_screen_start()
-	#await get_tree().create_timer(1.0).timeout
+	await _screen_start()
 	await get_tree().process_frame
 	_watch_interactables()
 	_watch_trigger_areas(walkable)
@@ -89,6 +91,14 @@ func _get_interactable_by_name(n:String) -> Node2D:
 	for child : Node2D in interactables.get_children():
 		if child.name == n:
 			return child
+	return null
+	
+func _get_waypoint_by_name(n:String) -> Marker2D:
+	if !waypoints:
+		return null
+	for waypoint in waypoints.get_children():
+		if waypoint.name == n:
+			return waypoint
 	return null
 	
 func _instantiate_character(c : Global.Character, walkable := true):

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_qj1xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whunj"]
-size = Vector2(203.85583, 198.70462)
+size = Vector2(222, 198.70462)
 
 [node name="Interactable" type="Node2D"]
 y_sort_enabled = true

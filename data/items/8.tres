@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://ni418aollbj7"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_fgg3j"]
+
+[resource]
+script = ExtResource("1_fgg3j")
+id = 8
+name = "Faca de campanha"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

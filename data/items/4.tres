@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://4bxxko1vkx6o"]
+
+[ext_resource type="Script" uid="uid://btmj4dudoruef" path="res://models/item.gd" id="1_mbvxb"]
+
+[resource]
+script = ExtResource("1_mbvxb")
+id = 4
+name = "Fotomunição"
+metadata/_custom_type_script = "uid://btmj4dudoruef"

@@ -5,6 +5,7 @@ class_name InventoryItemView
 #endregion
 
 #region Parameters (consts and exportvars)
+@onready var debug_label: Label = %DebugLabel
 @onready var texture_rect: TextureRect = %TextureRect
 #endregion
 
@@ -43,13 +44,16 @@ func set_item(i: Item):
 
 #region Private functions
 func _update_graphics():
-	if texture_rect == null:
+	if !texture_rect or !debug_label:
 		await ready
 	if item == null:
+		debug_label.hide()
 		texture_rect.hide()
 		return
 	texture_rect.texture = item.texture_2d
 	texture_rect.show()
+	debug_label.text = item.name
+	debug_label.show()
 #endregion
 
 #region Subclasses

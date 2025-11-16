@@ -13,7 +13,6 @@ subpixel_positioning = 0
 font = SubResource("SystemFont_6aecc")
 
 [node name="SleepyNuzzle" type="CharacterBody2D"]
-y_sort_enabled = true
 motion_mode = 1
 floor_constant_speed = true
 script = ExtResource("1_db18y")

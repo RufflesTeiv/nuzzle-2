@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqv1qam6n8gvx"]
+[gd_scene load_steps=2 format=3 uid="uid://bqv1qam6n8gvx"]
 
 [ext_resource type="Script" uid="uid://b5uhvm4opofe" path="res://views/inventory_item_view.gd" id="1_gc34l"]
-[ext_resource type="Texture2D" uid="uid://doxhhfly118tc" path="res://icon.svg" id="1_r41fu"]
 
 [node name="InventoryItem" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 150)
@@ -16,6 +15,15 @@ theme_override_constants/margin_bottom = 5
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
-texture = ExtResource("1_r41fu")
 expand_mode = 3
+
+[node name="DebugLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "[nome_do_item]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
