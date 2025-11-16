@@ -46,7 +46,8 @@ func enter(entry_point : int, character := Global.Character.NONE, walkable := tr
 	_instantiate_character(character, walkable)
 	_position_character_at_entry_point(entry_point)
 	await _screen_start()
-	await get_tree().process_frame
+	#await get_tree().process_frame
+	await get_tree().create_timer(0.5).timeout
 	_watch_interactables()
 	_watch_trigger_areas(walkable)
 #endregion

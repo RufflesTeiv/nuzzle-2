@@ -158,6 +158,9 @@ shape = SubResource("RectangleShape2D_jmtjl")
 [node name="InteractionTarget" parent="Objects/Interactables/GuardRobot" index="2"]
 position = Vector2(-282, 161)
 
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [editable path="Objects/Interactables/Computer"]
 [editable path="Objects/Interactables/Pipes"]
 [editable path="Objects/Interactables/GuardRobot"]

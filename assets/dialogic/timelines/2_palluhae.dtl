@@ -1,0 +1,31 @@
+if {s2_talked_palluhae} == false:
+	palluhae: Nuzzle!
+	palluhae: Parece que você acordou mais cedo hoje.
+	nuzzle: É, não tenho dormido muito bem ultimamente.
+	palluhae: Você tem que tomar cuidado com isso, nenhum clérigo que se preze vai conseguir cumprir suas funções se estiver caindo de sono.
+	Palluhae se levanta desconfortavelmente, em aparente desequilíbrio.
+	set {s2_talked_palluhae} = true
+palluhae: Está pronto para a nossa missão?
+- Estou pronto.
+	palluhae: Ótimo, vamos fazer a checagem.
+	palluhae: Você está obviamente com sua vestimenta, o que é um bom começo.
+	palluhae: Você pegou seu relicário?
+	if {GameManager.player_inventory.has_item(1)} == false:
+		nuzzle: Hã... Na verdade não...
+		palluhae: Mas como! De nada adianta um clérigo sem o seu relicário.
+		palluhae: Vá lá buscar, estarei esperando aqui.
+	else:
+		nuzzle: Sim.
+		palluhae: Ótimo. E as rações para nossos ciclos de missão?
+		if {GameManager.player_inventory.has_item(2)} == false:
+			nuzzle: Não...
+			palluhae: Não quero que tenhamos que caçar animais selvagens para sobrevivermos.
+			palluhae: Suas rações já devem estar em algum lugar do seu quarto.
+		else:
+			nuzzle: Estão aqui.
+			palluhae: Ótimo! Então já podemos seguir em viagem.
+			[signal arg="ready"]
+
+- Não, ainda preciso arrumar algumas coisas.
+	palluhae: Pois bem! Ainda estamos antes do horário de partir.
+	palluhae: Estarei te esperando aqui quando estiver pronto.

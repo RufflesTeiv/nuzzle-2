@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c5vb4hl4yox3w"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_jgkvx"]
+[ext_resource type="Script" uid="uid://d065u4gmrs0y5" path="res://scenes_and_controllers/screens/screen_2.gd" id="1_28d5p"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_b2dgk"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_28d5p"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_b2dgk"]
@@ -25,10 +25,10 @@ size = Vector2(12.088554, 1.4860834)
 size = Vector2(176, 530)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28d5p"]
-size = Vector2(216, 386)
+size = Vector2(216, 287.48755)
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_jgkvx")
+script = ExtResource("1_28d5p")
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -123,8 +123,17 @@ position = Vector2(-186, 87)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_b2dgk")]
 position = Vector2(979, 682)
 
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+position = Vector2(96, 74)
+
 [node name="Car" parent="Objects/Interactables" instance=ExtResource("5_28d5p")]
 position = Vector2(403, 855)
-display_name = "Carro"
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ExitStop" type="Marker2D" parent="Waypoints"]
+position = Vector2(333, 408)
 
 [editable path="Objects/Interactables/Guard"]
+[editable path="Objects/Interactables/Palluhae"]

@@ -50,4 +50,7 @@ type = 1
 [node name="TriggerAreas" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
 
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
 [editable path="Objects/Interactables/Glovebox"]

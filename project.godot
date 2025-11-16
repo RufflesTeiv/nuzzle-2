@@ -53,6 +53,11 @@ directories/dtl_directory={
 "1_start": "res://assets/dialogic/timelines/1_start.dtl",
 "1_table": "res://assets/dialogic/timelines/1_table.dtl",
 "1_window": "res://assets/dialogic/timelines/1_window.dtl",
+"2_car": "res://assets/dialogic/timelines/2_car.dtl",
+"2_enter": "res://assets/dialogic/timelines/2_enter.dtl",
+"2_guard": "res://assets/dialogic/timelines/2_guard.dtl",
+"2_leave": "res://assets/dialogic/timelines/2_leave.dtl",
+"2_palluhae": "res://assets/dialogic/timelines/2_palluhae.dtl",
 "timeline_test": "res://assets/dialogic/timelines/timeline_test.dtl"
 }
 layout/style_directory={}
@@ -60,7 +65,8 @@ layout/style_list=[]
 layout/default_style=""
 variables={
 "s0_computer_on": false,
-"s0_middle_read": false
+"s0_middle_read": false,
+"s2_talked_palluhae": false
 }
 glossary/default_case_sensitive=true
 extensions_folder="res://addons/dialogic_additions"
