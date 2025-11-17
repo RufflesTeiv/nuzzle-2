@@ -58,6 +58,7 @@ func set_player_controller(pc: PlayerController): player_controller = pc
 
 #region Private functions
 func _on_inventory_changed():
+	UiManager.main_ui.open_inventory()
 	inventory_changed.emit(player_inventory)
 #endregion
 

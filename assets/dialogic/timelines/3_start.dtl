@@ -1,0 +1,32 @@
+if {s5_visited} == false:
+	As horas passam devagar ao longo da viagem.
+	Apesar do aparente ânimo de Palluhae antes de vocês partirem, não houve muita conversa entre vocês dois.
+	As coisas realmente estavam estranhas desde a última missão...
+	...principalmente com o garoto ciborgue sentado no banco de trás.
+	[wait time="0.5"]
+	nuzzle: ...
+	nuzzle: Por que ele veio com a gente?
+	palluhae: ...
+	palluhae: A Cidadela quer testar o seu uso em operações de campo.
+	palluhae: Não é sempre que conseguimos pôr a mão em tecnologias antigas.
+	[wait time="1.0"]
+	Você olha para trás, e vê o garoto tentando se esconder de Palluhae.
+	cyborg_kid: ...
+	Todo o lado direito de seu corpo, inclusive seu rosto, parece ter sido troc-
+	palluhae: Não olhe tempo demais para ele.
+	palluhae: Não tem como saber o que ele está tramando.
+else:
+	palluhae: -zzle.
+	palluhae: Nuzzle!
+	nuzzle: ...oi, desculpe, diga.
+	palluhae: Estamos chegando.
+	[signal arg="arrived"]
+	[wait time="2.0"]
+	nuzzle: ...
+	palluhae: ...
+	palluhae: Acho que há como entrar.
+	nuzzle: Não é melhor mandar um drone de reconhecimento antes?
+	palluhae: ...O drone que temos é o nosso último, e ele está muito danificado por causa da nossa última missão.
+	nuzzle: ...
+	palluhae: Entraremos nós mesmos.
+	[signal arg="ended"]

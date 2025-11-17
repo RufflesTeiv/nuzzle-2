@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://dyg0yd15uffaw"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_dvu7q"]
+[ext_resource type="Script" uid="uid://bb3gfyropouyj" path="res://scenes_and_controllers/screens/screen_4.gd" id="1_0teqw"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_sioaf"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_0teqw"]
 [ext_resource type="PackedScene" uid="uid://2u74fv1ey24u" path="res://scenes_and_controllers/interactables/car.tscn" id="4_sioaf"]
@@ -25,7 +25,7 @@ size = Vector2(176, 530)
 size = Vector2(1084, 160)
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_dvu7q")
+script = ExtResource("1_0teqw")
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -198,7 +198,7 @@ position = Vector2(238.99988, 261)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("5_0teqw")]
 position = Vector2(1011, 439)
 
-[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="3"]
 position = Vector2(-86, 85)
 
 [editable path="Objects/Interactables/Plant1"]

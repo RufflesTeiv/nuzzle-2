@@ -23,7 +23,7 @@ palluhae: Está pronto para a nossa missão?
 			palluhae: Suas rações já devem estar em algum lugar do seu quarto.
 		else:
 			nuzzle: Estão aqui.
-			palluhae: Ótimo! Então já podemos seguir em viagem.
+			palluhae: Ótimo! Vou guardar as rações, e já podemos seguir em viagem.
 			[signal arg="ready"]
 
 - Não, ainda preciso arrumar algumas coisas.

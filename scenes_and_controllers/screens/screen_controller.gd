@@ -94,6 +94,13 @@ func _get_interactable_by_name(n:String) -> Node2D:
 			return child
 	return null
 	
+func _get_interactables() -> Array[InteractableController]:
+	var result : Array[InteractableController] = []
+	for child : InteractableController in interactables.get_children():
+		if child:
+			result.append(child)
+	return result
+	
 func _get_waypoint_by_name(n:String) -> Marker2D:
 	if !waypoints:
 		return null

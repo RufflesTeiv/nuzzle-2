@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgjogejtvon4c"]
 
-[ext_resource type="Script" uid="uid://dy87cpkgdxwrm" path="res://scenes_and_controllers/interactables/interactable_controller.gd" id="1_rx5bb"]
+[ext_resource type="Script" uid="uid://pyi3nd4vki7b" path="res://scenes_and_controllers/interactables/interactable_entity_controller.gd" id="1_rx5bb"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_8my75"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
@@ -10,6 +10,9 @@ size = Vector2(184, 274)
 y_sort_enabled = true
 script = ExtResource("1_rx5bb")
 display_name = "Palluhae"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 unique_name_in_owner = true

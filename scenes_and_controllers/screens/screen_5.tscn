@@ -120,7 +120,7 @@ position = Vector2(7, 226)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_ttft7")]
 position = Vector2(1749, 891)
 
-[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="3"]
 position = Vector2(-70, 69)
 
 [editable path="Objects/Interactables/Drone"]

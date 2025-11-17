@@ -1,0 +1,22 @@
+if {GameManager.player_inventory.has_item(3)} == false:
+	if {s3_pistol_seen} == false:
+		Curioso, você abre o porta-luvas.
+		Lá dentro, você vê uma **pistola de luz** e algumas **fotomunições**.
+		palluhae: A ordem clérica da Cidadela ainda não te forneceu uma arma, certo?
+		palluhae: Se quiser, pode ficar com essa durante essa missão.
+		set {s3_pistol_seen} = true
+	else:
+		Você abre o porta-luvas novamente, e encara a pistola.
+	- Pegar a pistola.
+		Você pega a pistola, e percebe que mais ao fundo da gaveta existe também um coldre.
+		Você ajusta o coldre ao redor da sua cintura.
+		O peso da pistola é desconfortável, mas afirmador.
+		[signal arg="pistol_get"]
+	- Não pegar a pistola.
+		Você fecha o porta-luvas.
+		palluhae: Você ainda não sabe atirar, certo?
+		palluhae: Vou deixar a pistola aí.
+		palluhae: ...E talvez mais tarde eu possa te ensinar a atirar.
+else:
+	Você não encontra muito mais no porta-luvas, só documentos e algumas tralhas.
+	palluhae: "Faz muito tempo que não limpo aí."

@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://o5h1ive8wjxc"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_pau2b"]
+[ext_resource type="Script" uid="uid://beilpcfcyfnpl" path="res://scenes_and_controllers/screens/screen_3.gd" id="1_kog8n"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_kog8n"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_cns7e"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_kog8n"]
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_pau2b")
+script = ExtResource("1_kog8n")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -38,6 +38,7 @@ position = Vector2(2348, 645)
 [node name="Glovebox" parent="Objects/Interactables" instance=ExtResource("3_cns7e")]
 position = Vector2(1291, 691)
 rotation = -0.6979814
+type = 1
 display_name = "Porta-luvas"
 
 [node name="Sprite2D" parent="Objects/Interactables/Glovebox/CanvasGroup" index="0"]

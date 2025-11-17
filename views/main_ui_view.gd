@@ -59,6 +59,10 @@ func fade_out(fo_layer := FadeOutLayer.FULL, time := 0.5):
 	
 func reset():
 	_close_inventory()
+	
+func open_inventory():
+	inventory.show()
+	InputManager.push_state_to_stack(InputManager.State.INVENTORY)
 #endregion
 
 #region Private functions	
@@ -97,13 +101,9 @@ func _on_input_stack_changed(stack: Array[InputManager.State]):
 		background_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 		fade_out(FadeOutLayer.BACKGROUND,0.25)
 	
-func _open_inventory():
-	inventory.show()
-	InputManager.push_state_to_stack(InputManager.State.INVENTORY)
-	
 func _toggle_inventory():
 	if inventory.visible: _close_inventory()
-	else: _open_inventory()
+	else: open_inventory()
 	
 func _tween_modulate_alpha(ci : CanvasItem, to: float, time: float) -> Tween:
 	if !ci.visible and to > 0.0:
