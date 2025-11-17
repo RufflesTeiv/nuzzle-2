@@ -45,8 +45,6 @@ func _is_plant(n:String) -> bool:
 
 func _randomize_plant():
 	var interacts := _get_interactables()
-	print(interacts.size())
 	var plants := interacts.filter(func(i:InteractableController): return i.name.contains("Plant"))
-	print(plants.size())
 	random_plant_number = range(plants.size()).pick_random()+1
 #endregion

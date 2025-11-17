@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c85gr6g3bl0xm"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_e8ahx"]
+[ext_resource type="Script" uid="uid://bxnx7grmy1yse" path="res://scenes_and_controllers/screens/screen_11.gd" id="1_e8ahx"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_3q77y"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_p8ry6"]
 
@@ -30,6 +30,9 @@ unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
 position = Vector2(84, 879)
+
+[node name="1" type="Marker2D" parent="EntryPoints"]
+position = Vector2(934, 525)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.4392157, 0.30980393, 0.12156863, 1)

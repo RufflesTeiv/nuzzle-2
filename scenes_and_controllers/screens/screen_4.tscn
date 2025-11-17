@@ -33,6 +33,9 @@ unique_name_in_owner = true
 [node name="0" type="Marker2D" parent="EntryPoints"]
 position = Vector2(1746, 966)
 
+[node name="1" type="Marker2D" parent="EntryPoints"]
+position = Vector2(585, 159)
+
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.5346, 0.66, 0.57640004, 1)
 position = Vector2(960, 540)

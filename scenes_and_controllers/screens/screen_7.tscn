@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c3unq5kwdeif"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_f550l"]
+[ext_resource type="Script" uid="uid://be67qlrhbkewx" path="res://scenes_and_controllers/screens/screen_7.gd" id="1_iuf84"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_iuf84"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_kukyt"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_iuf84"]
@@ -24,7 +24,7 @@ size = Vector2(216, 186)
 size = Vector2(216, 186)
 
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_f550l")
+script = ExtResource("1_iuf84")
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true

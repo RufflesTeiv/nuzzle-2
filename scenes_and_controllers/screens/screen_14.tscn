@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://e1onp63e2koe"]
+[gd_scene load_steps=11 format=3 uid="uid://e1onp63e2koe"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_7o3ch"]
+[ext_resource type="Script" uid="uid://b8amrlkcjgvxu" path="res://scenes_and_controllers/screens/screen_14.gd" id="1_jo0tm"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p1db2"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_5aw7l"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_vch2i"]
+[ext_resource type="FontFile" uid="uid://fudi0a1jh32y" path="res://assets/fonts/StackSansNotch-SemiBold.ttf" id="5_ccwex"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(1860, 868.27344, 60, 868.27344, 60, 469, 1860, 469)
@@ -20,8 +21,12 @@ size = Vector2(176, 530)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kukyt"]
 size = Vector2(540, 296.05093)
 
+[sub_resource type="LabelSettings" id="LabelSettings_mmop7"]
+font = ExtResource("5_ccwex")
+font_size = 136
+
 [node name="Screen" type="Node2D"]
-script = ExtResource("1_7o3ch")
+script = ExtResource("1_jo0tm")
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -98,6 +103,32 @@ position = Vector2(3, 152)
 
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_vch2i")]
 position = Vector2(189, 859)
+
+[node name="End" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="End"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="CenterContainer" parent="End/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="End/ColorRect/MarginContainer"]
+layout_mode = 2
+text = "Continua..."
+label_settings = SubResource("LabelSettings_mmop7")
+horizontal_alignment = 1
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/GraffitiedCoordinates"]

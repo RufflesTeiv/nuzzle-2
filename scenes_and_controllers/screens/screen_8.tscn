@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bto4fbkco7rjf"]
 
-[ext_resource type="Script" uid="uid://b8exmxaeqmhnf" path="res://scenes_and_controllers/screens/screen_controller.gd" id="1_cmflw"]
+[ext_resource type="Script" uid="uid://ffhc864kftmp" path="res://scenes_and_controllers/screens/screen_8.gd" id="1_cmflw"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p8rvt"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_vh14b"]
 
@@ -45,6 +45,9 @@ position = Vector2(1143, 344)
 
 [node name="3" type="Marker2D" parent="EntryPoints"]
 position = Vector2(1839, 725)
+
+[node name="4" type="Marker2D" parent="EntryPoints"]
+position = Vector2(641, 710)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.44, 0.30800003, 0.123199984, 1)
@@ -91,22 +94,22 @@ y_sort_enabled = true
 [node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(2227, 1135)
 
-[node name="Communications Room Door" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+[node name="CommunicationsRoomDoor" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(631, 255)
 
-[node name="InteractionTarget" parent="Objects/Interactables/Communications Room Door" index="2"]
+[node name="InteractionTarget" parent="Objects/Interactables/CommunicationsRoomDoor" index="2"]
 position = Vector2(5, 82)
 
-[node name="Biometrics Terminal" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
+[node name="BiometricsTerminal" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(793, 255)
 
-[node name="Sprite2D" parent="Objects/Interactables/Biometrics Terminal/CanvasGroup" index="0"]
+[node name="Sprite2D" parent="Objects/Interactables/BiometricsTerminal/CanvasGroup" index="0"]
 scale = Vector2(76.7463, 80.60595)
 
-[node name="CollisionShape2D" parent="Objects/Interactables/Biometrics Terminal/MouseArea" index="0"]
+[node name="CollisionShape2D" parent="Objects/Interactables/BiometricsTerminal/MouseArea" index="0"]
 shape = SubResource("RectangleShape2D_xxvki")
 
-[node name="InteractionTarget" parent="Objects/Interactables/Biometrics Terminal" index="2"]
+[node name="InteractionTarget" parent="Objects/Interactables/BiometricsTerminal" index="2"]
 position = Vector2(5, 82)
 
 [node name="BreakableWall" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
@@ -144,8 +147,8 @@ shape = SubResource("RectangleShape2D_cmflw")
 position = Vector2(233, -12.9999695)
 
 [editable path="Objects/Interactables/Interactable"]
-[editable path="Objects/Interactables/Communications Room Door"]
-[editable path="Objects/Interactables/Biometrics Terminal"]
+[editable path="Objects/Interactables/CommunicationsRoomDoor"]
+[editable path="Objects/Interactables/BiometricsTerminal"]
 [editable path="Objects/Interactables/BreakableWall"]
 [editable path="Objects/Interactables/MainDoor"]
 [editable path="Objects/Interactables/CenterTable"]
