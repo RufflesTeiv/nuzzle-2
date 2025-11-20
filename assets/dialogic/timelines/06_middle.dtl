@@ -1,0 +1,4 @@
+if {s06_middle_read} == false:
+	A entrada da base parece ter sido construída diretamente na lateral de uma colina.
+	A única coisa que você consegue ver é uma grande porta de metal, quase completamente coberta pela vegetação.
+	set {s06_middle_read} = true

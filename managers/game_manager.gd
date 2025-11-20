@@ -18,6 +18,7 @@ var character_scenes : Dictionary[Global.Character,PackedScene] = {
 }
 var player_controller : PlayerController
 var player_inventory : Inventory
+var screen_id_history : Array[int] = []
 #endregion
 
 #region Computed properties
@@ -43,8 +44,14 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func add_to_screen_history(id:int):
+	screen_id_history.append(id)
+	
 func get_current_character_scene() -> PackedScene:
 	return character_scenes[current_character]
+	
+func has_visited_screen(id:int):
+	return screen_id_history.has(id)
 	
 func set_current_character(c:Global.Character):
 	if c == null:

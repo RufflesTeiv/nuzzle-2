@@ -13,6 +13,8 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 		1: func(_body): _change_screen(8,0,Global.Character.NUZZLE)
 	}
 	return dict
+	
+func _on_dialogue_signal(timeline:String,arg:String): pass
 
 func _screen_start(): pass
 	

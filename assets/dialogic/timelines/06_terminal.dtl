@@ -1,0 +1,13 @@
+À sua frente, está um terminal, que surge como um totem do chão sob seus pés.
+Sua tela parece estar parcialmente quebrada, e pequenas plantas crescem ao seu redor.
+Conectar seu relicário ao terminal?
+- Sim.
+	Você puxa alguns cabos da parte de trás do seu relicário, e os conecta no terminal.
+	A tela quebrada do terminal acende em uma luz fraca, e você rapidamente decodifica os códigos de acesso.
+	[signal arg="door_open"]
+	Você escuta um estrondo vindo da direção da porta, e como da outra vez, ela se abre.
+	Parece que você está pegando o jeito da coisa...
+	nuzzle: ...
+	palluhae: Muito bom, Nuzzle. Vamos seguir em frente.
+	cyborg_kid: ...
+- Ainda não...

@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://rdjue2bwrotl"]
+[gd_scene load_steps=15 format=3 uid="uid://rdjue2bwrotl"]
 
 [ext_resource type="Script" uid="uid://bbkqwwv781p4d" path="res://scenes_and_controllers/screens/screen_6.gd" id="1_8hjr2"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_8hjr2"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_ws15x"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_8hjr2"]
+[ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_ws15x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(609.7422, 1003.78125, 612.5781, 1020, 60, 1020, 60, 1013.59375, 287.45313, 442.34375, 1733.5313, 806.59375, 1409.4219, 174.61719, 1739.6563, 244.28125)
@@ -58,36 +59,38 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(40.618935, 409.24054)
 rotation = 0.3789563
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(663.00006, 141.00002)
 rotation = 1.3365586
 shape = SubResource("RectangleShape2D_8hjr2")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(1550.9999, -6.0000153)
 rotation = 1.7786865
 shape = SubResource("RectangleShape2D_8hjr2")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="DoorCollision" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="DoorCollision" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(1945.0001, 303)
 rotation = 3.1524909
 shape = SubResource("RectangleShape2D_8hjr2")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(1313.0001, 1053.9999)
 rotation = -0.17369236
 shape = SubResource("RectangleShape2D_ws15x")
@@ -110,6 +113,14 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+shape = SubResource("RectangleShape2D_p02gt")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="2" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(815, 636)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/2"]
 shape = SubResource("RectangleShape2D_p02gt")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
@@ -160,10 +171,23 @@ position = Vector2(0, -79.5)
 shape = SubResource("RectangleShape2D_u48sr")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Skeleton" index="2"]
-position = Vector2(-5, 29)
+position = Vector2(-4, 113)
 
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_8hjr2")]
-position = Vector2(660, 980)
+position = Vector2(735, 802)
+enable_interaction = false
+
+[node name="Cyborg Kid" parent="Objects/Interactables" instance=ExtResource("5_ws15x")]
+position = Vector2(215, 1002)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PalluhaeTarget" type="Marker2D" parent="Waypoints"]
+position = Vector2(1214, 251)
+
+[node name="KidSpawn1" type="Marker2D" parent="Waypoints"]
+position = Vector2(1711, 629)
 
 [editable path="Objects/Interactables/Terminal"]
 [editable path="Objects/Interactables/Door"]

@@ -6,9 +6,11 @@ class_name ScreenController
 
 #region Parameters (consts and exportvars)
 @onready var entry_points: Node2D = %EntryPoints
-@onready var interactables : Node2D = %Interactables
-@onready var objects: Node2D = %Objects
+@onready var navigation_region: NavigationRegion2D = %NavigationRegion2D
+@onready var navigation_static_body: StaticBody2D = %NavigationStaticBody
 @onready var trigger_areas: Node2D = %TriggerAreas
+@onready var objects: Node2D = %Objects
+@onready var interactables : Node2D = %Interactables
 @onready var waypoints: Node2D = %Waypoints
 #endregion
 
@@ -45,7 +47,7 @@ func enter(entry_point : int, character := Global.Character.NONE, walkable := tr
 	if !is_node_ready():
 		await ready
 	entered_through = entry_point
-	_instantiate_character(character, walkable)
+	await _instantiate_character(character, walkable)
 	_position_character_at_entry_point(entry_point)
 	await _screen_start()
 	#await get_tree().process_frame
@@ -76,6 +78,10 @@ func _screen_start(): pass
 #endregion
 
 #region Private functions	
+func _bake_navigation_region():
+	navigation_region.bake_navigation_polygon()
+	await navigation_region.bake_finished
+
 func _change_screen(id:int,entry_point:int,character:Global.Character):
 	await _screen_exit()
 	screen_changed.emit(id,entry_point,character)
@@ -93,8 +99,8 @@ func _get_entry_point(ep:int) -> Vector2:
 			return child.global_position
 	return Vector2.ZERO
 	
-func _get_interactable_by_name(n:String) -> Node2D:
-	for child : Node2D in interactables.get_children():
+func _get_interactable_by_name(n:String) -> InteractableController:
+	for child : InteractableController in interactables.get_children():
 		if child.name == n:
 			return child
 	return null
@@ -105,6 +111,14 @@ func _get_interactables() -> Array[InteractableController]:
 		if child:
 			result.append(child)
 	return result
+	
+func _get_navigation_collision_by_name(n:String) -> CollisionShape2D:
+	if !navigation_static_body:
+		return null
+	for collision_shape : CollisionShape2D in navigation_static_body.get_children():
+		if n == collision_shape.name:
+			return collision_shape
+	return null
 	
 func _get_waypoint_by_name(n:String) -> Marker2D:
 	if !waypoints:
@@ -127,6 +141,8 @@ func _instantiate_character(c : Global.Character, walkable := true):
 	character_controller.set_walkable(walkable)
 	GameManager.set_player_controller(character_controller)
 	objects.add_child(character_controller)
+	if !character_controller.is_node_ready():
+		await character_controller.ready
 	
 func _on_area_body_entered(id: int, body: Node2D):
 	print("Body %s entered in area %s" % [body,id])

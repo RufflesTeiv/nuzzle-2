@@ -1,0 +1,8 @@
+Você se aproxima de Palluhae, e vê o exoesqueleto de um formidae.
+Toda a sua carne havia apodrecido há décadas, e o que restava à sua frente era apenas a casca do que já foi um guerreiro.
+nuzzle: ...Sinais de luta.
+palluhae: Sim. Mas foi há muito tempo.
+O esqueleto parecia estar usando roupas que um dia já foram brancas, como um jaleco.
+O garoto ciborgue emite um som, e se esconde atrás de você.
+cyborg_kid: ...
+set {s06_skeleton_seen} = true

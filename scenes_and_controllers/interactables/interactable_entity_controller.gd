@@ -24,6 +24,10 @@ func _physics_process(delta):
 #endregion
 
 #region Public methods
+func force_position(pos:Vector2):
+	position = pos
+	set_target_position(pos)
+	
 func set_persistent_target(t: Node2D):
 	persistent_target = t
 	

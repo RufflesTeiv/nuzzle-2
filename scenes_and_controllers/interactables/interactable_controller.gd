@@ -15,6 +15,7 @@ enum Type {
 
 @export var type := Type.TOUCH
 @export var display_name := ""
+@export var enable_interaction := true
 #endregion
 
 #region Signals
@@ -45,13 +46,7 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-#endregion
-
-#region Private functions
-func _check_input_state() -> bool:
-	return InputManager.check_top_state(InputManager.State.MAIN)
-	
-func _check_interaction():
+func try_interaction():
 	match type:
 		Type.TOUCH:
 			var pos := interaction_target_marker.global_position
@@ -60,6 +55,11 @@ func _check_interaction():
 			GameManager.player_controller.target_reached.connect(_interact)
 		Type.WATCH:
 			_interact()
+#endregion
+
+#region Private functions
+func _check_input_state() -> bool:
+	return InputManager.check_top_state(InputManager.State.MAIN) and enable_interaction
 
 func _on_input_event(_v: Node, event: InputEvent, _sidx: int):
 	if not _check_input_state():
@@ -68,7 +68,7 @@ func _on_input_event(_v: Node, event: InputEvent, _sidx: int):
 		return
 	var mouse_event := event as InputEventMouseButton
 	if mouse_event.pressed:
-		_check_interaction()
+		try_interaction()
 		
 func _interact():
 	interacted.emit()

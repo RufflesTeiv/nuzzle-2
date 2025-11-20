@@ -13,7 +13,6 @@ class_name MainSceneController
 
 #region Variables
 var current_screen : ScreenController
-var screen_id_history : Array[int] = []
 #endregion
 
 #region Computed properties
@@ -38,8 +37,6 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-func has_visited_screen(id:int):
-	return screen_id_history.has(id)
 #endregion
 
 #region Private functions
@@ -69,7 +66,7 @@ func _load_screen(id : int, entry_point := 0, character := Global.Character.NONE
 		await current_screen.ready
 	UiManager.main_ui.reset()
 	UiManager.main_ui.fade_in()
-	screen_id_history.append(id)
+	GameManager.add_to_screen_history(id)
 	return true
 	
 func _load_screen_command(id: int, entry_point: int, character_int: int) -> String:
