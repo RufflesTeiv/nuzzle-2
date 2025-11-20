@@ -21,6 +21,7 @@ signal screen_changed(id:int,entry_point:int,character:Global.Character)
 #region Variables
 var character_controller : PlayerController
 var entered_through : int
+var going_to_screen := -1
 #endregion
 
 #region Computed properties
@@ -83,6 +84,7 @@ func _bake_navigation_region():
 	await navigation_region.bake_finished
 
 func _change_screen(id:int,entry_point:int,character:Global.Character):
+	going_to_screen = id
 	await _screen_exit()
 	screen_changed.emit(id,entry_point,character)
 	

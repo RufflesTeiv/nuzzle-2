@@ -1,5 +1,6 @@
 extends ScreenController
 
+var door_opened := false
 var middle_reached := false
 
 #region Overrides
@@ -12,9 +13,10 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 		"Skeleton": func():
 			UiManager.start_dialogue("06_skeleton"),
 		"Palluhae": func():
-			UiManager.start_dialogue("06_palluhae")
-			await UiManager.dialogue_ended
-			_get_interactable_by_name("Skeleton").try_interaction(),
+			if !door_opened:
+				UiManager.start_dialogue("06_palluhae")
+				await UiManager.dialogue_ended
+				_get_interactable_by_name("Skeleton").try_interaction(),
 		"Cyborg Kid": func():
 			UiManager.start_dialogue("06_kid"),
 	}
@@ -43,7 +45,11 @@ func _screen_start():
 	_move_palluhae()
 	_starting_dialogue()
 	
-func _screen_exit(): pass
+func _screen_exit():
+	GameManager.player_controller.stop_movement()
+	if !GameManager.has_visited_screen(7) and going_to_screen == 7:
+		UiManager.start_dialogue("06_end")
+		await UiManager.dialogue_ended
 #endregion
 
 #region Private functions
@@ -78,6 +84,10 @@ func _remove_door():
 	await _bake_navigation_region()
 	_get_area_by_id(1).monitoring = true
 	_get_interactable_by_name("Door").hide()
+	var palluhae := _get_interactable_by_name("Palluhae") as InteractableEntityController
+	if palluhae.visible:
+		palluhae.set_target_position(_get_waypoint_by_name("PalluhaeTarget2").position)
+	door_opened = true
 	
 func _starting_dialogue():
 	if !GameManager.has_visited_screen(6):

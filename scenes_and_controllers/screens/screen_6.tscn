@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_ws15x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
-vertices = PackedVector2Array(609.7422, 1003.78125, 612.5781, 1020, 60, 1020, 60, 1013.59375, 287.45313, 442.34375, 1733.5313, 806.59375, 1409.4219, 174.61719, 1739.6563, 244.28125)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6, 7)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+vertices = PackedVector2Array(609.7422, 1003.78125, 612.5781, 1020, 60, 1020, 60, 1013.59375, 287.45313, 442.34375, 1733.5313, 806.59375, 1409.4219, 174.61719, 1739.6563, 244.28125, 2171.9531, 396.2422, 2165.9531, 679.27344, 2146.7969, 684.64844, 2149.9922, 391.5078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6, 7), PackedInt32Array(8, 9, 10, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920.0002, 810.7154, 2225, 725, 2233, 348, 1920.0001, 280.66425, 1920, 0)])
 agent_radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
@@ -185,6 +185,9 @@ unique_name_in_owner = true
 
 [node name="PalluhaeTarget" type="Marker2D" parent="Waypoints"]
 position = Vector2(1214, 251)
+
+[node name="PalluhaeTarget2" type="Marker2D" parent="Waypoints"]
+position = Vector2(1842, 388)
 
 [node name="KidSpawn1" type="Marker2D" parent="Waypoints"]
 position = Vector2(1711, 629)

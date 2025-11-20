@@ -57,6 +57,7 @@ directories/dtl_directory={
 "05_terminal_bad": "res://assets/dialogic/timelines/05_terminal_bad.dtl",
 "05_terminal_good": "res://assets/dialogic/timelines/05_terminal_good.dtl",
 "06_door": "res://assets/dialogic/timelines/06_door.dtl",
+"06_end": "res://assets/dialogic/timelines/06_end.dtl",
 "06_kid": "res://assets/dialogic/timelines/06_kid.dtl",
 "06_middle": "res://assets/dialogic/timelines/06_middle.dtl",
 "06_palluhae": "res://assets/dialogic/timelines/06_palluhae.dtl",
