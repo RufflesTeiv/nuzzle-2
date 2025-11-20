@@ -61,10 +61,10 @@ func _check_plant_interactable(i_name: String):
 	var player_has_item := GameManager.player_inventory.has_item(6)
 	if is_random_plant and !player_has_item:
 		UiManager.start_dialogue("04_right_plant")
+		await UiManager.dialogue_ended
 		GameManager.player_inventory.add_item_by_id(6)
 	else:
 		UiManager.start_dialogue("04_wrong_plant")
-		pass
 		
 func _is_plant(n:String) -> bool:
 	return n.contains("Plant")

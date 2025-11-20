@@ -1,0 +1,21 @@
+Você se aproxima do drone para verificar o que ocorreu.
+O drone é um modelo Dr_4G0N, utilizado pela Cidadela para reconhecimento de campo.
+Ele parece estar com uma das asas quebradas, mas você tem certeza de que ele não bateu em nada durante o voo.
+Não... em vez disso, parece que ele quebrou uma das asas ao cair no chão.
+Suas outras asas parecem estar espasmando erraticamente, e vários dos LEDs parecem estar piscando em cores e padrões aleatórios.
+nuzzle: Parece que ele entrou em um campo eletromagnético?
+palluhae: Acho difícil isso ter acontecido. Nenhuma dessas ruínas ainda deveria ter eletricidade.
+nuzzle: Mas ele está mostrando todos os sinais de interferência eletrônica...
+Você aproxima sua mão para pegar o drone, e leva um pequeno choque.
+Pouco tempo depois disso, o drone para de se mexer ou de emitir qualquer sinal.
+Você tira seu relicário para obter mais informações e...
+nuzzle: Palluhae! Parece que estamos dentro de um campo eletromagnético de defesa mesmo.
+nuzzle: Meu relicário também está sofrendo interferência.
+palluhae: ...Bem, isso é raro. Mas não é inesperado para tecnologia muscan.
+palluhae: Como que eles conseguiram armazenar energia por tanto tempo...?
+Finalmente, você conecta seu relicário no drone, e consegue obter informações sobre a origem do campo eletromagnético.
+.....?
+Aparentemente, ao levar o choque eletromagnético, o drone armazenou dados...
+...parece uma senha de algum tipo.
+Após isso, seu relicário parece voltar ao normal.
+set {s05_drone_got} = true

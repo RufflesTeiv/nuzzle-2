@@ -65,6 +65,7 @@ position = Vector2(2350, 474)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
+position = Vector2(-1384, 309)
 shape = SubResource("RectangleShape2D_umygm")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
@@ -122,6 +123,12 @@ position = Vector2(1749, 891)
 
 [node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="3"]
 position = Vector2(-70, 69)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PalluhaeTarget" type="Marker2D" parent="Waypoints"]
+position = Vector2(631, 628)
 
 [editable path="Objects/Interactables/Drone"]
 [editable path="Objects/Interactables/Terminal"]

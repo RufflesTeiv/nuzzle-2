@@ -29,11 +29,9 @@ func _init(): pass
 func _enter_tree(): pass
 	
 func _ready():
-	# Inventário
-	player_inventory = Inventory.new()
-	player_inventory.items_changed.connect(_on_inventory_changed)
-	Console.create_command("add_item", player_inventory.add_item_by_id)
-	Console.create_command("remove_item", player_inventory.remove_item_by_id)
+	set_player_inventory(Inventory.new())
+	Console.create_command("add_item", _add_item_command)
+	Console.create_command("remove_item", _remove_item_command)
 	
 func _process(_delta): pass
 	
@@ -54,12 +52,25 @@ func set_current_character(c:Global.Character):
 	current_character = c
 	
 func set_player_controller(pc: PlayerController): player_controller = pc
+
+func set_player_inventory(i: Inventory):
+	if player_inventory:
+		player_inventory.items_changed.disconnect(_on_inventory_changed)
+	player_inventory = i
+	player_inventory.items_changed.connect(_on_inventory_changed)
+	inventory_changed.emit(player_inventory)
 #endregion
 
 #region Private functions
+func _add_item_command(id:int):
+	player_inventory.add_item_by_id(id)
+	
 func _on_inventory_changed():
 	UiManager.main_ui.open_inventory()
 	inventory_changed.emit(player_inventory)
+
+func _remove_item_command(id:int):
+	player_inventory.remove_item_by_id(id)
 #endregion
 
 #region Subclasses

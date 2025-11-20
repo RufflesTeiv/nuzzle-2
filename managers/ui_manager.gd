@@ -14,6 +14,7 @@ signal dialogue_text_signal(arg: String)
 #endregion
 
 #region Variables
+var current_timeline := ""
 var dialogue_history : Array[String] = []
 var main_ui : MainUiView
 #endregion
@@ -40,6 +41,8 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func get_current_timeline() -> String: return current_timeline
+
 func set_main_ui_view(muv: MainUiView): main_ui = muv
 
 func start_dialogue(timeline: String):
@@ -47,6 +50,7 @@ func start_dialogue(timeline: String):
 		return
 	InputManager.push_state_to_stack(InputManager.State.DIALOGUE)
 	Dialogic.start(timeline)
+	current_timeline = timeline
 	if !Dialogic.timeline_ended.is_connected(_on_dialogue_end):
 		Dialogic.timeline_ended.connect(_on_dialogue_end)
 		
@@ -66,6 +70,7 @@ func _connect_to_dialogic_signals():
 	
 func _on_dialogue_end():
 	InputManager.remove_state_from_stack(InputManager.State.DIALOGUE)
+	current_timeline = ""
 	Dialogic.timeline_ended.disconnect(_on_dialogue_end)
 #endregion
 

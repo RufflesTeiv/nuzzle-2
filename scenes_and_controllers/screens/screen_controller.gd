@@ -50,6 +50,7 @@ func enter(entry_point : int, character := Global.Character.NONE, walkable := tr
 	await _screen_start()
 	#await get_tree().process_frame
 	await get_tree().create_timer(0.5).timeout
+	_watch_dialogues()
 	_watch_interactables()
 	_watch_trigger_areas(walkable)
 #endregion
@@ -66,6 +67,8 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 		0: func(_body): print("This is the Area 0 callable!")
 	}
 	return dict
+	
+func _on_dialogue_signal(timeline:String,arg:String): pass
 	
 func _screen_exit(): pass
 
@@ -153,6 +156,12 @@ func _set_monitoring_for_area(id:int, m:bool):
 	var area := _get_area_by_id(id)
 	if !area: return
 	area.set_deferred("monitoring", m)
+	
+func _watch_dialogues():
+	UiManager.dialogue_signal.connect(
+		func(arg:String):
+			_on_dialogue_signal(UiManager.get_current_timeline(),arg)
+	)
 	
 func _watch_interactables():
 	for interactable : InteractableController in interactables.get_children():
