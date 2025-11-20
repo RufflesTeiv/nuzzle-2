@@ -1,0 +1,11 @@
+set {s04_plant_count} += 1
+Você procura algo em meio à vegetação...
+...
+...e não encontra nada.
+if {s04_palluhae_talked} == false:
+	if {s04_plant_count} >= 3:
+		if {s04_card_found} == true:
+			palluhae: Nuzzle, sei que você deu muita sorte ao encontrar o cartão, mas não acho que você vai encontrar mais nada de útil.
+		else:
+			palluhae: Nuzzle, o que você está fazendo?
+			palluhae: Não acho que você vá encontrar nada de útil por aí.

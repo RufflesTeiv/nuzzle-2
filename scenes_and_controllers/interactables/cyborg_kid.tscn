@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ytjh4xewb82x"]
+
+[ext_resource type="Script" uid="uid://pyi3nd4vki7b" path="res://scenes_and_controllers/interactables/interactable_entity_controller.gd" id="1_nb6p6"]
+[ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_a6q65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
+size = Vector2(101.760254, 152)
+
+[node name="Cyborg Kid" type="Node2D"]
+script = ExtResource("1_nb6p6")
+min_speed = 200.0
+max_speed = 300.0
+display_name = "Palluhae"
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasGroup"]
+modulate = Color(0.7647059, 0.7882353, 0.9137255, 1)
+position = Vector2(0, -65.999985)
+scale = Vector2(82.34823, 128.51927)
+texture = ExtResource("2_a6q65")
+
+[node name="MouseArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
+position = Vector2(0.11987305, -66)
+shape = SubResource("RectangleShape2D_ocp75")
+
+[node name="InteractionTarget" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-186, 87)

@@ -18,6 +18,7 @@ signal screen_changed(id:int,entry_point:int,character:Global.Character)
 
 #region Variables
 var character_controller : PlayerController
+var entered_through : int
 #endregion
 
 #region Computed properties
@@ -43,6 +44,7 @@ func _exit_tree(): pass
 func enter(entry_point : int, character := Global.Character.NONE, walkable := true):
 	if !is_node_ready():
 		await ready
+	entered_through = entry_point
 	_instantiate_character(character, walkable)
 	_position_character_at_entry_point(entry_point)
 	await _screen_start()

@@ -49,6 +49,8 @@ func _clear_screen():
 	Utility.destroy_all_children(screen_holder)
 	
 func _load_screen(id : int, entry_point := 0, character := Global.Character.NONE) -> bool:
+	Utility.clear_connections_from_signal(UiManager.dialogue_signal)
+	Utility.clear_connections_from_signal(UiManager.dialogue_text_signal)
 	await UiManager.main_ui.fade_out()
 	_clear_screen()
 	if !ScreensData.is_loaded():

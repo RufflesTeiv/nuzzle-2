@@ -41,6 +41,14 @@ directories/dch_directory={
 "sleepy_nuzzle": "res://assets/dialogic/characters/sleepy_nuzzle.dch"
 }
 directories/dtl_directory={
+"04_car": "res://assets/dialogic/timelines/04_car.dtl",
+"04_cyborg_kid": "res://assets/dialogic/timelines/04_cyborg_kid.dtl",
+"04_palluhae": "res://assets/dialogic/timelines/04_palluhae.dtl",
+"04_palluhae_interact": "res://assets/dialogic/timelines/04_palluhae_interact.dtl",
+"04_palluhae_wait": "res://assets/dialogic/timelines/04_palluhae_wait.dtl",
+"04_right_plant": "res://assets/dialogic/timelines/04_right_plant.dtl",
+"04_start": "res://assets/dialogic/timelines/04_start.dtl",
+"04_wrong_plant": "res://assets/dialogic/timelines/04_wrong_plant.dtl",
 "0_computer": "res://assets/dialogic/timelines/0_computer.dtl",
 "0_guard_robot": "res://assets/dialogic/timelines/0_guard_robot.dtl",
 "0_middle": "res://assets/dialogic/timelines/0_middle.dtl",
@@ -67,6 +75,10 @@ layout/style_directory={}
 layout/style_list=[]
 layout/default_style=""
 variables={
+"s04_arrived": false,
+"s04_card_found": false,
+"s04_palluhae_talked": false,
+"s04_plant_count": 0,
 "s0_computer_on": false,
 "s0_middle_read": false,
 "s2_talked_palluhae": false,

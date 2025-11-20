@@ -1,0 +1,10 @@
+O carro está sujo de lama por conta do trajeto recente.
+if {s3_pistol_seen} == false:
+	Você abre a porta do lado do passageiro, para ver se esqueceu algo.
+	Supreendentemente, durante a viagem inteira, você não abriu o porta-luvas nenhuma vez.
+	Gostaria de abrir o porta-luvas?
+else:
+	Você quer olhar o porta-luvas novamente?
+- Sim.
+	[signal arg="glovebox"]
+- Não.

@@ -25,7 +25,7 @@
 &"description": "",
 &"display_name": "Garoto Ciborgue",
 &"mirror": false,
-&"nicknames": ["garoto ciborgue"],
+&"nicknames": ["garoto ciborgue", "menino ciborgue"],
 &"offset": Vector2(0, 0),
 &"portraits": {},
 &"scale": 1.0

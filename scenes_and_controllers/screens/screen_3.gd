@@ -21,7 +21,7 @@ func _screen_start():
 	UiManager.dialogue_signal.connect(_on_start_dialogue_signal)
 func _screen_exit(): pass
 #endregion
-
+  
 #region Private functions
 func _on_pistol_get(arg : String):
 	UiManager.dialogue_signal.disconnect(_on_pistol_get)
@@ -33,7 +33,7 @@ func _on_start_dialogue_signal(arg:String):
 	match arg:
 		"arrived":
 			pass
-			#parar o carro
+			#parar o carro na animação
 		"ended":
 			UiManager.dialogue_ended.disconnect(_on_start_dialogue_signal)
 			_change_screen(4,0,Global.Character.NUZZLE)	

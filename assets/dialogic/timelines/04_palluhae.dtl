@@ -1,0 +1,16 @@
+if {s04_palluhae_talked} == false:
+	set {s04_palluhae_talked} = true
+	Palluhae abre uma das portas traseiras do veículo com um ar de irritação.
+	A luz cegou os olhos do garoto que jazia ali encolhido, que tentou bloquear a claridade com os seus braços robóticos.
+	palluhae: Saia.
+	O paladino puxa o garoto com força e joga-o ao chão.
+	[signal arg="throw_down"]
+	O garoto se levanta com dificuldade, te olhando com olhos de choro.
+	Você sabia que não podia fazer muito em relação às atitudes de Palluhae, afinal paladinos tinham completa autoridade sobre clérigos aprendizes.
+	[signal arg="palluhae_move"]
+	Palluhae pausa por um momento, e então bruscamente se dirige em direção à vegetação, buscando a entrada da base formidae.
+	[signal arg="end"]
+	Você percebe que o garoto começa a te seguir.
+	Ele sem dúvida confia mais em você do que em Palluhae.
+else: 
+	palluhae: Vamos logo, Nuzzle. Não temos tempo a perder.

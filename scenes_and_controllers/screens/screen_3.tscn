@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://o5h1ive8wjxc"]
+[gd_scene load_steps=6 format=3 uid="uid://o5h1ive8wjxc"]
 
 [ext_resource type="Script" uid="uid://beilpcfcyfnpl" path="res://scenes_and_controllers/screens/screen_3.gd" id="1_kog8n"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_kog8n"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_cns7e"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_kog8n"]
+[ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_cns7e"]
 
 [node name="Screen" type="Node2D"]
 script = ExtResource("1_kog8n")
@@ -47,6 +48,9 @@ scale = Vector2(135.15616, 212.48611)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_kog8n")]
 position = Vector2(920, 558)
 type = 1
+
+[node name="Cyborg Kid" parent="Objects/Interactables" instance=ExtResource("5_cns7e")]
+position = Vector2(631, 560)
 
 [node name="TriggerAreas" type="Node2D" parent="Objects"]
 unique_name_in_owner = true

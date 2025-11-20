@@ -1,0 +1,10 @@
+set {s04_plant_count} = 0
+set {s04_card_found} = true
+Você procura algo em meio à vegetação...
+...
+...e encontra um cartão!
+if {s04_palluhae_talked} == false:
+	nuzzle: Hã... Encontrei algo!
+	palluhae: Já? Leve isso contigo, pode ser útil mais tarde.
+Você não consegue ler o texto, mas reconhece que ele está escrito em Arthriano Comum.
+Você escaneia o cartão com o seu relicário, e descobre que ele é um [b]cartão de acesso de nível 1[/b].

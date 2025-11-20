@@ -67,6 +67,10 @@ static func remove_all_children(parent:Node):
 static func clear_connections_from_signal(sig : Signal):
 	for connection in sig.get_connections():
 		sig.disconnect(connection.callable)
+		
+static func connect_to_signal_safe(sig: Signal, cal: Callable):
+	if !sig.is_connected(cal):
+		sig.connect(cal)
 
 static func disconnect_from_signal_safe(sig : Signal, cal : Callable):
 	if sig.is_connected(cal):

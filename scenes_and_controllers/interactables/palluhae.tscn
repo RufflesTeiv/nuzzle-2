@@ -9,10 +9,15 @@ size = Vector2(184, 274)
 [node name="Palluhae" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_rx5bb")
+min_speed = 150.0
+max_speed = 200.0
 display_name = "Palluhae"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0.68333334, 0, 1)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,13 @@
+if {s04_palluhae_talked} == false:
+	nuzzle: Vamos levar o ciborgue, então?
+	Palluhae te olha e respira fundo.
+	palluhae: Por que confia nesse herege?
+	palluhae: Você sabe que alterar nossos corpos com tecnologia é pecado, Nuzzle.
+	palluhae: Este foi lá e se alterou mesmo assim.
+	palluhae: ...
+	palluhae: Se ele odeia a igreja, nos odeia também.
+	Você sabia que aquilo não era verdade.
+	O menino ciborgue havia sido encontrado na mesma base muscan em que Palluhae tinha perdido o braço.
+	Os olhos do menino brilharam quando ele finalmente foi resgatado.
+	Provavelmente fazia tempo que ele não via outros smoths.
+	[wait time="1.0"]

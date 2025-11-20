@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyg0yd15uffaw"]
+[gd_scene load_steps=12 format=3 uid="uid://dyg0yd15uffaw"]
 
 [ext_resource type="Script" uid="uid://bb3gfyropouyj" path="res://scenes_and_controllers/screens/screen_4.gd" id="1_0teqw"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_sioaf"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_0teqw"]
 [ext_resource type="PackedScene" uid="uid://2u74fv1ey24u" path="res://scenes_and_controllers/interactables/car.tscn" id="4_sioaf"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="5_0teqw"]
+[ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="6_g133l"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
-vertices = PackedVector2Array(657.40625, 60, 1860, 335.77344, 1860, 506.04688, 1100, 506.04688, 60, 316.21094, 469.7578, 60, 1100, 901.9531, 1860, 901.9531, 1860, 1020, 60, 1020)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(6, 9, 4, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0)])
+vertices = PackedVector2Array(460.07813, -103.42969, 454.35938, -254.5625, 637.14844, -250.38281, 636.1172, -178.25, 585.28125, 43.460938, 536.28125, 18.398438, 1860, 335.77344, 1860, 506.04688, 1100, 506.04688, 60, 316.21094, 1100, 901.9531, 1860, 901.9531, 1860, 1020, 60, 1020)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4, 5), PackedInt32Array(4, 6, 7, 8, 9), PackedInt32Array(10, 11, 12, 13), PackedInt32Array(10, 13, 9, 8), PackedInt32Array(5, 4, 9)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 0, 1080, 1920, 1080, 1920, 0, 693.5689, 0, 698, -309, 392, -316, 404, 1)])
 agent_radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_42q4s"]
@@ -202,7 +203,26 @@ position = Vector2(238.99988, 261)
 position = Vector2(1011, 439)
 
 [node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="3"]
-position = Vector2(-86, 85)
+position = Vector2(-133, 25)
+
+[node name="Cyborg Kid" parent="Objects/Interactables" instance=ExtResource("6_g133l")]
+visible = false
+position = Vector2(1052, 530)
+
+[node name="InteractionTarget" parent="Objects/Interactables/Cyborg Kid" index="3"]
+position = Vector2(-62, 30)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PalluhaeTarget1" type="Marker2D" parent="Waypoints"]
+position = Vector2(581, 171)
+
+[node name="PalluhaeTarget2" type="Marker2D" parent="Waypoints"]
+position = Vector2(557, -192)
+
+[node name="NuzzleWait" type="Marker2D" parent="Waypoints"]
+position = Vector2(766, 456)
 
 [editable path="Objects/Interactables/Plant1"]
 [editable path="Objects/Interactables/Plant2"]
@@ -217,3 +237,4 @@ position = Vector2(-86, 85)
 [editable path="Objects/Interactables/Plant11"]
 [editable path="Objects/Interactables/Car"]
 [editable path="Objects/Interactables/Palluhae"]
+[editable path="Objects/Interactables/Cyborg Kid"]
