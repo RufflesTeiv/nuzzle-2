@@ -29,6 +29,12 @@ texture = ExtResource("2_kog8n")
 unique_name_in_owner = true
 y_sort_enabled = true
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
+
 [node name="Interactables" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
 y_sort_enabled = true

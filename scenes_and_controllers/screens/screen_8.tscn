@@ -60,18 +60,20 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(1180.9999, 657.99994)
 rotation = -0.30238977
 shape = SubResource("RectangleShape2D_p8rvt")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(947.5, 123)
 shape = SubResource("RectangleShape2D_vh14b")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
@@ -145,6 +147,9 @@ shape = SubResource("RectangleShape2D_cmflw")
 
 [node name="InteractionTarget" parent="Objects/Interactables/CenterTable" index="2"]
 position = Vector2(233, -12.9999695)
+
+[node name="Waypoints" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/CommunicationsRoomDoor"]

@@ -47,35 +47,27 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 position = Vector2(2255, -104.00006)
 rotation = 3.1415925
 scale = Vector2(159.32426, 275.8932)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(405, 768)
-rotation = 3.1415925
-scale = Vector2(159.32426, 275.8932)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D2"]
-position = Vector2(0, -0.4385755)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(11.61154, -3.5992181)
 shape = SubResource("RectangleShape2D_jgkvx")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(940, -115)
-rotation = 3.1415925
-scale = Vector2(159.32426, 275.8932)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D3"]
-position = Vector2(0, -0.4385755)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(8.253608, -0.3987045)
 shape = SubResource("RectangleShape2D_b2dgk")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
@@ -123,7 +115,7 @@ position = Vector2(-186, 87)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_b2dgk")]
 position = Vector2(979, 682)
 
-[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="2"]
+[node name="InteractionTarget" parent="Objects/Interactables/Palluhae" index="3"]
 position = Vector2(96, 74)
 
 [node name="Car" parent="Objects/Interactables" instance=ExtResource("5_28d5p")]

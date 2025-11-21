@@ -48,35 +48,33 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 position = Vector2(1512, 703.9999)
 rotation = 3.1415925
 scale = Vector2(159.32426, 275.8932)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(82, 68.99999)
-rotation = 2.5827909
-scale = Vector2(159.32426, 275.8932)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D2"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(8.975406, 2.3016155)
+rotation = -0.34652096
+scale = Vector2(0.90147465, 1.2497067)
+skew = -0.47859478
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(1615, 17)
-rotation = 3.3670204
-scale = Vector2(159.32426, 275.8932)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D3"]
-position = Vector2(1.0511031, -0.21025808)
-scale = Vector2(0.9999999, 0.9999999)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(0.45941067, 2.420833)
+rotation = 0.13166606
+scale = Vector2(0.98320854, 1.0487398)
+skew = 0.24634719
 shape = SubResource("RectangleShape2D_0teqw")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
