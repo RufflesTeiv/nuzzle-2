@@ -1,0 +1,6 @@
+if {GameManager.check_progress_dict("08_terminal_opened")}:
+	palluhae: "Comunicações"...
+	palluhae: Precisamos descobrir se o sinal está vindo desta sala.
+else:
+	palluhae: Esta base parece estar abandonada há bastante tempo.
+	palluhae: Vejo sinais de interação recente, mas pode muito bem ter sido por conta da fauna local.

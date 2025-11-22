@@ -11,7 +11,12 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 		"Door": func():
 			UiManager.start_dialogue("06_door"),
 		"Skeleton": func():
-			UiManager.start_dialogue("06_skeleton"),
+			if GameManager.check_progress_dict("08_terminal_interacted") and GameManager.player_inventory.has_item(8):
+				UiManager.start_dialogue("06_skeleton_extract")
+			elif GameManager.check_progress_dict("08_terminal_interacted"):
+				UiManager.start_dialogue("06_skeleton_extract_fail")
+			else:
+				UiManager.start_dialogue("06_skeleton"),
 		"Palluhae": func():
 			if !door_opened:
 				UiManager.start_dialogue("06_palluhae")

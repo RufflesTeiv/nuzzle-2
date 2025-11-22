@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bto4fbkco7rjf"]
+[gd_scene load_steps=14 format=3 uid="uid://bto4fbkco7rjf"]
 
 [ext_resource type="Script" uid="uid://ffhc864kftmp" path="res://scenes_and_controllers/screens/screen_8.gd" id="1_cmflw"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p8rvt"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_vh14b"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_vh14b"]
+[ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_xxvki"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(1860, 316, 1860, 1020, 1397.0313, 821.59375, 1265.6875, 400.60156, 60, 316, 964.97656, 494.40625, 60, 1020, 1096.3125, 915.3906)
@@ -18,6 +20,9 @@ size = Vector2(1915, 266)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
 size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ecaa"]
+size = Vector2(1113, 109)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xxvki"]
 size = Vector2(102.46155, 71.87189)
@@ -35,7 +40,7 @@ script = ExtResource("1_cmflw")
 unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
-position = Vector2(75, 566)
+position = Vector2(141, 645)
 
 [node name="1" type="Marker2D" parent="EntryPoints"]
 position = Vector2(639, 355)
@@ -87,6 +92,27 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/0"]
 shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="1" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(517, 585)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="2" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(332, 586)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/2"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/TriggerAreas/2"]
+position = Vector2(724.5, -109)
+shape = SubResource("RectangleShape2D_4ecaa")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
 [node name="Interactables" type="Node2D" parent="Objects"]
@@ -148,8 +174,44 @@ shape = SubResource("RectangleShape2D_cmflw")
 [node name="InteractionTarget" parent="Objects/Interactables/CenterTable" index="2"]
 position = Vector2(233, -12.9999695)
 
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_vh14b")]
+position = Vector2(66, 460)
+enable_interaction = false
+
+[node name="Cyborg Kid" parent="Objects/Interactables" instance=ExtResource("5_xxvki")]
+position = Vector2(79, 738)
+enable_interaction = false
+
 [node name="Waypoints" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
+
+[node name="PalluhaeMain" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(502, 348)
+
+[node name="PalluhaeBreak" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(1071, 338)
+
+[node name="KidMain" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(158, 928)
+
+[node name="PalluhaeEnd" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(1720, 572)
+
+[node name="JumpscareEnd" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(2415, 1110)
+
+[node name="NuzzleMoveAway" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(1422, 395)
+
+[node name="Overlay" type="Node2D" parent="."]
+
+[node name="Jumpscare" type="Sprite2D" parent="Overlay"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1477.0001, 981)
+scale = Vector2(340.94504, 244.6209)
+texture = ExtResource("2_p8rvt")
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/CommunicationsRoomDoor"]

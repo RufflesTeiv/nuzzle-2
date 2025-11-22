@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_mpsd4")
 id = 10
-name = "Chave de acesso (N2)"
+name = "Cartão de acesso (N2)"
 metadata/_custom_type_script = "uid://btmj4dudoruef"

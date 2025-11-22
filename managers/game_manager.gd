@@ -18,6 +18,7 @@ var character_scenes : Dictionary[Global.Character,PackedScene] = {
 }
 var player_controller : PlayerController
 var player_inventory : Inventory
+var progress_dict : Dictionary[String,Variant] = {}
 var screen_id_history : Array[int] = []
 #endregion
 
@@ -44,11 +45,22 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func add_to_progress_dict(key:String, value:Variant):
+	progress_dict[key] = value
+
 func add_to_screen_history(id:int):
 	screen_id_history.append(id)
 	
+func check_progress_dict(key:String) -> bool:
+	return progress_dict.has(key)
+	
 func get_current_character_scene() -> PackedScene:
 	return character_scenes[current_character]
+	
+func get_from_progress_dict(key:String) -> Variant:
+	if !check_progress_dict(key):
+		return null
+	return progress_dict[key]
 	
 func has_visited_screen(id:int):
 	return screen_id_history.has(id)

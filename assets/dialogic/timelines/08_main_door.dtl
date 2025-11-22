@@ -1,0 +1,13 @@
+Mais uma grande porta bloqueia o seu caminho.
+Diretamente nela, existe um pequeno painel com uma luz amarela.
+Parece um leitor de cartões.
+if {GameManager.player_inventory.has_item(10)}:
+	- Utilizar cartão de acesso N2.
+		O painel brilha em verde, e emite um bipe longo.
+		Você escuta um estrondo metálico, e em seguida o barulho de motores.
+		Lentamente, a porta à sua frente se abre.
+if {GameManager.player_inventory.has_item(6)}:
+	- Utilizar cartão de acesso N1.
+		O painel pisca uma luz vermelha três vezes, emitindo um bipe a cada vez.
+		Mais nada acontece.
+	- Não fazer nada.

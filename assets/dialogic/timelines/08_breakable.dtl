@@ -1,0 +1,16 @@
+Ao andar perto da parede, você sente uma pequena brisa saindo de um buraco.
+nuzzle:...Palluhae.
+palluhae: Sim?
+nuzzle: Acho que tem alguma coisa do outro lado desta parede.
+palluhae: Deixe-me ver.
+[signal arg="move_to_break"]
+palluhae: Realmente, e parece que a parede é fina o suficiente.
+palluhae: ...Afaste-se.
+[signal arg="nuzzle_move_away"]
+Palluhae bate seu martelo no chão, e o instrumento começa a brilhar com uma luz intensa.
+Ele então dá um passo atrás, e levantando o martelo acima de sua cabeça, dá um golpe poderoso contra a parede, quebrando-a.
+palluhae: Pronto.
+palluhae: Realmente parece ter algo aí dentro. Você consegue verificar?
+[signal arg="return"]
+Palluhae mal parecia afetado pelo seu próprio feito, e volta para onde estava localizado.
+nuzzle: ...Sim.

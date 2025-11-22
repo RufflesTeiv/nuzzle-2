@@ -1,0 +1,25 @@
+if {GameManager.player_inventory.has_item(7)} == false:
+	if {GameManager.check_progress_dict("08_terminal_interacted")} == false:
+		Ao lado da porta, você encontra mais um terminal de acesso.
+		Você começa a procurar pois quaisquer portas de entrada ou cabos, mas não encontra nada que você poderia conectar ao relicário.
+		Durante sua busca, você acidentalmente esbarra na tela do terminal, que emite uma frase ininteligível, e uma pequena interface se acende.
+		palluhae: O que é isso?
+		nuzzle: Provavelmente é um terminal biométrico. Deve estar pedindo por digitais.
+		nuzzle: Como será que podemos trazer um dos corpos até aqui...
+		Palluhae move a mão até seu bolso e saca uma [b]faca de campanha[/b].
+		palluhae: Aqui. Faça bom uso.
+		nuzzle: ...O que é pra eu fazer com isso?
+		Palluhae te encara, mas não diz mais nada.
+	else:
+		Você encara a interface biométrica do terminal, e pensa na faca que Palluhae te deu.
+		nuzzle: Talvez eu não tenha que trazer um esqueleto inteiro até aqui...
+else:
+	if {GameManager.check_progress_dict("08_terminal_opened")} == false:
+		Você posiciona a garra do cientista formidae contra a interface biométrica.
+		Um pequeno feixe de luz horizontal passa por toda a garra, e por um momento parece que nada acontece...
+		...até você escutar um bipe, a porta se abre.
+		nuzzle: Deu certo!
+		palluhae: Muito bem. Vamos ver o que temos aqui.
+	else:
+		Após abrir a porta, o terminal se apagou.
+		Você tenta encostar na tela novamente, mas nada acontece.

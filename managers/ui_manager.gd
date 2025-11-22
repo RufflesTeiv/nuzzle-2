@@ -43,6 +43,9 @@ func _exit_tree(): pass
 #region Public functions
 func get_current_timeline() -> String: return current_timeline
 
+func is_in_dialogue() -> bool:
+	return !current_timeline.is_empty()
+
 func set_main_ui_view(muv: MainUiView): main_ui = muv
 
 func start_dialogue(timeline: String):

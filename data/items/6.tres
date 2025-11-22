@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_physc")
 id = 6
-name = "Chave de acesso (N1)"
+name = "Cartão de acesso (N1)"
 metadata/_custom_type_script = "uid://btmj4dudoruef"
