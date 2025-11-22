@@ -1,6 +1,10 @@
 extends ScreenController
 
 var old_inventory : Inventory
+@onready var red_overlay: Sprite2D = %RedOverlay
+@onready var robot: Sprite2D = %Robot
+@export var robot_end_position : Vector2
+@export var robot_end_scale : Vector2
 
 #region Overrides
 func _get_interactables_callables() -> Dictionary[String,Callable]:
@@ -25,7 +29,18 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 	}
 	return dict
 	
-func _on_dialogue_signal(timeline:String,arg:String): pass
+func _on_dialogue_signal(timeline:String,arg:String):
+	match arg:
+		"alarm":
+			red_overlay.show()
+		"robot_approached":
+			robot.show()
+		"palluhae_attack":
+			var palluhae := _get_interactable_by_name("Palluhae") as InteractableEntityController
+			palluhae.set_target_position(_get_waypoint_by_name("PalluhaeEnd").position)
+		"robot_destroyed":
+			robot.position = robot_end_position
+			robot.scale = robot_end_scale
 
 func _screen_start():
 	_change_inventory()

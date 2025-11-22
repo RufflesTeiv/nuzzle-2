@@ -91,6 +91,8 @@ directories/dtl_directory={
 "0_middle": "res://assets/dialogic/timelines/0_middle.dtl",
 "0_pipes": "res://assets/dialogic/timelines/0_pipes.dtl",
 "0_start": "res://assets/dialogic/timelines/0_start.dtl",
+"10_formidae": "res://assets/dialogic/timelines/10_formidae.dtl",
+"10_start": "res://assets/dialogic/timelines/10_start.dtl",
 "1_bed": "res://assets/dialogic/timelines/1_bed.dtl",
 "1_closet": "res://assets/dialogic/timelines/1_closet.dtl",
 "1_computer": "res://assets/dialogic/timelines/1_computer.dtl",

@@ -11,4 +11,6 @@ O calor espalhou pelo lado esquerdo de Palluhae, destruindo seu escudo, sua asa 
 Uma criatura de metal se encontrava à porta, com um canhão fumegante de energia em um de seus braços.
 nuzzle: !!!!
 Você balbucia palavras incoerentes ao presenciar a cena, mas percebe que o robô levaria alguns instantes para carregar o próximo tiro.
-O paladino gritou palavras divinas, acendendo seu martelo, e rapidamente deixando a armadura de metal do construto em pedaços no momento do impacto.
+[signal arg="palluhae_attack"]
+O paladino gritou palavras divinas, acendendo seu martelo, e rapidamente deixou a armadura de metal do construto em pedaços no momento do impacto.
+[signal arg="robot_destroyed"]

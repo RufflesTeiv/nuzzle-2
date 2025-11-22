@@ -28,6 +28,8 @@ size = Vector2(254.01923, 257.18857)
 
 [node name="Screen" type="Node2D"]
 script = ExtResource("1_knbnl")
+robot_end_position = Vector2(1836, 557)
+robot_end_scale = Vector2(266, 154)
 
 [node name="EntryPoints" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -118,11 +120,29 @@ position = Vector2(2, 60)
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_knbnl")]
 position = Vector2(1719, 626)
 
+[node name="Robot" type="Sprite2D" parent="Objects"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1835.9999, 507)
+scale = Vector2(243.699, 349.906)
+texture = ExtResource("2_knbnl")
+
 [node name="Waypoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="PalluhaeTarget" type="Marker2D" parent="Waypoints"]
 position = Vector2(1235, 494)
+
+[node name="PalluhaeEnd" type="Marker2D" parent="Waypoints"]
+position = Vector2(1601, 631)
+
+[node name="RedOverlay" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0, 0, 0.29803923)
+scale = Vector2(1920, 1080)
+texture = ExtResource("2_knbnl")
+offset = Vector2(0.5, 0.5)
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/Pipes"]

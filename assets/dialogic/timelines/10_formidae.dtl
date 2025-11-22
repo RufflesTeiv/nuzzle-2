@@ -1,0 +1,15 @@
+if {GameManager.player_inventory.has_item(9)}:
+	Um antigo esqueleto de formidae, agora desarmado.
+else:
+	Você encontra o corpo de um soldado formidae.
+	nuzzle: Como ele entrou aqui...?
+	Você olha pra cima e vê um duto de ventilação quebrado.
+	Você vê que o esqueleto segura firmemente uma **pistola** em suas mãos.
+	- Pegar a pistola.
+		Você abre a mão do esqueleto gentilmente, e pega a pistola.
+		Parece ser uma antiga pistola balística, muito diferente dos armamentos de luz da Cidadela.
+		[signal arg="skeleton_moved"]
+		nuzzle: "Ah!"
+		Você leva um susto quando o esqueleto se move, quase caindo sobre você.
+	- Não pegar a pistola.
+		Talvez não seria bom mexer com mais restos mortais do que você já mexeu.
