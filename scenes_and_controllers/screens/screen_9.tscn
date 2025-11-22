@@ -33,7 +33,7 @@ script = ExtResource("1_knbnl")
 unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
-position = Vector2(1814, 640)
+position = Vector2(1789, 687)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.11, 0.11, 0.22, 1)
@@ -46,23 +46,25 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(961, 78.5)
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(322.56226, 951.638)
 rotation = 0.570456
 shape = SubResource("RectangleShape2D_0up1t")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(1039, 1156)
 shape = SubResource("RectangleShape2D_0up1t")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
@@ -115,6 +117,12 @@ position = Vector2(2, 60)
 
 [node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_knbnl")]
 position = Vector2(1719, 626)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PalluhaeTarget" type="Marker2D" parent="Waypoints"]
+position = Vector2(1235, 494)
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/Pipes"]

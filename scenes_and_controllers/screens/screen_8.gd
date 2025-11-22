@@ -39,9 +39,19 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 				_change_screen(14,0,Global.Character.PALLUHAE)
 			else:
 				UiManager.start_dialogue("08_main_door"),
-		"CenterTable": func(): UiManager.start_dialogue("08_table"),
+		"CenterTable":func():
+			UiManager.start_dialogue("08_table")
+			await UiManager.dialogue_ended
+			_change_screen(9,0,Global.Character.NUZZLE),
 		"Palluhae": func(): UiManager.start_dialogue("08_palluhae"),
-		"Cyborg Kid": func(): UiManager.start_dialogue("08_kid")
+		"Cyborg Kid": func(): UiManager.start_dialogue("08_kid"),
+		"CommunicationsRoomDoor": func():
+			if GameManager.check_progress_dict("08_terminal_opened"):
+				_change_screen(11,0,Global.Character.NUZZLE)
+			else:
+				UiManager.start_dialogue("08_comms_door")
+				await UiManager.dialogue_ended
+				GameManager.add_to_progress_dict("08_comms_door_seen",true)
 	}
 	return dict
 	
@@ -72,8 +82,10 @@ func _on_dialogue_signal(timeline:String,arg:String):
 				palluhae.set_target_position(_get_waypoint_by_name("PalluhaeMain").position)
 			
 func _screen_start():
-	if(!GameManager.has_visited_screen(8)):
+	if(!GameManager.has_visited_screen(8) and entered_through != 4):
 		UiManager.start_dialogue("08_start")
+	elif entered_through == 4:
+		UiManager.start_dialogue("08_return_from_memory")
 	_position_kid()
 	_position_palluhae()
 	_chance_jumpscare()

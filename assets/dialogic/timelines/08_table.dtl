@@ -1,6 +1,12 @@
-if {GameManager.check_progress_dict("08_terminal_opened")}:
-	palluhae: "Comunicações"...
-	palluhae: Precisamos descobrir se o sinal está vindo desta sala.
+if {GameManager.has_visited_screen(8)} == true:
+	Você observa a mesa mais uma vez.
+	Apesar da grande quantidade de documentos em cima da mesa, nenhum deles parece estar legível.
 else:
-	palluhae: Esta base parece estar abandonada há bastante tempo.
-	palluhae: Vejo sinais de interação recente, mas pode muito bem ter sido por conta da fauna local.
+	Você encontra uma mesa no meio da sala.
+	Caído sobre ela se encontra um esqueleto de formidae, há muito morto.
+	Uma grande quantidade de papéis parece ter sido jogada em cima da mesa.
+	nuzzle: Provavelmente se espalharam com o passar do tempo.
+	Você toma um tempo para revirar os papéis, e escuta Palluhae grunhir de dor.
+	Aparentemente ele esbarrou em alguma coisa com o lado do seu corpo machucado...
+	Sem querer, memórias invadem a sua mente, te lembrando de como ele ficou assim.
+	Coisas que você preferia esquecer.

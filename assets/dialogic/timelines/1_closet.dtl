@@ -3,8 +3,8 @@ if {GameManager.player_inventory.has_item(0)} == false:
 	Apesar de possuir várias camadas de seda, ela mesmo assim se ajusta ao seu corpo perfeitamente.
 	[signal arg="clothes_on"]
 	Ao lado dela, você vê sua antiga roupa de aprendiz mirim.
-	Não fazia nem uma rotação desde que você tinha parado de usá-la...
-	nuzzle: ...e mesmo assim já estou começando a sentir falta dessa época.
+	Não fazia nem uma lua desde que você tinha parado de usá-la...
+	nuzzle: ...e mesmo assim já estou começando a sentir falta de antes.
 else:
 	Você verifica novamente o seu armário para ver se se esqueceu de algo...
 	nuzzle: ...não, acho que não esqueci nada.

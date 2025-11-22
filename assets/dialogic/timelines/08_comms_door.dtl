@@ -1,0 +1,10 @@
+if {GameManager.check_progress_dict("08_comms_door_seen") == true}:
+	A porta à sua frente está trancada.
+	Uma placa acima da porta mostra a palavra "Comunicações", dificilmente legível
+else:
+	Palluhae está parado ao lado de uma porta fechada.
+	Uma placa acima da porta mostra uma palavra dificilmente legível.
+	Utilizando seu relicário, você consegue descobrir o significado da palavra.
+	nuzzle: "Comunicações".
+	palluhae: É muito provável que o sinal esteja vindo daqui.
+	palluhae: Nuzzle, tente abrir a porta pelo terminal.
