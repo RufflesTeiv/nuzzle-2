@@ -21,6 +21,7 @@ const DIALOGUE_IMAGES_FOLDER := "res://assets/dialogic/images/"
 #endregion
 
 #region Variables
+var can_open_inventory := true
 var fade_out_tweens : Dictionary[FadeOutLayer,Tween] = {}
 #endregion
 
@@ -76,6 +77,8 @@ func open_dialogue_image(img_name : String):
 func open_inventory():
 	inventory.show()
 	InputManager.push_state_to_stack(InputManager.State.INVENTORY)
+	
+func set_can_open_inventory(v: bool): can_open_inventory = v
 #endregion
 
 #region Private functions	
@@ -125,7 +128,7 @@ func _on_input_stack_changed(stack: Array[InputManager.State]):
 	
 func _toggle_inventory():
 	if inventory.visible: _close_inventory()
-	else: open_inventory()
+	elif can_open_inventory: open_inventory()
 	
 func _tween_modulate_alpha(ci : CanvasItem, to: float, time: float) -> Tween:
 	if !ci.visible and to > 0.0:

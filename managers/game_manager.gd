@@ -14,7 +14,9 @@ signal inventory_changed(inventory : Inventory)
 var current_character := Global.Character.NUZZLE
 var character_scenes : Dictionary[Global.Character,PackedScene] = {
 	Global.Character.SLEEPY_NUZZLE: preload("uid://dyeu5sqgu0e26"),
-	Global.Character.NUZZLE: preload("uid://cnkpty7qpcbtv")
+	Global.Character.NUZZLE: preload("uid://cnkpty7qpcbtv"),
+	Global.Character.FORMIDAE_LEADER: preload("uid://b8qusw8s6r5qy"),
+	Global.Character.PALLUHAE: preload("uid://4gvv512yyp28")
 }
 var player_controller : PlayerController
 var player_inventory : Inventory

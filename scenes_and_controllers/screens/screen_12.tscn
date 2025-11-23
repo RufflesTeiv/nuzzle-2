@@ -51,32 +51,27 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 position = Vector2(1327, 181)
 rotation = 3.1415925
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.9915077, 0, 0.27068183, 0.41960785)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(409, 115)
-rotation = 3.1415925
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D2"]
-shape = SubResource("RectangleShape2D_42q4s")
-debug_color = Color(0.9915077, 0, 0.27068183, 0.41960785)
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
-position = Vector2(610, 932)
-rotation = 3.1415925
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D3"]
-position = Vector2(0, -39.499573)
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(717.0001, -790.4996)
 scale = Vector2(0.5666255, 0.99999344)
+shape = SubResource("RectangleShape2D_42q4s")
+debug_color = Color(0.9915077, 0, 0.27068183, 0.41960785)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
+position = Vector2(918, 66.00014)
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.9915077, 0, 0.27068183, 0.41960785)
 
@@ -153,6 +148,7 @@ position = Vector2(-1, 197)
 [node name="Table" parent="Objects/Interactables" instance=ExtResource("3_pemkj")]
 position = Vector2(610, 1022)
 display_name = "Mesa"
+enable_interaction = false
 
 [node name="Sprite2D" parent="Objects/Interactables/Table/CanvasGroup" index="0"]
 scale = Vector2(527.5017, 210.55327)
@@ -162,6 +158,9 @@ shape = SubResource("RectangleShape2D_hugdq")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Table" index="2"]
 position = Vector2(-1, -255)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [editable path="Objects/Interactables/Bed"]
 [editable path="Objects/Interactables/Window"]

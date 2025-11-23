@@ -73,16 +73,59 @@ y_sort_enabled = true
 [node name="Interactable" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 position = Vector2(2227, 1135)
 
+[node name="Interactable2" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(1245, 456)
+enable_interaction = false
+
+[node name="Interactable3" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(1097, 294)
+enable_interaction = false
+
+[node name="Interactable4" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(1149, 1011)
+enable_interaction = false
+
+[node name="Interactable5" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(980, 1133)
+enable_interaction = false
+
+[node name="Interactable6" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(804, 1255)
+enable_interaction = false
+
+[node name="Interactable7" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
+modulate = Color(0.91875136, 0.7448357, 0, 1)
+position = Vector2(931, 100)
+enable_interaction = false
+
 [node name="QyvenSpeaker" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
-position = Vector2(331, 471)
+position = Vector2(3, 471)
 type = 1
 
 [node name="Chair" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
-position = Vector2(1314, 753)
+position = Vector2(1331, 668)
+display_name = "Sua cadeira"
 
 [node name="InteractionTarget" parent="Objects/Interactables/Chair" index="2"]
-position = Vector2(161, 38.00003)
+position = Vector2(-71, 25.00003)
+
+[node name="Waypoints" type="Node2D" parent="Objects"]
+unique_name_in_owner = true
+
+[node name="QyvenTarget" type="Marker2D" parent="Objects/Waypoints"]
+position = Vector2(325, 482)
 
 [editable path="Objects/Interactables/Interactable"]
+[editable path="Objects/Interactables/Interactable2"]
+[editable path="Objects/Interactables/Interactable3"]
+[editable path="Objects/Interactables/Interactable4"]
+[editable path="Objects/Interactables/Interactable5"]
+[editable path="Objects/Interactables/Interactable6"]
+[editable path="Objects/Interactables/Interactable7"]
 [editable path="Objects/Interactables/QyvenSpeaker"]
 [editable path="Objects/Interactables/Chair"]
