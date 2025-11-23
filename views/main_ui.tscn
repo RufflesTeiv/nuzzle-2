@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgvwgdkmpf4pm"]
+[gd_scene load_steps=5 format=3 uid="uid://dgvwgdkmpf4pm"]
 
 [ext_resource type="Script" uid="uid://1fr35jbmleol" path="res://views/main_ui_view.gd" id="1_8p5eb"]
 [ext_resource type="PackedScene" uid="uid://doakyry3yes4c" path="res://views/inventory_view.tscn" id="2_p3hcf"]
 [ext_resource type="Texture2D" uid="uid://doxhhfly118tc" path="res://icon.svg" id="3_0a6kt"]
+[ext_resource type="PackedScene" uid="uid://dviq2yuhwvwrb" path="res://views/tooltip.tscn" id="4_84nvb"]
 
 [node name="MainUI" type="CanvasLayer"]
 script = ExtResource("1_8p5eb")
@@ -62,3 +63,7 @@ mouse_filter = 2
 texture = ExtResource("3_0a6kt")
 expand_mode = 3
 stretch_mode = 5
+
+[node name="Tooltip" parent="." instance=ExtResource("4_84nvb")]
+unique_name_in_owner = true
+visible = false

@@ -77,11 +77,14 @@ func _on_mouse_entered():
 	if not _check_input_state():
 		return
 	canvas_group.modulate = Color(1.353, 1.353, 1.353, 1.0)
+	if !display_name.is_empty():
+		UiManager.main_ui.tooltip.show_tooltip(display_name)
 	
 func _on_mouse_exited():
 	if not _check_input_state():
 		return
 	canvas_group.modulate = Color.WHITE
+	UiManager.main_ui.tooltip.hide_tooltip()
 	
 func _watch_mouse_over_area():
 	mouse_area.mouse_entered.connect(_on_mouse_entered)

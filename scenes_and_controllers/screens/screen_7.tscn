@@ -102,6 +102,7 @@ position = Vector2(2227, 1135)
 
 [node name="BodyPile" parent="Objects/Interactables" instance=ExtResource("3_kukyt")]
 position = Vector2(569, 554)
+display_name = "Pilha de esqueletos"
 
 [node name="Sprite2D" parent="Objects/Interactables/BodyPile/CanvasGroup" index="0"]
 scale = Vector2(199.51634, 133.34203)
@@ -112,6 +113,7 @@ shape = SubResource("RectangleShape2D_kukyt")
 
 [node name="BodyPile2" parent="Objects/Interactables" instance=ExtResource("3_kukyt")]
 position = Vector2(936, 955)
+display_name = "Pilha de esqueletos"
 
 [node name="Sprite2D" parent="Objects/Interactables/BodyPile2/CanvasGroup" index="0"]
 scale = Vector2(199.51634, 133.34203)
@@ -125,6 +127,7 @@ position = Vector2(-157, -175.99997)
 
 [node name="QyvenCorpse" parent="Objects/Interactables" instance=ExtResource("3_kukyt")]
 position = Vector2(1466, 511)
+display_name = "Corpo de Qyven"
 
 [node name="CollisionShape2D" parent="Objects/Interactables/QyvenCorpse/MouseArea" index="0"]
 scale = Vector2(0.9692299, 1.4841863)

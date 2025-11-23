@@ -133,6 +133,7 @@ position = Vector2(2227, 1135)
 
 [node name="Terminal" parent="Objects/Interactables" instance=ExtResource("3_ws15x")]
 position = Vector2(1625, 226)
+display_name = "Terminal de acesso"
 
 [node name="Sprite2D" parent="Objects/Interactables/Terminal/CanvasGroup" index="0"]
 scale = Vector2(108.57005, 78.717766)
@@ -145,7 +146,7 @@ position = Vector2(-36, 17)
 
 [node name="Door" parent="Objects/Interactables" instance=ExtResource("3_ws15x")]
 position = Vector2(1845, 766)
-display_name = "Base Door"
+display_name = "Porta da base formidae"
 
 [node name="Sprite2D" parent="Objects/Interactables/Door/CanvasGroup" index="0"]
 position = Vector2(3.9999998, -247)
@@ -160,7 +161,7 @@ position = Vector2(-166, -54.99997)
 
 [node name="Skeleton" parent="Objects/Interactables" instance=ExtResource("3_ws15x")]
 position = Vector2(1412, 195)
-display_name = "Base Door"
+display_name = "Esqueleto de formidae"
 
 [node name="Sprite2D" parent="Objects/Interactables/Skeleton/CanvasGroup" index="0"]
 position = Vector2(0, -80)

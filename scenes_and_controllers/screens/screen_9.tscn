@@ -91,6 +91,7 @@ position = Vector2(2227, 1135)
 
 [node name="Pipes" parent="Objects/Interactables" instance=ExtResource("3_ffckh")]
 position = Vector2(964, 344)
+display_name = "Canos"
 
 [node name="Sprite2D" parent="Objects/Interactables/Pipes/CanvasGroup" index="0"]
 position = Vector2(0, -230)
@@ -105,6 +106,7 @@ position = Vector2(2, 60)
 
 [node name="Computer" parent="Objects/Interactables" instance=ExtResource("3_ffckh")]
 position = Vector2(152, 398)
+display_name = "Computador"
 
 [node name="Sprite2D" parent="Objects/Interactables/Computer/CanvasGroup" index="0"]
 position = Vector2(0, -164.00003)

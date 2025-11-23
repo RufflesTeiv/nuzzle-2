@@ -10,7 +10,7 @@ size = Vector2(101.760254, 152)
 script = ExtResource("1_nb6p6")
 min_speed = 200.0
 max_speed = 300.0
-display_name = "Palluhae"
+display_name = "Garoto Ciborgue"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true

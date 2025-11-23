@@ -87,12 +87,14 @@ position = Vector2(2227, 1135)
 [node name="WrappedFormidae" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
 visible = false
 position = Vector2(1529, 941)
+display_name = "Esqueleto de formidae"
 
 [node name="InteractionTarget" parent="Objects/Interactables/WrappedFormidae" index="2"]
 position = Vector2(-165, -43.99997)
 
 [node name="Locker" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
 position = Vector2(1777, 979)
+display_name = "Armários"
 
 [node name="Sprite2D" parent="Objects/Interactables/Locker/CanvasGroup" index="0"]
 position = Vector2(0, -221.99997)
@@ -107,6 +109,7 @@ position = Vector2(-199, -50.99997)
 
 [node name="Mainframe" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
 position = Vector2(928, 522)
+display_name = "Mainframe"
 
 [node name="Sprite2D" parent="Objects/Interactables/Mainframe/CanvasGroup" index="0"]
 position = Vector2(0.32247922, -280.79672)

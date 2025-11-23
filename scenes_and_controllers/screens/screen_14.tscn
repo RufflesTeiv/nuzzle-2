@@ -113,6 +113,7 @@ position = Vector2(2227, 1135)
 
 [node name="GraffitiedCoordinates" parent="Objects/Interactables" instance=ExtResource("3_5aw7l")]
 position = Vector2(641, 344)
+display_name = "Palavras pichadas"
 
 [node name="Sprite2D" parent="Objects/Interactables/GraffitiedCoordinates/CanvasGroup" index="0"]
 scale = Vector2(494.79868, 269.5616)
@@ -154,6 +155,7 @@ texture = ExtResource("2_p1db2")
 
 [node name="End" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="End"]
 anchors_preset = 15

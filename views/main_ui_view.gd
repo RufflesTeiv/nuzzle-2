@@ -13,6 +13,7 @@ enum FadeOutLayer{
 @onready var inventory: InventoryView = %Inventory
 @onready var fade_out_rect: ColorRect = %FadeOutRect
 @onready var dialogue_image: TextureRect = %DialogueImage
+@onready var tooltip: TooltipView = %Tooltip
 
 const DIALOGUE_IMAGES_FOLDER := "res://assets/dialogic/images/"
 #endregion

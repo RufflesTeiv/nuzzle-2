@@ -1,4 +1,4 @@
-if {GameManager.has_visited_screen(8)} == true:
+if {GameManager.has_visited_screen(9)} == true:
 	Você observa a mesa mais uma vez.
 	Apesar da grande quantidade de documentos em cima da mesa, nenhum deles parece estar legível.
 else:

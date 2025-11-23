@@ -1,4 +1,4 @@
-if {s5_visited} == false:
+if {GameManager.has_visited_screen(5)} == false:
 	As horas passam devagar ao longo da viagem.
 	Apesar do aparente ânimo de Palluhae antes de vocês partirem, não houve muita conversa entre vocês dois.
 	As coisas realmente estavam estranhas desde a última missão...

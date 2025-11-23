@@ -67,6 +67,7 @@ position = Vector2(2227, 1135)
 
 [node name="DeadFormidae" parent="Objects/Interactables" instance=ExtResource("3_ao30r")]
 position = Vector2(792, 388)
+display_name = "Esqueleto de formidae"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

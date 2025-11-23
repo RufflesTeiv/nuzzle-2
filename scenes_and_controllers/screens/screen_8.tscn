@@ -124,12 +124,14 @@ position = Vector2(2227, 1135)
 
 [node name="CommunicationsRoomDoor" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(631, 255)
+display_name = "Porta"
 
 [node name="InteractionTarget" parent="Objects/Interactables/CommunicationsRoomDoor" index="2"]
 position = Vector2(5, 82)
 
 [node name="BiometricsTerminal" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(793, 255)
+display_name = "Terminal biométrico"
 
 [node name="Sprite2D" parent="Objects/Interactables/BiometricsTerminal/CanvasGroup" index="0"]
 scale = Vector2(76.7463, 80.60595)
@@ -142,12 +144,14 @@ position = Vector2(5, 82)
 
 [node name="BreakableWall" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(1141, 258)
+display_name = "Rachadura"
 
 [node name="InteractionTarget" parent="Objects/Interactables/BreakableWall" index="2"]
 position = Vector2(5, 82)
 
 [node name="MainDoor" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(1868, 919)
+display_name = "Porta central"
 
 [node name="Sprite2D" parent="Objects/Interactables/MainDoor/CanvasGroup" index="0"]
 position = Vector2(0, -261.99997)
@@ -162,6 +166,7 @@ position = Vector2(-156, -24)
 
 [node name="CenterTable" parent="Objects/Interactables" instance=ExtResource("3_vh14b")]
 position = Vector2(1176, 784)
+display_name = "Mesa central"
 
 [node name="Sprite2D" parent="Objects/Interactables/CenterTable/CanvasGroup" index="0"]
 rotation = -0.33760136

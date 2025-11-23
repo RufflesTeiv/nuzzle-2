@@ -76,36 +76,43 @@ position = Vector2(2227, 1135)
 [node name="Interactable2" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(1245, 456)
+display_name = "Rainha dos Apídeos"
 enable_interaction = false
 
 [node name="Interactable3" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(1097, 294)
+display_name = "Líder dos Chillorians"
 enable_interaction = false
 
 [node name="Interactable4" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(1149, 1011)
+display_name = "Presidente das Nações Unidas Colepteri"
 enable_interaction = false
 
 [node name="Interactable5" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(980, 1133)
+display_name = "Líder dos Papillons"
 enable_interaction = false
 
 [node name="Interactable6" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(804, 1255)
+display_name = "Presidente de Matriquia"
 enable_interaction = false
 
 [node name="Interactable7" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 modulate = Color(0.91875136, 0.7448357, 0, 1)
 position = Vector2(931, 100)
+display_name = "Embaixador Muscan"
 enable_interaction = false
 
 [node name="QyvenSpeaker" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 position = Vector2(-136, 471)
 type = 1
+display_name = "Orador Qyven"
 
 [node name="Sprite2D2" type="Sprite2D" parent="Objects/Interactables/QyvenSpeaker/CanvasGroup" index="1"]
 modulate = Color(0.94509804, 0.6, 0.3254902, 1)
@@ -124,7 +131,7 @@ position = Vector2(1331, 668)
 display_name = "Sua cadeira"
 
 [node name="InteractionTarget" parent="Objects/Interactables/Chair" index="2"]
-position = Vector2(-71, 25.00003)
+position = Vector2(-30, 49.00003)
 
 [node name="Waypoints" type="Node2D" parent="Objects"]
 unique_name_in_owner = true

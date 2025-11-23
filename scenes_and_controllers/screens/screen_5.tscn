@@ -95,7 +95,7 @@ position = Vector2(145, -23)
 
 [node name="Terminal" parent="Objects/Interactables" instance=ExtResource("3_2yjmq")]
 position = Vector2(1389, 567)
-display_name = "Drone quebrado"
+display_name = "Terminal de acesso"
 
 [node name="Sprite2D" parent="Objects/Interactables/Terminal/CanvasGroup" index="0"]
 scale = Vector2(93.44212, 112.26163)
@@ -108,7 +108,7 @@ position = Vector2(4, 58)
 
 [node name="Door" parent="Objects/Interactables" instance=ExtResource("3_2yjmq")]
 position = Vector2(953, 415)
-display_name = "Vault door"
+display_name = "Grande porta"
 
 [node name="Sprite2D" parent="Objects/Interactables/Door/CanvasGroup" index="0"]
 scale = Vector2(535.4285, 415.40488)
