@@ -4,8 +4,10 @@ extends ScreenController
 func _get_interactables_callables() -> Dictionary[String,Callable]:
 	var dict : Dictionary[String,Callable] = {
 		"Chair": func():
-			UiManager.start_dialogue("13_chair")
-			await UiManager.dialogue_ended
+			GameManager.player_controller.can_walk = false
+			UiManager.start_dialogue("13_chair"),
+		"QyvenSpeaker": func():
+			UiManager.start_dialogue("13_qyven")
 			_change_screen(11,1,Global.Character.NUZZLE)
 	}
 	return dict
@@ -16,18 +18,25 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 	}
 	return dict
 	
-func _on_dialogue_signal(timeline:String,arg:String): pass
+func _on_dialogue_signal(timeline:String,arg:String):
+	match arg:
+		"qyven_arrived": _qyven_arrived()
 
 func _screen_start():
 	UiManager.main_ui.set_can_open_inventory(false)
 	UiManager.start_dialogue("13_start")
 	
 func _screen_exit():
-	UiManager.main_ui.set_can_open_inventory(true)
-	await UiManager.main_ui.fade_out()
+	await UiManager.main_ui.fade_out(MainUiView.FadeOutLayer.FULL,0.0)
 	UiManager.start_dialogue("13_exit")
 	await UiManager.dialogue_ended
+	UiManager.main_ui.set_can_open_inventory(true)
 #endregion
 
 #region Private functions
+func _qyven_arrived():
+	var qyven := _get_interactable_by_name("QyvenSpeaker")
+	var target_pos := _get_waypoint_by_name("QyvenTarget").position
+	var tween := create_tween()
+	tween.tween_property(qyven,"position",target_pos,5.0)
 #endregion

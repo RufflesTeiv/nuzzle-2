@@ -38,6 +38,7 @@ directories/dch_directory={
 "cyborg_kid": "res://assets/dialogic/characters/cyborg_kid.dch",
 "nuzzle": "res://assets/dialogic/characters/nuzzle.dch",
 "palluhae": "res://assets/dialogic/characters/palluhae.dch",
+"qyven_speaker": "res://assets/dialogic/characters/qyven_speaker.dch",
 "sleepy_nuzzle": "res://assets/dialogic/characters/sleepy_nuzzle.dch"
 }
 directories/dtl_directory={
@@ -107,6 +108,10 @@ directories/dtl_directory={
 "12_exit": "res://assets/dialogic/timelines/12_exit.dtl",
 "12_start": "res://assets/dialogic/timelines/12_start.dtl",
 "12_window": "res://assets/dialogic/timelines/12_window.dtl",
+"13_chair": "res://assets/dialogic/typing_sounds/13_chair.dtl",
+"13_exit": "res://assets/dialogic/typing_sounds/13_exit.dtl",
+"13_qyven": "res://assets/dialogic/typing_sounds/13_qyven.dtl",
+"13_start": "res://assets/dialogic/timelines/13_start.dtl",
 "1_bed": "res://assets/dialogic/timelines/1_bed.dtl",
 "1_closet": "res://assets/dialogic/timelines/1_closet.dtl",
 "1_computer": "res://assets/dialogic/timelines/1_computer.dtl",
@@ -177,7 +182,7 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-glossary/glossary_files=[]
+glossary/glossary_files=["res://assets/dialogic/glossary/main_glossary.tres"]
 text/input_action="dialogic_default_action"
 text/autocolor_names=true
 

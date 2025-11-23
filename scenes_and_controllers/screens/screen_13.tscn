@@ -104,8 +104,20 @@ position = Vector2(931, 100)
 enable_interaction = false
 
 [node name="QyvenSpeaker" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
-position = Vector2(3, 471)
+position = Vector2(-136, 471)
 type = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="Objects/Interactables/QyvenSpeaker/CanvasGroup" index="1"]
+modulate = Color(0.94509804, 0.6, 0.3254902, 1)
+position = Vector2(-174, -342)
+scale = Vector2(170.26509, 246.78255)
+texture = ExtResource("2_3a7jo")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Objects/Interactables/QyvenSpeaker/CanvasGroup" index="2"]
+modulate = Color(0.94509804, 0.6, 0.3254902, 1)
+position = Vector2(-279, 33)
+scale = Vector2(170.26509, 246.78255)
+texture = ExtResource("2_3a7jo")
 
 [node name="Chair" parent="Objects/Interactables" instance=ExtResource("3_o4uva")]
 position = Vector2(1331, 668)

@@ -1,0 +1,18 @@
+O líder dos formidae encontra a sua cadeira, se senta, e espera pacientemente.
+[wait time="2.0"]
+Repentinamente, todos ficam em silêncio.
+[signal arg="qyven_arrived"]
+[wait time="5.0"]
+O embaixador qyven chega no salão, e todos congelam onde estão.
+Acompanhado por guardas armados, parecia uma versão em miniatura da grande criatura que pairava sobre os céus.
+Entrou no salão, reconheceu seu posto em frente a um microfone, e quase tão rápido quanto chegou, proferiu a sentença.
+qyven_speaker: Seu sistema está longe das linhas de comércio interestelares, e como sua estrela é uma anã branca, não seria eficiente utilizá-la para geração de energia.
+qyven_speaker: Abandonem suas explorações espaciais imediatamente, e voltem para as cavernas de onde saíram.
+As palavras saíam secas de um dispositivo em seu pescoço, traduzindo o que dizia para a língua dos Arthrianos.
+Silêncio. Os insetos se entreolhavam, tentando entender o sentido por trás daquelas palavras duras.
+Murmúrios se espalhavam pelo salão.
+Poderia a tradução estar errada?
+Não, as palavras eram precisas e diretas demais para ser um erro de tradução.
+O que mais os assustava era o fim de seu discurso.
+qyven_speaker: Ou sejam destruídos.
+Minutos se passam, com o caos tomando conta da discussão.
