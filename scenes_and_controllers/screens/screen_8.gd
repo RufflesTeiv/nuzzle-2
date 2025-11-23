@@ -124,7 +124,10 @@ func _move_jumpscare():
 func _position_kid():
 	var kid := _get_interactable_by_name("Cyborg Kid") as InteractableEntityController
 	var target := _get_waypoint_by_name("KidMain")
-	if GameManager.has_visited_screen(8):
+	if GameManager.check_progress_dict("08_door_open"):
+		kid.force_position(target.position)
+		kid.set_persistent_target(GameManager.player_controller)
+	elif GameManager.has_visited_screen(8):
 		kid.force_position(target.position)
 		kid.enable_interaction = true
 	else:

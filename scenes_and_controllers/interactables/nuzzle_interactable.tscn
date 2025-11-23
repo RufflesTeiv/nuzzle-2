@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocp75"]
 size = Vector2(129.76025, 197)
 
-[node name="Cyborg Kid" type="Node2D"]
+[node name="NuzzleInteractable" type="Node2D"]
 script = ExtResource("1_lnnwc")
 min_speed = 200.0
 max_speed = 300.0
@@ -23,7 +23,7 @@ unique_name_in_owner = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="CanvasGroup"]
 modulate = Color(0.29803923, 0.29803923, 0.6156863, 1)
-position = Vector2(-0.0890007, -87.5)
+position = Vector2(0, -87)
 scale = Vector2(117.822, 175)
 texture = ExtResource("2_mwsc8")
 

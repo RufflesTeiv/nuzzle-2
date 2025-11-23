@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://e1onp63e2koe"]
+[gd_scene load_steps=13 format=3 uid="uid://e1onp63e2koe"]
 
 [ext_resource type="Script" uid="uid://b8amrlkcjgvxu" path="res://scenes_and_controllers/screens/screen_14.gd" id="1_jo0tm"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_p1db2"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_5aw7l"]
-[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_vch2i"]
+[ext_resource type="PackedScene" uid="uid://ifpgsyphd4cg" path="res://scenes_and_controllers/interactables/nuzzle_interactable.tscn" id="4_mmop7"]
+[ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_76vbg"]
 [ext_resource type="FontFile" uid="uid://fudi0a1jh32y" path="res://assets/fonts/StackSansNotch-SemiBold.ttf" id="5_ccwex"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
@@ -17,6 +18,9 @@ size = Vector2(14.082363, 1.3971827)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umygm"]
 size = Vector2(176, 530)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmop7"]
+size = Vector2(40, 530)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kukyt"]
 size = Vector2(540, 296.05093)
@@ -32,7 +36,7 @@ script = ExtResource("1_jo0tm")
 unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
-position = Vector2(90, 682)
+position = Vector2(173, 558)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.29, 0.20300001, 0.08119999, 1)
@@ -45,19 +49,21 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 rotation = 3.1415925
 scale = Vector2(159.32426, 275.8932)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(-6.226296, -0.7838669)
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(-5.8873634, -4.063167)
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
@@ -78,6 +84,23 @@ position = Vector2(1589, 690)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+position = Vector2(20, -9)
+shape = SubResource("RectangleShape2D_mmop7")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="2" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(1088, 673)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/2"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
+[node name="3" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(636, 669)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/3"]
 shape = SubResource("RectangleShape2D_umygm")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
@@ -101,12 +124,36 @@ shape = SubResource("RectangleShape2D_kukyt")
 [node name="InteractionTarget" parent="Objects/Interactables/GraffitiedCoordinates" index="2"]
 position = Vector2(3, 152)
 
-[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_vch2i")]
-position = Vector2(189, 859)
+[node name="Nuzzle" parent="Objects/Interactables" instance=ExtResource("4_mmop7")]
+position = Vector2(119, 723)
+enable_interaction = false
+
+[node name="Cyborg Kid" parent="Objects/Interactables" instance=ExtResource("5_76vbg")]
+position = Vector2(69, 784)
+enable_interaction = false
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="NuzzleInspect" type="Marker2D" parent="Waypoints"]
+position = Vector2(432, 495)
+
+[node name="SpiderGoal" type="Marker2D" parent="Waypoints"]
+position = Vector2(1583, 676)
+
+[node name="EndAdvance" type="Marker2D" parent="Waypoints"]
+
+[node name="Overlay" type="Node2D" parent="."]
+
+[node name="Spider" type="Sprite2D" parent="Overlay"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1576, -214.00002)
+scale = Vector2(501.05875, 380.38712)
+texture = ExtResource("2_p1db2")
 
 [node name="End" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="End"]
 anchors_preset = 15
@@ -126,9 +173,20 @@ grow_vertical = 2
 
 [node name="Title" type="Label" parent="End/ColorRect/MarginContainer"]
 layout_mode = 2
-text = "Continua..."
+text = "Continua...
+Obrigado por jogar!"
 label_settings = SubResource("LabelSettings_mmop7")
 horizontal_alignment = 1
+
+[node name="FadeOutRect" type="ColorRect" parent="End"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/GraffitiedCoordinates"]
