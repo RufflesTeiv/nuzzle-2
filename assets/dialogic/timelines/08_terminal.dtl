@@ -1,7 +1,7 @@
 if {GameManager.player_inventory.has_item(7)} == false:
 	if {GameManager.check_progress_dict("08_terminal_interacted")} == false:
 		Ao lado da porta, você encontra mais um terminal de acesso.
-		Você começa a procurar pois quaisquer portas de entrada ou cabos, mas não encontra nada que você poderia conectar ao relicário.
+		Você começa a procurar por quaisquer portas de entrada ou cabos, mas não encontra nada que você poderia conectar ao relicário.
 		Durante sua busca, você acidentalmente esbarra na tela do terminal, que emite uma frase ininteligível, e uma pequena interface se acende.
 		palluhae: O que é isso?
 		nuzzle: Provavelmente é um terminal biométrico. Deve estar pedindo por digitais.

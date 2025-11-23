@@ -1,6 +1,13 @@
 if {GameManager.has_visited_screen(9)} == true:
 	Você observa a mesa mais uma vez.
 	Apesar da grande quantidade de documentos em cima da mesa, nenhum deles parece estar legível.
+	O esqueleto de formidae parece dormir sobre a mesa, sentado em uma cadeira.
+	if {GameManager.player_inventory.has_item(8)} and ({GameManager.player_inventory.has_item(7)} == false):
+		Você olha para o esqueleto de formidae caído sobre a mesa, e pensa em arrancar uma de suas garras para o terminal biométrico.
+		nuzzle: Hm... Não acho que este é o esqueleto certo.
+		nuzzle: Um formidae que poderia ter acesso àquela sala provavelmente seria de um cunho mais científico.
+		nuzzle: Este aqui parece que era algum tipo de recepcionista?
+		
 else:
 	Você encontra uma mesa no meio da sala.
 	Caído sobre ela se encontra um esqueleto de formidae, há muito morto.

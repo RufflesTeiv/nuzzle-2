@@ -1,5 +1,5 @@
 Ao caminhar pelo corredor, Palluhae percebe algo escrito na parede.
-Uma sequência de letras e número, com uma cor que não estava desgastada como as manchas que enfeitavam as outras parede.
+Uma sequência de letras e números, com uma cor que não estava desgastada como as manchas que enfeitavam as outras paredes.
 palluhae: "Coordenadas."
 palluhae: "Nuzzle, anote-as."
 [signal arg="nuzzle_inspect"]

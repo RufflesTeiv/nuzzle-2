@@ -187,6 +187,9 @@ enable_interaction = false
 position = Vector2(79, 738)
 enable_interaction = false
 
+[node name="InteractionTarget" parent="Objects/Interactables/Cyborg Kid" index="3"]
+position = Vector2(99, -81)
+
 [node name="Waypoints" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
 
@@ -224,3 +227,4 @@ texture = ExtResource("2_p8rvt")
 [editable path="Objects/Interactables/BreakableWall"]
 [editable path="Objects/Interactables/MainDoor"]
 [editable path="Objects/Interactables/CenterTable"]
+[editable path="Objects/Interactables/Cyborg Kid"]

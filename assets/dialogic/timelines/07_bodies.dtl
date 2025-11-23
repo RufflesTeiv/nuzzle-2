@@ -1,2 +1,6 @@
 Uma pilha de exoesqueletos de formidae está acumulada aqui.
 Você tenta não olhar demais para os buracos dos olhos de cada um dos corpos.
+if {GameManager.player_inventory.has_item(8)} and ({GameManager.player_inventory.has_item(7)} == false):
+		Olhando os vários corpos de formidae, você pensa em arrancar uma de suas garras para o terminal biométrico.
+		nuzzle: ...Não acho que vou obter sucesso aqui.
+		nuzzle: Os esqueletos de formidae daqui estão degradados demais para qualquer verificação biométrica.

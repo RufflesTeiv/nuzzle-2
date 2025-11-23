@@ -13,8 +13,10 @@ enum Page {
 @onready var main_page: Control = %Main
 @onready var start_button: Button = %StartButton
 @onready var credits_button: Button = %CreditsButton
+@onready var version_label: Label = %Version
 
 @export var credits : Array[Credit] = []
+@export var version_name : String
 @onready var credits_page: Control = %Credits
 @onready var references: RichTextLabel = %References
 @onready var back_button: Button = %BackButton
@@ -46,6 +48,7 @@ func _ready():
 	back_button.pressed.connect(func(): set_page(Page.MAIN))
 	references.meta_clicked.connect(_link_clicked)
 	_set_references_text()
+	_show_version()
 	
 func _process(_delta): pass
 	
@@ -90,6 +93,10 @@ func _set_references_text():
 		result += credit_str
 	references.text = result
 	
+func _show_version():
+	var version := ProjectSettings.get_setting("application/config/version") as String
+	var namey := ("(%s)" % version_name) if !version_name.is_empty() else ""
+	version_label.text = "%s %s" % [version,namey]
 		
 func _start():
 	get_tree().change_scene_to_packed(first_scene)

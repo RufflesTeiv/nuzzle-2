@@ -37,7 +37,7 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
-func hide_tooltip():
+func hide_tooltip(text:String):
 	hide()
 	label.text = ""
 	size = Vector2.ZERO

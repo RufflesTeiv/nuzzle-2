@@ -19,6 +19,7 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 func _screen_start(): 
 	UiManager.start_dialogue("3_start")
 	UiManager.dialogue_signal.connect(_on_start_dialogue_signal)
+	
 func _screen_exit(): pass
 #endregion
   

@@ -27,6 +27,7 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 		2: func(_body):
 			if GameManager.check_progress_dict("14_cant_go_back"):
 				return
+			GameManager.player_controller.stop_movement()
 			UiManager.start_dialogue("14_sound")
 			GameManager.player_controller.max_speed /= 2
 			GameManager.player_controller.min_speed /= 2

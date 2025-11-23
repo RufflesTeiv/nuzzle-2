@@ -9,7 +9,7 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 	var dict : Dictionary[String,Callable] = {
 		"BiometricsTerminal": func():
 			UiManager.start_dialogue("08_terminal")
-			if GameManager.player_inventory.has_item(7):
+			if GameManager.player_inventory.has_item(7) and !GameManager.has_visited_screen(11):
 				await UiManager.dialogue_ended
 				GameManager.add_to_progress_dict("08_terminal_opened",true)
 				_change_screen(11,0,Global.Character.NUZZLE)
@@ -27,6 +27,7 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 		"MainDoor": func():
 			if GameManager.player_inventory.has_item(10) and !GameManager.check_progress_dict("08_door_open"):
 				UiManager.start_dialogue("08_palluhae_wait")
+				await UiManager.dialogue_ended
 				var palluhae := _get_interactable_by_name("Palluhae") as InteractableEntityController
 				GameManager.player_controller.set_walkable(false)
 				palluhae.set_target_position(_get_waypoint_by_name("PalluhaeEnd").position)
@@ -42,9 +43,10 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 		"CenterTable":func():
 			UiManager.start_dialogue("08_table")
 			await UiManager.dialogue_ended
-			_change_screen(9,0,Global.Character.NUZZLE),
+			if !GameManager.has_visited_screen(9):
+				_change_screen(9,0,Global.Character.NUZZLE),
 		"Palluhae": func(): UiManager.start_dialogue("08_palluhae"),
-		"Cyborg Kid": func(): UiManager.start_dialogue("08_kid"),
+		"Cyborg Kid": func(): UiManager.start_dialogue("08_cyborg_kid"),
 		"CommunicationsRoomDoor": func():
 			if GameManager.check_progress_dict("08_terminal_opened"):
 				_change_screen(11,0,Global.Character.NUZZLE)

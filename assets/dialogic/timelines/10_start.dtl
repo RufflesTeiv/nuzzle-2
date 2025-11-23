@@ -1,2 +1,4 @@
+if {GameManager.has_visited_screen(10)}:
+	[end_timeline]
 Você passa pela parede destruída, usando apenas seu relicário como fonte de luz.
 O vento que você sentiu antes agora podia ser sentido ainda mais forte, junto com um cheiro intenso de mofo.

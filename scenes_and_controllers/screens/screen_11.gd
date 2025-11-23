@@ -5,7 +5,7 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 	var dict : Dictionary[String,Callable] = {
 		"Mainframe": func():
 			UiManager.start_dialogue("11_mainframe")
-			if (GameManager.player_inventory.has_item(9)):
+			if GameManager.player_inventory.has_item(9) and !GameManager.has_visited_screen(12):
 				await UiManager.dialogue_ended
 				_change_screen(12,0,Global.Character.NUZZLE),
 		"Locker": func():

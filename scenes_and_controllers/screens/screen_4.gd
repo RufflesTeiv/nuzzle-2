@@ -10,11 +10,15 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 			UiManager.start_dialogue("04_car")
 			Utility.connect_to_signal_safe(UiManager.dialogue_signal,_wait_glovebox_signal),
 		"Palluhae": func():
+			GameManager.player_controller.set_walkable(false)
 			UiManager.start_dialogue("04_palluhae_interact")
 			await UiManager.dialogue_ended
+			await get_tree().create_timer(0.1).timeout
 			UiManager.start_dialogue("04_palluhae")
 			palluhae_talked = true
-			Utility.connect_to_signal_safe(UiManager.dialogue_signal, _palluhae_dialogue_actions),
+			Utility.connect_to_signal_safe(UiManager.dialogue_signal, _palluhae_dialogue_actions)
+			await UiManager.dialogue_ended
+			GameManager.player_controller.set_walkable(true),
 		"Cyborg Kid": func():
 			UiManager.start_dialogue("04_cyborg_kid"),
 	}
@@ -38,6 +42,11 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 				Utility.connect_to_signal_safe(UiManager.dialogue_signal, _palluhae_dialogue_actions)
 	}
 	return dict
+	
+func _on_dialogue_signal(timeline:String,arg:String):
+	match arg:
+		"pistol_get":
+			GameManager.player_inventory.add_item_by_id(3)
 	
 func _on_interactable_interacted(i_name: String):
 	if _is_plant(i_name):

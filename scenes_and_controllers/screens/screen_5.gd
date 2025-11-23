@@ -19,7 +19,10 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 			else:
 				UiManager.start_dialogue("05_terminal_bad"),
 		"Door": func():
-			UiManager.start_dialogue("05_door"),
+			UiManager.start_dialogue("05_door")
+			await UiManager.dialogue_ended
+			if GameManager.check_progress_dict("05_door_talked"):
+				GameManager.add_to_progress_dict("05_door_talked",true),
 		"Palluhae": func():
 			if palluhae_in_position:
 				UiManager.start_dialogue("05_palluhae_end")

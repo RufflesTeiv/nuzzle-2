@@ -5,7 +5,9 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 	var dict : Dictionary[String,Callable] = {
 		"Chair": func():
 			GameManager.player_controller.can_walk = false
-			UiManager.start_dialogue("13_chair"),
+			UiManager.start_dialogue("13_chair")
+			_get_interactable_by_name("Chair").enable_interaction = false
+			_get_interactable_by_name("Chair").show_tooltip = false,
 		"QyvenSpeaker": func():
 			UiManager.start_dialogue("13_qyven")
 			_change_screen(11,1,Global.Character.NUZZLE)

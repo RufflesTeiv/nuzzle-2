@@ -1,7 +1,8 @@
 Logo à sua frente, há uma enorme porta de metal.
 Ela parece guardar uma enorme construção cinzenta, uma torre fria e metálica em meio aos outros prédios em ruínas.
 Ao encostar nela, você escuta um eco grave que parece ressoar por toda a estrutura.
-nuzzle: Será que tem como cortar através dessa porta? Pra gente passar?
-palluhae: ...
-palluhae: Precisaríamos de equipamento industrial para cortar metal dessa grossura.
-palluhae: Conseguiríamos até cortar metais de dimensões menores... mas não essa porta.
+if {GameManager.check_progress_dict("05_door_talked")} == false:
+	nuzzle: Será que tem como cortar através dessa porta? Pra gente passar?
+	palluhae: ...
+	palluhae: Precisaríamos de equipamento industrial para cortar metal dessa grossura.
+	palluhae: Conseguiríamos até cortar metais de dimensões menores... mas não essa porta.

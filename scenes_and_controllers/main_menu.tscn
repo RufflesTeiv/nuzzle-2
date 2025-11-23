@@ -62,6 +62,7 @@ font_size = 40
 script = ExtResource("1_h3pwy")
 first_scene = ExtResource("2_oia8f")
 credits = Array[ExtResource("3_7aqi5")]([SubResource("Resource_tpwnm"), SubResource("Resource_vyhln"), SubResource("Resource_7aqi5"), SubResource("Resource_qgs3e")])
+version_name = "Alfa fodido"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -72,6 +73,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Version" type="Label" parent="ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -81,7 +83,7 @@ offset_top = -50.0
 offset_bottom = -14.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "v0.0.3 (Alfa fodido)"
+text = "vx.x.x"
 label_settings = SubResource("LabelSettings_251jn")
 horizontal_alignment = 1
 vertical_alignment = 1

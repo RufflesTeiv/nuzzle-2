@@ -84,7 +84,6 @@ func set_can_open_inventory(v: bool): can_open_inventory = v
 
 #region Private functions	
 func _check_image_signal(arg:String):
-	print(arg)
 	if arg == "close_image":
 		close_dialogue_image()
 	elif arg.contains("open_image:"):
@@ -102,7 +101,7 @@ func _fade_layer(fo_layer: FadeOutLayer, to: float, time: float):
 	var rect := _get_layer_rect(fo_layer)
 	if fade_out_tweens.has(fo_layer) and fade_out_tweens[fo_layer].is_running():
 		#await fade_out_tweens[fo_layer].finished
-		fade_out_tweens[fo_layer].stop()
+		fade_out_tweens[fo_layer].kill()
 	fade_out_tweens[fo_layer] = _tween_modulate_alpha(rect,to,time)
 	await fade_out_tweens[fo_layer].finished
 	
@@ -126,6 +125,7 @@ func _on_input_stack_changed(stack: Array[InputManager.State]):
 	else:
 		background_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 		fade_out(FadeOutLayer.BACKGROUND,0.25)
+		tooltip.hide_tooltip()
 	
 func _toggle_inventory():
 	if inventory.visible: _close_inventory()

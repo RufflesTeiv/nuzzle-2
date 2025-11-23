@@ -144,6 +144,9 @@ enable_interaction = false
 position = Vector2(78, 855)
 distance_to_persistent_target = 50.0
 
+[node name="InteractionTarget" parent="Objects/Interactables/Cyborg Kid" index="3"]
+position = Vector2(58, -58)
+
 [node name="Waypoints" type="Node2D" parent="."]
 unique_name_in_owner = true
 
@@ -157,3 +160,4 @@ position = Vector2(957, 575)
 [editable path="Objects/Interactables/BodyPile"]
 [editable path="Objects/Interactables/BodyPile2"]
 [editable path="Objects/Interactables/QyvenCorpse"]
+[editable path="Objects/Interactables/Cyborg Kid"]

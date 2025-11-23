@@ -16,6 +16,7 @@ enum Type {
 @export var type := Type.TOUCH
 @export var display_name := ""
 @export var enable_interaction := true
+@export var show_tooltip := true
 #endregion
 
 #region Signals
@@ -64,27 +65,26 @@ func _check_input_state() -> bool:
 func _on_input_event(_v: Node, event: InputEvent, _sidx: int):
 	if not _check_input_state():
 		return
-	if not event is InputEventMouseButton:
-		return
-	var mouse_event := event as InputEventMouseButton
-	if mouse_event.pressed:
-		try_interaction()
+	if event is InputEventMouseButton:
+		var mouse_event := event as InputEventMouseButton
+		if mouse_event.pressed:
+			try_interaction()
 		
 func _interact():
 	interacted.emit()
 	
 func _on_mouse_entered():
+	if !display_name.is_empty() and show_tooltip:
+		UiManager.main_ui.tooltip.show_tooltip(display_name)
 	if not _check_input_state():
 		return
 	canvas_group.modulate = Color(1.353, 1.353, 1.353, 1.0)
-	if !display_name.is_empty():
-		UiManager.main_ui.tooltip.show_tooltip(display_name)
 	
 func _on_mouse_exited():
+	UiManager.main_ui.tooltip.hide_tooltip(display_name)
 	if not _check_input_state():
 		return
 	canvas_group.modulate = Color.WHITE
-	UiManager.main_ui.tooltip.hide_tooltip()
 	
 func _watch_mouse_over_area():
 	mouse_area.mouse_entered.connect(_on_mouse_entered)

@@ -1,5 +1,10 @@
 if {GameManager.player_inventory.has_item(9)}:
-	Um antigo esqueleto de formidae, agora desarmado.
+	Um antigo esqueleto de formidae, agora sem nada em mãos.
+	if {GameManager.player_inventory.has_item(8)} and ({GameManager.player_inventory.has_item(7)} == false):
+		Você olha para o corpo do soldado, e pensa em arrancar uma de suas garras para o terminal biométrico.
+		nuzzle: Hm... Não acho que este é o esqueleto certo.
+		nuzzle: Um formidae que poderia ter acesso àquela sala provavelmente seria de um cunho mais científico.
+		nuzzle: Este parece mais um militar.
 else:
 	Você encontra o corpo de um soldado formidae.
 	nuzzle: Como ele entrou aqui...?
@@ -15,7 +20,7 @@ else:
 		nuzzle: "Módulo de linguagem adicionado."
 		Seu relicário agora era capaz de traduzir palavras e frases em formidian mais complexas.
 	- Não pegar o módulo.
-		if {GameManager.player_inventory.has_item(9)}:
+		if {GameManager.player_inventory.has_item(7)}:
 			Talvez não seria bom mexer com mais restos mortais do que você já mexeu.
 		else:
 			Talvez não seria bom mexer com restos mortais.

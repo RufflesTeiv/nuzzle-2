@@ -35,7 +35,7 @@ script = ExtResource("1_usv6y")
 unique_name_in_owner = true
 
 [node name="0" type="Marker2D" parent="EntryPoints"]
-position = Vector2(100, 716)
+position = Vector2(125, 736)
 
 [node name="BackgroundColor" type="Sprite2D" parent="."]
 modulate = Color(0.02745098, 0.02745098, 0.039215688, 1)
@@ -128,7 +128,7 @@ position = Vector2(0.13253784, -122.608734)
 position = Vector2(0.13253784, -121.608734)
 
 [node name="InteractionTarget" parent="Objects/Interactables/Computer" index="2"]
-position = Vector2(-0.86746216, 52.391266)
+position = Vector2(-1, 95)
 
 [node name="Pipes" parent="Objects/Interactables" instance=ExtResource("3_usv6y")]
 position = Vector2(961, 414)
@@ -144,7 +144,7 @@ scale = Vector2(0.24173324, 1.3265326)
 shape = SubResource("RectangleShape2D_56txo")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Pipes" index="2"]
-position = Vector2(-0.5997925, 45.44467)
+position = Vector2(-1, 87)
 
 [node name="GuardRobot" parent="Objects/Interactables" instance=ExtResource("3_usv6y")]
 position = Vector2(1683, 586)

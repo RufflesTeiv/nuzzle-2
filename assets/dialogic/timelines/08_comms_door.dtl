@@ -1,6 +1,6 @@
 if {GameManager.check_progress_dict("08_comms_door_seen") == true}:
 	A porta à sua frente está trancada.
-	Uma placa acima da porta mostra a palavra "Comunicações", dificilmente legível
+	Uma placa acima da porta mostra a palavra "Comunicações", dificilmente legível.
 else:
 	Palluhae está parado ao lado de uma porta fechada.
 	Uma placa acima da porta mostra uma palavra dificilmente legível.

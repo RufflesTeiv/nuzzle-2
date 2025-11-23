@@ -1,16 +1,17 @@
-Você se aproxima da forma jogada contra a parede.
-Não há duvida.
-Aquele era o corpo de um [b][i]Qyven[/i][/b].
-palluhae: Qyven... Até aqui?
-Na língua da sua espécie, "qyven" era uma palavra utilizada como sinônimo de "demônio".
-Lendas relatam a sua ferocidade, sendo eles a incorporação da maldade nos textos sagrados de Magtinea.
-...Mas você sabia que eles eram muito mais que isso.
-nuzzle: Como que...
-nuzzle: Como que o corpo dele está tão intacto?
-O cheiro de metal chegava a intensidades inimagináveis ao se aproximar do corpo da criatura.
-Você achou que poderiam ser os corpos e sangue de formidae espalhados pelo corredor, mas todo o cheiro parecia estar vindo daqui.
-palluhae: Os seus corpos não são como os nossos.
-palluhae: São seres feitos de silicone.
-palluhae: Nenhuma bactéria ou fungo do nosso mundo é capaz de decompor a sua profanidade.
+if {GameManager.has_visited_screen(8)} == false:
+	Você se aproxima da forma jogada contra a parede.
+	Não há duvida.
+	Aquele era o corpo de um [b][i]Qyven[/i][/b].
+	palluhae: Qyven... Até aqui?
+	Na língua da sua espécie, "qyven" era uma palavra utilizada como sinônimo de "demônio".
+	Lendas relatam a sua ferocidade, sendo eles a incorporação da maldade nos textos sagrados de Magtinea.
+	...Mas você sabia que eles eram muito mais que isso.
+	nuzzle: Como que...
+	nuzzle: Como que o corpo dele está tão intacto?
+	O cheiro de metal chegava a intensidades inimagináveis ao se aproximar do corpo da criatura.
+	Você achou que poderiam ser os corpos e sangue de formidae espalhados pelo corredor, mas todo o cheiro parecia estar vindo daqui.
+	palluhae: Os seus corpos não são como os nossos.
+	palluhae: São seres feitos de silicone.
+	palluhae: Nenhuma bactéria ou fungo do nosso mundo é capaz de decompor a sua profanidade.
 Você encara o rosto draconiano do corpo à sua frente.
 Apesar de tudo, você agradecia a Magtinea que provavelmente nunca teria que encarar um qyven vivo.
