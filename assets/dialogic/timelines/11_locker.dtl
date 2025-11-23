@@ -1,0 +1,6 @@
+if {GameManager.check_progress_dict("11_formidae_dropped") == true}:
+	O armário do qual o corpo do formidae saiu parecia vazio, salvo por alguns antigos jalecos pendurados.
+	Você checa os bolsos dos jalecos, mas não encontra mais nada.
+else:
+	Um armário cobre esta parede da sala de comunicações.
+	Você tenta abrir a porta, mas não consegue.

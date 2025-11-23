@@ -62,8 +62,13 @@ func get_from_progress_dict(key:String) -> Variant:
 		return null
 	return progress_dict[key]
 	
-func has_visited_screen(id:int):
+func has_visited_screen(id:int) -> bool:
 	return screen_id_history.has(id)
+	
+func last_visited_screen() -> int:
+	if screen_id_history.is_empty():
+		return -1
+	return screen_id_history[screen_id_history.size()-1]
 	
 func set_current_character(c:Global.Character):
 	if c == null:

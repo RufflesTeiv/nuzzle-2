@@ -1,0 +1,13 @@
+Você se encontra novamente envolto em pensamentos, e memórias das coisas que você leu.
+palluhae: Nuzzle.
+nuzzle: Sim?
+Palluhae segue mexendo no pequeno aparelho eletrônico em que estava mexendo antes.
+palluhae: Analisei melhor o sinal, e parece não estar vindo dessa sala.
+palluhae: Você encontrou alguma coisa?
+nuzzle: Não...
+nuzzle: Aparentemente, todos os sinais emitidos daqui são para comunicações com os antigos satélites dos formidae.
+nuzzle: Não encontrei nenhuma menção a sinais enviados em radiofrequência.
+nuzzle: E nenhum sinal recente.
+palluhae: Então o sinal deve estar vindo de algum lugar mais fundo nesta base.
+palluhae: Vamos seguir em frente.
+[signal arg="palluhae_leave"]

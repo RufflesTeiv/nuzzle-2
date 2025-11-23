@@ -4,6 +4,7 @@ palluhae: Sim?
 nuzzle: Acho que tem alguma coisa do outro lado desta parede.
 palluhae: Deixe-me ver.
 [signal arg="move_to_break"]
+[wait time="3.0"]
 palluhae: Realmente, e parece que a parede é fina o suficiente.
 palluhae: ...Afaste-se.
 [signal arg="nuzzle_move_away"]

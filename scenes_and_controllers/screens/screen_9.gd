@@ -48,6 +48,9 @@ func _screen_start():
 	
 func _screen_exit():
 	GameManager.set_player_inventory(old_inventory)
+	await UiManager.main_ui.fade_out()
+	UiManager.start_dialogue("09_exit")
+	await UiManager.dialogue_ended
 #endregion
 
 #region Private functions

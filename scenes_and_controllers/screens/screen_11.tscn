@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c85gr6g3bl0xm"]
+[gd_scene load_steps=10 format=3 uid="uid://c85gr6g3bl0xm"]
 
 [ext_resource type="Script" uid="uid://bxnx7grmy1yse" path="res://scenes_and_controllers/screens/screen_11.gd" id="1_e8ahx"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_3q77y"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_p8ry6"]
+[ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_3q77y"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
 vertices = PackedVector2Array(1860, 1019.71094, 62.828125, 1011.27344, 60.171875, 60, 1860, 60)
@@ -45,12 +46,14 @@ unique_name_in_owner = true
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Objects"]
+unique_name_in_owner = true
 y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_53rpc")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+[node name="NavigationStaticBody" type="StaticBody2D" parent="Objects/NavigationRegion2D"]
+unique_name_in_owner = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/NavigationRegion2D/NavigationStaticBody"]
 position = Vector2(919.5, 248.375)
 shape = SubResource("RectangleShape2D_42q4s")
 debug_color = Color(0.96136945, 0.1993559, 0, 0.41960785)
@@ -66,6 +69,14 @@ monitorable = false
 shape = SubResource("RectangleShape2D_umygm")
 debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
 
+[node name="1" type="Area2D" parent="Objects/TriggerAreas"]
+position = Vector2(537, 752)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TriggerAreas/1"]
+shape = SubResource("RectangleShape2D_umygm")
+debug_color = Color(0.96249217, 9.62615e-07, 0.5070616, 0.41960785)
+
 [node name="Interactables" type="Node2D" parent="Objects"]
 unique_name_in_owner = true
 y_sort_enabled = true
@@ -75,7 +86,10 @@ position = Vector2(2227, 1135)
 
 [node name="WrappedFormidae" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
 visible = false
-position = Vector2(1432, 890)
+position = Vector2(1529, 941)
+
+[node name="InteractionTarget" parent="Objects/Interactables/WrappedFormidae" index="2"]
+position = Vector2(-165, -43.99997)
 
 [node name="Locker" parent="Objects/Interactables" instance=ExtResource("3_p8ry6")]
 position = Vector2(1777, 979)
@@ -104,6 +118,18 @@ shape = SubResource("RectangleShape2D_e8ahx")
 
 [node name="InteractionTarget" parent="Objects/Interactables/Mainframe" index="2"]
 position = Vector2(-4.6775208, 14.203308)
+
+[node name="Palluhae" parent="Objects/Interactables" instance=ExtResource("4_3q77y")]
+position = Vector2(187, 674)
+
+[node name="Waypoints" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PalluhaeCheck" type="Marker2D" parent="Waypoints"]
+position = Vector2(565, 535)
+
+[node name="PalluhaeLeave" type="Marker2D" parent="Waypoints"]
+position = Vector2(70, 730)
 
 [editable path="Objects/Interactables/Interactable"]
 [editable path="Objects/Interactables/WrappedFormidae"]

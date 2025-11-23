@@ -1,0 +1,37 @@
+if {GameManager.player_inventory.has_item(9)} == true:
+	if {GameManager.has_visited_screen(12)} == true:
+		[signal arg="open_image:11_satellite"]
+		Você olha para uma das telas, que manteve a imagem do satélite que você acessou.
+		...Suas memórias invadem sua mente de novo, mas você tenta focar no presente.
+		[signal arg="close_image"]
+	else:
+		Você observa a tela do computador, com várias linhas de texto escritas nela.
+		Seu relicário, agora com o módulo necessário para traduzir a língua formidian de maneira mais avançada, consegue te informar o que está escrito ali:
+		nuzzle: "Satélites conectados".
+		[signal arg="palluhae_check"]
+		Abaixo dessas palavras, uma lista cheia de números e letras brilhavam, linhas em vermelho indicando satélites que estavam desligados, ou há muito destruídos.
+		palluhae: Nuzzle, essa linha está verde.
+		Você achava aquilo impossível, afinal todos os satélites da Cidadela haviam sido desconectados há séculos.
+		Mas mesmo assim, a luz verde brilhava inegável em seus olhos.
+		Você encontra a opção de acessar as imagens do satélite em questão na interface do computador.
+		[signal arg="open_image:11_satellite"]
+		Uma nova tela acende, e você vê pela primeira vez algo que sempre havia somente em seus livros de geografia.
+		A imagem clareou a sala, e as duas mariposas a encararam.
+		nuzzle: Aquilo são luzes no Crepúsculo?
+		palluhae: Sim, parecem construções dos apídeos.
+		palluhae: Aquelas abelhas sempre foram engenhosas.
+		Dentre as espécies presentes em Arthro, os apídeos eram os que faziam as maiores construções.
+		Hexagonais, e fortificadas com as tecnologias dos muscans, eram fortes quase indestrutíveis.
+		palluhae: Mas realmente é lindo.
+		palluhae: É possível ver claramente a Linha de Vida com a qual a Magtinea nos presenteou.
+		“Não”, você pensa, com cuidado para não demonstrar sua repulsa às palavras do colega.
+		[signal arg="close_image"]
+		“Isso é o que sobrou de nós depois do ataque.”
+else:
+	Você observa a tela do computador, com várias linhas de texto escritas nela.
+	Você conecta o relicário e acessa o terminal, desta vez tomando cuidado redobrado para não ativar nenhuma resposta emergencial.
+	Seu relicário consegue acessar a base de dados principal...
+	...mas várias das palavras não são reconhecidas pelo seu relicário.
+	nuzzle: Tenho algumas opções de ação, mas não consigo decifrar tudo que está escrito aqui.
+	palluhae: Acho muito arriscado ativar uma função dessa máquina sem sabermos o que ela faz.
+	palluhae: Talvez você consiga encontrar um dicionário em algum lugar?

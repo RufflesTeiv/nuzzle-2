@@ -1,10 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgvwgdkmpf4pm"]
+[gd_scene load_steps=4 format=3 uid="uid://dgvwgdkmpf4pm"]
 
 [ext_resource type="Script" uid="uid://1fr35jbmleol" path="res://views/main_ui_view.gd" id="1_8p5eb"]
 [ext_resource type="PackedScene" uid="uid://doakyry3yes4c" path="res://views/inventory_view.tscn" id="2_p3hcf"]
+[ext_resource type="Texture2D" uid="uid://doxhhfly118tc" path="res://icon.svg" id="3_0a6kt"]
 
 [node name="MainUI" type="CanvasLayer"]
 script = ExtResource("1_8p5eb")
+
+[node name="FadeOutRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="BackgroundRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -30,13 +42,23 @@ offset_right = 395.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="FadeOutRect" type="ColorRect" parent="."]
-unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 400
+
+[node name="DialogueImage" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_0a6kt")
+expand_mode = 3
+stretch_mode = 5

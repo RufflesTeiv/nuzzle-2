@@ -4,12 +4,18 @@ else:
 	Você encontra o corpo de um soldado formidae.
 	nuzzle: Como ele entrou aqui...?
 	Você olha pra cima e vê um duto de ventilação quebrado.
-	Você vê que o esqueleto segura firmemente uma **pistola** em suas mãos.
-	- Pegar a pistola.
-		Você abre a mão do esqueleto gentilmente, e pega a pistola.
-		Parece ser uma antiga pistola balística, muito diferente dos armamentos de luz da Cidadela.
+	Você vê que o esqueleto segura firmemente um... módulo eletrônico em suas mãos?
+	- Pegar o módulo.
+		Você abre a mão do esqueleto gentilmente, e pega o módulo.
+		O tipo do conector parece compatível com o seu relicário, na porta de entrada de dados.
 		[signal arg="skeleton_moved"]
 		nuzzle: "Ah!"
 		Você leva um susto quando o esqueleto se move, quase caindo sobre você.
-	- Não pegar a pistola.
-		Talvez não seria bom mexer com mais restos mortais do que você já mexeu.
+		Ao conectar o módulo no seu relicário, a tela se acende, e em poucos instantes você vê uma mensagem.
+		nuzzle: "Módulo de linguagem adicionado."
+		Seu relicário agora era capaz de traduzir palavras e frases em formidian mais complexas.
+	- Não pegar o módulo.
+		if {GameManager.player_inventory.has_item(9)}:
+			Talvez não seria bom mexer com mais restos mortais do que você já mexeu.
+		else:
+			Talvez não seria bom mexer com restos mortais.

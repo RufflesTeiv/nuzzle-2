@@ -12,6 +12,9 @@ enum FadeOutLayer{
 @onready var background_rect: ColorRect = %BackgroundRect
 @onready var inventory: InventoryView = %Inventory
 @onready var fade_out_rect: ColorRect = %FadeOutRect
+@onready var dialogue_image: TextureRect = %DialogueImage
+
+const DIALOGUE_IMAGES_FOLDER := "res://assets/dialogic/images/"
 #endregion
 
 #region Signals
@@ -32,6 +35,8 @@ func _enter_tree(): pass
 func _ready():
 	fade_out_rect.modulate.a = 1.0
 	UiManager.set_main_ui_view(self)
+	Dialogic.signal_event.connect(_check_image_signal)
+	#UiManager.dialogue_signal.connect(_check_image_signal)
 	InputManager.stack_changed.connect(_on_input_stack_changed)
 	background_rect.gui_input.connect(_on_background_input)
 	
@@ -51,6 +56,9 @@ func _exit_tree(): pass
 #endregion
 
 #region Public functions
+func close_dialogue_image():
+	_tween_modulate_alpha(dialogue_image,0.0,0.5)
+
 func fade_in(fo_layer := FadeOutLayer.FULL, time := 0.5):
 	await _fade_layer(fo_layer,0.0,time)
 	
@@ -60,12 +68,25 @@ func fade_out(fo_layer := FadeOutLayer.FULL, time := 0.5):
 func reset():
 	_close_inventory()
 	
+func open_dialogue_image(img_name : String):
+	var texture = load(DIALOGUE_IMAGES_FOLDER+img_name+".png")
+	dialogue_image.texture = texture
+	_tween_modulate_alpha(dialogue_image,1.0,0.5)
+	
 func open_inventory():
 	inventory.show()
 	InputManager.push_state_to_stack(InputManager.State.INVENTORY)
 #endregion
 
 #region Private functions	
+func _check_image_signal(arg:String):
+	print(arg)
+	if arg == "close_image":
+		close_dialogue_image()
+	elif arg.contains("open_image:"):
+		var img_name := arg.trim_prefix("open_image:")
+		open_dialogue_image(img_name)
+	
 func _close_all():
 	_close_inventory()
 	
@@ -95,6 +116,7 @@ func _on_background_input(event : InputEvent):
 func _on_input_stack_changed(stack: Array[InputManager.State]):
 	var find := stack.find(InputManager.State.INVENTORY) + stack.find(InputManager.State.DIALOGUE)
 	if find == -2:
+		close_dialogue_image()
 		background_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		fade_in(FadeOutLayer.BACKGROUND,0.25)
 	else:

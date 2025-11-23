@@ -4,7 +4,7 @@
 &"_translation_id": "",
 &"color": Color(0.94509804, 0.6, 0.3254902, 1),
 &"custom_info": {
-"prefix": "\"",
+"prefix": "",
 "sound_mood_default": "Main",
 "sound_moods": {
 "Main": {
@@ -19,7 +19,7 @@
 }
 },
 "style": "",
-"suffix": "\""
+"suffix": ""
 },
 &"default_portrait": "",
 &"description": "",

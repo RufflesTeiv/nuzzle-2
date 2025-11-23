@@ -1,0 +1,9 @@
+if {GameManager.player_inventory.has_item(10)} == true:
+	Você olha para o esqueleto novamente.
+	Ele não parecia ter morrido de nenhum ferimento específico.
+	Será que ficou preso no armário?
+else:
+	Ainda assustado, você se aproxima do esqueleto de formidae que caiu do armário.
+	Ele parecia utilizar um jaleco, como o esqueleto que vocês encontraram na entrada da base.
+	Você vê algum material refletir a luz das telas acesas.
+	Curioso, você pega o item, e percebe que é um [b]cartão de acesso de nível 2[/b].
