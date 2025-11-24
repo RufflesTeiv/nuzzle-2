@@ -62,7 +62,7 @@ font_size = 40
 script = ExtResource("1_h3pwy")
 first_scene = ExtResource("2_oia8f")
 credits = Array[ExtResource("3_7aqi5")]([SubResource("Resource_tpwnm"), SubResource("Resource_vyhln"), SubResource("Resource_7aqi5"), SubResource("Resource_qgs3e")])
-version_name = "Alfa fodido"
+version_name = "Alfa PUC Game Show"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
