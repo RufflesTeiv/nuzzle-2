@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3unq5kwdeif"]
+[gd_scene load_steps=12 format=3 uid="uid://c3unq5kwdeif"]
 
 [ext_resource type="Script" uid="uid://be67qlrhbkewx" path="res://scenes_and_controllers/screens/screen_7.gd" id="1_iuf84"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_iuf84"]
+[ext_resource type="Texture2D" uid="uid://d18pb7phpglon" path="res://assets/background_shapes/screen_7.png" id="3_2ndsp"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_kukyt"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_iuf84"]
 [ext_resource type="PackedScene" uid="uid://ytjh4xewb82x" path="res://scenes_and_controllers/interactables/cyborg_kid.tscn" id="5_kukyt"]
@@ -41,6 +42,11 @@ modulate = Color(0.29, 0.20300001, 0.08119999, 1)
 position = Vector2(960, 540)
 scale = Vector2(1920, 1080)
 texture = ExtResource("2_iuf84")
+
+[node name="BackgroundShapes" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_2ndsp")
+centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 unique_name_in_owner = true

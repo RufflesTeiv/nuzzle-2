@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dvfqtea1fwoub"]
+[gd_scene load_steps=13 format=3 uid="uid://dvfqtea1fwoub"]
 
 [ext_resource type="Script" uid="uid://p7vmc4xndh52" path="res://scenes_and_controllers/screens/screen_1.gd" id="1_hsvnm"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_6bnxv"]
+[ext_resource type="Texture2D" uid="uid://eyfd4cykxdit" path="res://assets/background_shapes/screen_1.png" id="3_6bnxv"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_sovux"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
@@ -48,6 +49,11 @@ modulate = Color(0.76862746, 0.4509804, 0.20784314, 1)
 position = Vector2(960, 540)
 scale = Vector2(1920, 1080)
 texture = ExtResource("2_6bnxv")
+
+[node name="BackgroundShapes" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_6bnxv")
+centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 unique_name_in_owner = true

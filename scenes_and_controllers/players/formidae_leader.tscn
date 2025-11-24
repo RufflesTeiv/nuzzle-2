@@ -21,7 +21,6 @@ max_speed = 300.0
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
-debug_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.6431373, 0.14117648, 0.23137255, 1)

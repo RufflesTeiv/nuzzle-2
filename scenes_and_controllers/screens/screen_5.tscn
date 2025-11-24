@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://btirc7sjvwqd5"]
+[gd_scene load_steps=12 format=3 uid="uid://btirc7sjvwqd5"]
 
 [ext_resource type="Script" uid="uid://dydqf2e2ivego" path="res://scenes_and_controllers/screens/screen_5.gd" id="1_ttft7"]
 [ext_resource type="Texture2D" uid="uid://mfv5eyqjbw5s" path="res://assets/sprites/white pixel.png" id="2_ttft7"]
 [ext_resource type="PackedScene" uid="uid://dmna2ehvj486s" path="res://scenes_and_controllers/interactables/interactable.tscn" id="3_2yjmq"]
+[ext_resource type="Texture2D" uid="uid://bbt3pe0x4xmsw" path="res://assets/background_shapes/screen_5.png" id="3_ve2ky"]
 [ext_resource type="PackedScene" uid="uid://cgjogejtvon4c" path="res://scenes_and_controllers/interactables/palluhae.tscn" id="4_ttft7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_53rpc"]
@@ -40,6 +41,11 @@ modulate = Color(0.16470589, 0.16470589, 0.32941177, 1)
 position = Vector2(960, 540)
 scale = Vector2(1920, 1080)
 texture = ExtResource("2_ttft7")
+
+[node name="BackgroundShapes" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ve2ky")
+centered = false
 
 [node name="Objects" type="Node2D" parent="."]
 unique_name_in_owner = true

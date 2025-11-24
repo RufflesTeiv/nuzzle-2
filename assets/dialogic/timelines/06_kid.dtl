@@ -1,4 +1,4 @@
-if {s06_skeleton_seen} = true:
+if {s06_skeleton_seen} == true:
 	O garoto ciborgue está olhando para os lados, como se estivesse procurando por sinais de predadores.
 	nuzzle: ...
 else:

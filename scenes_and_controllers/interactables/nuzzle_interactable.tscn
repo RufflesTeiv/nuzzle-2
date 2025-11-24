@@ -14,7 +14,6 @@ display_name = "Palluhae"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
-debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.6260153, 0.7351094, 0.97227174, 1)
 
