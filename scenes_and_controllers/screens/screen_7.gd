@@ -1,5 +1,5 @@
 extends ScreenController
-
+ 
 #region Overrides
 func _get_interactables_callables() -> Dictionary[String,Callable]:
 	var dict : Dictionary[String,Callable] = {
@@ -17,9 +17,10 @@ func _get_trigger_areas_callables() -> Dictionary[int,Callable]:
 		0: func(_body): _change_screen(6,1,Global.Character.NUZZLE),
 		1: func(_body): _change_screen(8,0,Global.Character.NUZZLE),
 		2: func(_body):
-			if GameManager.has_visited_screen(8):
+			if GameManager.check_progress_dict("07_middle_seen"):
 				return
 			UiManager.start_dialogue("07_middle")
+			GameManager.add_to_progress_dict("07_middle_seen",true)
 			await UiManager.dialogue_ended
 			var palluhae := _get_interactable_by_name("Palluhae") as InteractableEntityController
 			palluhae.set_target_position(_get_waypoint_by_name("PalluhaeTargetFinal").position)

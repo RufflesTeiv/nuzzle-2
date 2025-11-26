@@ -28,13 +28,14 @@ func _get_interactables_callables() -> Dictionary[String,Callable]:
 			if GameManager.player_inventory.has_item(10) and !GameManager.check_progress_dict("08_door_open"):
 				UiManager.start_dialogue("08_palluhae_wait")
 				await UiManager.dialogue_ended
+				GameManager.add_to_progress_dict("08_door_open",true)
 				var palluhae := _get_interactable_by_name("Palluhae") as InteractableEntityController
 				GameManager.player_controller.set_walkable(false)
+				_position_kid()
 				palluhae.set_target_position(_get_waypoint_by_name("PalluhaeEnd").position)
 				await palluhae.target_reached
 				UiManager.start_dialogue("08_palluhae_go")
 				await UiManager.dialogue_ended
-				GameManager.add_to_progress_dict("08_door_open",true)
 				_change_screen(14,0,Global.Character.PALLUHAE)
 			elif GameManager.check_progress_dict("08_door_open"):
 				_change_screen(14,0,Global.Character.PALLUHAE)
@@ -99,7 +100,7 @@ func _screen_exit(): pass
 
 #region Private functions
 func _chance_jumpscare():
-	if GameManager.check_progress_dict("08_jumpscare") or entered_through == 3:
+	if GameManager.check_progress_dict("08_jumpscare") or entered_through in [3,4]:
 		return
 	if randf() <= random_jumpscare_chance:
 		jumpscare.show()

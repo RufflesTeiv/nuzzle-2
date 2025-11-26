@@ -14,7 +14,7 @@
 "pitch_variance": 0.1,
 "skip_characters": 5.0,
 "sound_path": "res://assets/dialogic/typing_sounds/qyven.wav",
-"volume_base": 0.0,
+"volume_base": -0.2,
 "volume_variance": 0.2
 }
 },

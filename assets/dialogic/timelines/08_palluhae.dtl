@@ -1,9 +1,9 @@
-if {GameManager.check_progress_dict("08_terminal_opened")}:
-	palluhae: "Comunicações"...
-	palluhae: Precisamos descobrir se o sinal está vindo desta sala.
-elif {GameManager.has_visited_screen(12)}:
+if {GameManager.has_visited_screen(12)}:
 	palluhae: Nuzzle, precisamos descobrir como avançar e explorar esta base mais a fundo.
 	palluhae: Tente descobrir uma maneira de abrir aquela porta maior.
+elif {GameManager.check_progress_dict("08_terminal_opened")}:
+	palluhae: "Comunicações"...
+	palluhae: Precisamos descobrir se o sinal está vindo desta sala.
 else:
 	palluhae: Esta base parece estar abandonada há bastante tempo.
 	palluhae: Vejo sinais de interação recente, mas pode muito bem ter sido por conta da fauna local.
